@@ -32,6 +32,7 @@ extra
 .forward
 .gconf/*
 .gimp-2.8/*
+.git-credentials
 .git-credential-cache/*
 .gitk
 .gmail
