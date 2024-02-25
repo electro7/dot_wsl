@@ -1,0 +1,1576 @@
+# Vim 8.2 generó este archivo "viminfo".
+# Puede editarlo, ¡sólo si tiene cuidado!
+
+# Viminfo version
+|1,4
+
+# Valor de 'encoding' cuando se escribió este archivo
+*encoding=utf-8
+
+
+# hlsearch on (H) or off (h):
+~h
+# Último Patrón de búsqueda:
+~MSle0/renfe
+
+# Último SustituciónPatrón de búsqueda:
+~MSle0~&\s\+$\| \+\ze\t
+
+# Última cadena de sustitución:
+$
+
+# Historia de Línea de órdenes (de lo más nuevo a lo más antiguo):
+:q!
+|2,0,1708687926,,"q!"
+:x
+|2,0,1708609419,,"x"
+:w
+|2,0,1708588919,,"w"
+:retab
+|2,0,1708199750,,"retab"
+:xall
+|2,0,1707216403,,"xall"
+:e init.prg
+|2,0,1707215839,,"e init.prg"
+:e siga.prg
+|2,0,1707215832,,"e siga.prg"
+:e fan.prg
+|2,0,1707214561,,"e fan.prg"
+:e siga.dev
+|2,0,1707214002,,"e siga.dev"
+:q
+|2,0,1707061030,,"q"
+:w!
+|2,0,1707043489,,"w!"
+:e jarvis.dev
+|2,0,1706614818,,"e jarvis.dev"
+:e mb_exu_sur.dev
+|2,0,1706614730,,"e mb_exu_sur.dev"
+:e cas.dev
+|2,0,1706614559,,"e cas.dev"
+:qQ
+|2,0,1705304771,,"qQ"
+:e c:\tmp\dai.txt
+|2,0,1703671043,,"e c:\\tmp\\dai.txt"
+:e 
+|2,0,1703671020,,"e "
+:e actions2.prg
+|2,0,1703230468,,"e actions2.prg"
+:e jarvis.prg
+|2,0,1703229604,,"e jarvis.prg"
+:81
+|2,0,1702978112,,"81"
+:%s/=192./=rtsp:\/\/192./gic
+|2,0,1702978083,,"%s/=192./=rtsp:\\/\\/192./gic"
+:%s/=192./=rtsp://192./gic
+|2,0,1702978061,,"%s/=192./=rtsp://192./gic"
+:%s///gic
+|2,0,1702978042,,"%s///gic"
+:800
+|2,0,1702460058,,"800"
+:qall
+|2,0,1702453334,,"qall"
+:e panel_sainco.prg
+|2,0,1702452340,,"e panel_sainco.prg"
+:e panel_pmv.prg
+|2,0,1702452310,,"e panel_pmv.prg"
+:e panel.prg
+|2,0,1702452288,,"e panel.prg"
+:e sainco_eth.prg
+|2,0,1702451119,,"e sainco_eth.prg"
+:xal
+|2,0,1702451174,,"xal"
+:e eth_sainco.dev
+|2,0,1702450711,,"e eth_sainco.dev"
+:e sainco.dev
+|2,0,1702450705,,"e sainco.dev"
+:3452
+|2,0,1700648866,,"3452"
+:1526
+|2,0,1700648605,,"1526"
+:1543
+|2,0,1700648509,,"1543"
+:e Device.BDT
+|2,0,1700648477,,"e Device.BDT"
+:2589
+|2,0,1700563255,,"2589"
+:3689
+|2,0,1700563094,,"3689"
+:4080
+|2,0,1700563011,,"4080"
+:3686
+|2,0,1700562630,,"3686"
+:xlal
+|2,0,1696940876,,"xlal"
+:e virtual_tipos.mib
+|2,0,1695718861,,"e virtual_tipos.mib"
+:e virtual_tipos.mbs
+|2,0,1695718852,,"e virtual_tipos.mbs"
+:73
+|2,0,1695717489,,"73"
+:x!
+|2,0,1695299135,,"x!"
+:e mbinfo.prg
+|2,0,1688376627,,"e mbinfo.prg"
+:e mbinfo.cat
+|2,0,1688376624,,"e mbinfo.cat"
+:210
+|2,0,1687946331,,"210"
+:386
+|2,0,1687934895,,"386"
+:e misc.prg
+|2,0,1687865238,,"e misc.prg"
+
+# Historia de Cadena de búsqueda (de lo más nuevo a lo más antiguo):
+? \<save_hour\>
+|2,1,1708594770,,"\\<save_hour\\>"
+? \s\+$\| \+\ze\t
+|2,1,1707728353,,"\\s\\+$\\| \\+\\ze\\t"
+?/renfe
+|2,1,1707722793,47,"renfe"
+? \<check\>
+|2,1,1707214608,,"\\<check\\>"
+?/SIM
+|2,1,1707214563,47,"SIM"
+?/domi
+|2,1,1706792475,47,"domi"
+?/dominio
+|2,1,1706792458,47,"dominio"
+?/Axarquia
+|2,1,1706692200,47,"Axarquia"
+? \<write_exu\>
+|2,1,1706612843,,"\\<write_exu\\>"
+? \<btn_open\>
+|2,1,1706612828,,"\\<btn_open\\>"
+?/firefox
+|2,1,1706597664,47,"firefox"
+?/booki
+|2,1,1705304770,47,"booki"
+?/Interior
+|2,1,1703670943,47,"Interior"
+?/SOS
+|2,1,1703670829,47,"SOS"
+?/82+530
+|2,1,1703667509,47,"82+530"
+?/PK 82
+|2,1,1703667468,47,"PK 82"
+? \<is_tube_on\>
+|2,1,1703662700,,"\\<is_tube_on\\>"
+? \<fan_stop\>
+|2,1,1703662655,,"\\<fan_stop\\>"
+? =192.
+|2,1,1702978083,,"=192."
+?/12.8
+|2,1,1702974753,47,"12.8"
+? \<AS_GRAYED\>
+|2,1,1702541605,,"\\<AS_GRAYED\\>"
+? \<TIME_ASC\>
+|2,1,1702538817,,"\\<TIME_ASC\\>"
+?/dgtdlg_encode
+|2,1,1702538745,47,"dgtdlg_encode"
+?/TIME_ASC
+|2,1,1702536690,47,"TIME_ASC"
+? \<add_chk\>
+|2,1,1702452400,,"\\<add_chk\\>"
+? \<buf_close\>
+|2,1,1702452391,,"\\<buf_close\\>"
+? \<PROTO_GET_ST\>
+|2,1,1702452386,,"\\<PROTO_GET_ST\\>"
+?/dgt
+|2,1,1702452290,47,"dgt"
+? \<dgt\>
+|2,1,1702452197,,"\\<dgt\\>"
+?/ikea
+|2,1,1702384624,47,"ikea"
+?/Aucalsa
+|2,1,1702380492,47,"Aucalsa"
+? \<every\>
+|2,1,1701349919,,"\\<every\\>"
+?/Comunicac
+|2,1,1701173663,47,"Comunicac"
+?/Comunicaciones
+|2,1,1701173589,47,"Comunicaciones"
+?/1642
+|2,1,1700648501,47,"1642"
+?/1490
+|2,1,1700643345,47,"1490"
+?/1500
+|2,1,1700642940,47,"1500"
+?/NI-D10
+|2,1,1700562898,47,"NI-D10"
+?/Incendio zona 1 Negro
+|2,1,1700563440,47,"Incendio zona 1 Negro"
+?/obras
+|2,1,1700473503,47,"obras"
+? \<Urgentes\>
+|2,1,1700219066,,"\\<Urgentes\\>"
+?/02 20 1A
+|2,1,1700118420,47,"02 20 1A"
+?/136W
+|2,1,1700118288,47,"136W"
+?/20 1C
+|2,1,1700118278,47,"20 1C"
+? \<132W\>
+|2,1,1700118193,,"\\<132W\\>"
+? \<136R\>
+|2,1,1700118038,,"\\<136R\\>"
+?/Obras
+|2,1,1699519257,47,"Obras"
+?/manifest
+|2,1,1699273354,47,"manifest"
+?/steam
+|2,1,1698044299,47,"steam"
+?/educamo
+|2,1,1696794033,47,"educamo"
+
+# Historia de Expresión (de lo más nuevo a lo más antiguo):
+
+# Historia de Línea de entrada (de lo más nuevo a lo más antiguo):
+
+# Historia de Debug Line (de lo más nuevo a lo más antiguo):
+
+# Registros:
+"0	LINE	0
+	    log a, "\n";
+|3,0,0,1,1,0,1708600678,"    log a, \"\\n\";"
+""1	LINE	0
+	    sta
+|3,1,1,1,1,0,1708685657,"    sta"
+"2	LINE	0
+	
+|3,0,2,1,1,0,1708600529,""
+"3	LINE	0
+	b = a;
+|3,0,3,1,1,0,1708600528,"b = a;"
+"4	LINE	0
+	
+|3,0,4,1,1,0,1708600528,""
+"5	LINE	0
+	? a, "\n";
+|3,0,5,1,1,0,1708600527,"? a, \"\\n\";"
+"6	LINE	0
+	//a[3] = 0;
+|3,0,6,1,1,0,1708600527,"//a[3] = 0;"
+"7	LINE	0
+	//a.setlength(3);
+|3,0,7,1,1,0,1708600526,"//a.setlength(3);"
+"8	LINE	0
+	//a[c++] = '7';
+|3,0,8,1,1,0,1708600526,"//a[c++] = '7';"
+"9	LINE	0
+	//a[c++] = '8';
+|3,0,9,1,1,0,1708600526,"//a[c++] = '8';"
+"a	CHAR	0
+	yu
+|3,0,10,0,1,0,1564136997,"yu"
+"-	CHAR	0
+	}
+|3,0,36,0,1,0,1708600634,"}"
+
+# Marcas en el archivo:
+'R  142  4  D:\work\test\prg\000_test_comms\test_comm.prg
+|4,82,142,4,1554374794,"D:\\work\\test\\prg\\000_test_comms\\test_comm.prg"
+'0  40  0  C:\work\misc\prg\001_test\auto\jarvis.prg
+|4,48,40,0,1708687926,"C:\\work\\misc\\prg\\001_test\\auto\\jarvis.prg"
+'1  22  8  C:\work\obras\miravete\README.md
+|4,49,22,8,1708609419,"C:\\work\\obras\\miravete\\README.md"
+'2  41  0  C:\work\obras\miravete\cas\notas.txt
+|4,50,41,0,1708606252,"C:\\work\\obras\\miravete\\cas\\notas.txt"
+'3  20  50  C:\work\obras\fuentebuena\README.md
+|4,51,20,50,1708605187,"C:\\work\\obras\\fuentebuena\\README.md"
+'4  8  9  C:\work\misc\prg\001_test\str2int.prg
+|4,52,8,9,1708605187,"C:\\work\\misc\\prg\\001_test\\str2int.prg"
+'5  120  6  C:\work\obras\huca\siga\aforo_stat.prg
+|4,53,120,6,1708594781,"C:\\work\\obras\\huca\\siga\\aforo_stat.prg"
+'6  21  0  C:\work\obras\huca\About.txt
+|4,54,21,0,1708594586,"C:\\work\\obras\\huca\\About.txt"
+'7  1  0  C:\work\obras\huca\Changelog.txt
+|4,55,1,0,1708594514,"C:\\work\\obras\\huca\\Changelog.txt"
+'8  93  0  C:\work\ToDo.txt
+|4,56,93,0,1708584767,"C:\\work\\ToDo.txt"
+'9  97  1  C:\work\ToDo.txt
+|4,57,97,1,1708584759,"C:\\work\\ToDo.txt"
+
+# Lista de saltos (el más reciente va primero):
+-'  40  0  C:\work\misc\prg\001_test\auto\jarvis.prg
+|4,39,40,0,1708687926,"C:\\work\\misc\\prg\\001_test\\auto\\jarvis.prg"
+-'  1  0  C:\work\misc\prg\001_test\auto\jarvis.prg
+|4,39,1,0,1708685559,"C:\\work\\misc\\prg\\001_test\\auto\\jarvis.prg"
+-'  22  8  C:\work\obras\miravete\README.md
+|4,39,22,8,1708609419,"C:\\work\\obras\\miravete\\README.md"
+-'  22  8  C:\work\obras\miravete\README.md
+|4,39,22,8,1708609419,"C:\\work\\obras\\miravete\\README.md"
+-'  1  0  C:\work\obras\miravete\README.md
+|4,39,1,0,1708606892,"C:\\work\\obras\\miravete\\README.md"
+-'  1  0  C:\work\obras\miravete\README.md
+|4,39,1,0,1708606892,"C:\\work\\obras\\miravete\\README.md"
+-'  41  0  C:\work\obras\miravete\cas\notas.txt
+|4,39,41,0,1708606252,"C:\\work\\obras\\miravete\\cas\\notas.txt"
+-'  41  0  C:\work\obras\miravete\cas\notas.txt
+|4,39,41,0,1708606252,"C:\\work\\obras\\miravete\\cas\\notas.txt"
+-'  41  0  C:\work\obras\miravete\cas\notas.txt
+|4,39,41,0,1708606252,"C:\\work\\obras\\miravete\\cas\\notas.txt"
+-'  41  0  C:\work\obras\miravete\cas\notas.txt
+|4,39,41,0,1708606252,"C:\\work\\obras\\miravete\\cas\\notas.txt"
+-'  1  0  C:\work\obras\miravete\cas\notas.txt
+|4,39,1,0,1708606244,"C:\\work\\obras\\miravete\\cas\\notas.txt"
+-'  1  0  C:\work\obras\miravete\cas\notas.txt
+|4,39,1,0,1708606244,"C:\\work\\obras\\miravete\\cas\\notas.txt"
+-'  1  0  C:\work\obras\miravete\cas\notas.txt
+|4,39,1,0,1708606244,"C:\\work\\obras\\miravete\\cas\\notas.txt"
+-'  1  0  C:\work\obras\miravete\cas\notas.txt
+|4,39,1,0,1708606244,"C:\\work\\obras\\miravete\\cas\\notas.txt"
+-'  20  50  C:\work\obras\fuentebuena\README.md
+|4,39,20,50,1708605187,"C:\\work\\obras\\fuentebuena\\README.md"
+-'  8  9  C:\work\misc\prg\001_test\str2int.prg
+|4,39,8,9,1708605187,"C:\\work\\misc\\prg\\001_test\\str2int.prg"
+-'  20  50  C:\work\obras\fuentebuena\README.md
+|4,39,20,50,1708605187,"C:\\work\\obras\\fuentebuena\\README.md"
+-'  8  9  C:\work\misc\prg\001_test\str2int.prg
+|4,39,8,9,1708605187,"C:\\work\\misc\\prg\\001_test\\str2int.prg"
+-'  20  50  C:\work\obras\fuentebuena\README.md
+|4,39,20,50,1708605187,"C:\\work\\obras\\fuentebuena\\README.md"
+-'  8  9  C:\work\misc\prg\001_test\str2int.prg
+|4,39,8,9,1708605187,"C:\\work\\misc\\prg\\001_test\\str2int.prg"
+-'  20  50  C:\work\obras\fuentebuena\README.md
+|4,39,20,50,1708605187,"C:\\work\\obras\\fuentebuena\\README.md"
+-'  8  9  C:\work\misc\prg\001_test\str2int.prg
+|4,39,8,9,1708605187,"C:\\work\\misc\\prg\\001_test\\str2int.prg"
+-'  20  50  C:\work\obras\fuentebuena\README.md
+|4,39,20,50,1708605187,"C:\\work\\obras\\fuentebuena\\README.md"
+-'  8  9  C:\work\misc\prg\001_test\str2int.prg
+|4,39,8,9,1708605187,"C:\\work\\misc\\prg\\001_test\\str2int.prg"
+-'  20  50  C:\work\obras\fuentebuena\README.md
+|4,39,20,50,1708605187,"C:\\work\\obras\\fuentebuena\\README.md"
+-'  8  9  C:\work\misc\prg\001_test\str2int.prg
+|4,39,8,9,1708605187,"C:\\work\\misc\\prg\\001_test\\str2int.prg"
+-'  20  50  C:\work\obras\fuentebuena\README.md
+|4,39,20,50,1708605187,"C:\\work\\obras\\fuentebuena\\README.md"
+-'  8  9  C:\work\misc\prg\001_test\str2int.prg
+|4,39,8,9,1708605187,"C:\\work\\misc\\prg\\001_test\\str2int.prg"
+-'  20  50  C:\work\obras\fuentebuena\README.md
+|4,39,20,50,1708605187,"C:\\work\\obras\\fuentebuena\\README.md"
+-'  8  9  C:\work\misc\prg\001_test\str2int.prg
+|4,39,8,9,1708605187,"C:\\work\\misc\\prg\\001_test\\str2int.prg"
+-'  1  0  C:\work\misc\prg\001_test\str2int.prg
+|4,39,1,0,1708600515,"C:\\work\\misc\\prg\\001_test\\str2int.prg"
+-'  1  0  C:\work\misc\prg\001_test\str2int.prg
+|4,39,1,0,1708600515,"C:\\work\\misc\\prg\\001_test\\str2int.prg"
+-'  1  0  C:\work\misc\prg\001_test\str2int.prg
+|4,39,1,0,1708600515,"C:\\work\\misc\\prg\\001_test\\str2int.prg"
+-'  1  0  C:\work\misc\prg\001_test\str2int.prg
+|4,39,1,0,1708600515,"C:\\work\\misc\\prg\\001_test\\str2int.prg"
+-'  1  0  C:\work\misc\prg\001_test\str2int.prg
+|4,39,1,0,1708600515,"C:\\work\\misc\\prg\\001_test\\str2int.prg"
+-'  1  0  C:\work\misc\prg\001_test\str2int.prg
+|4,39,1,0,1708600515,"C:\\work\\misc\\prg\\001_test\\str2int.prg"
+-'  1  0  C:\work\misc\prg\001_test\str2int.prg
+|4,39,1,0,1708600515,"C:\\work\\misc\\prg\\001_test\\str2int.prg"
+-'  1  0  C:\work\misc\prg\001_test\str2int.prg
+|4,39,1,0,1708600515,"C:\\work\\misc\\prg\\001_test\\str2int.prg"
+-'  120  6  C:\work\obras\huca\siga\aforo_stat.prg
+|4,39,120,6,1708594781,"C:\\work\\obras\\huca\\siga\\aforo_stat.prg"
+-'  120  6  C:\work\obras\huca\siga\aforo_stat.prg
+|4,39,120,6,1708594781,"C:\\work\\obras\\huca\\siga\\aforo_stat.prg"
+-'  120  6  C:\work\obras\huca\siga\aforo_stat.prg
+|4,39,120,6,1708594781,"C:\\work\\obras\\huca\\siga\\aforo_stat.prg"
+-'  120  6  C:\work\obras\huca\siga\aforo_stat.prg
+|4,39,120,6,1708594781,"C:\\work\\obras\\huca\\siga\\aforo_stat.prg"
+-'  120  6  C:\work\obras\huca\siga\aforo_stat.prg
+|4,39,120,6,1708594781,"C:\\work\\obras\\huca\\siga\\aforo_stat.prg"
+-'  120  6  C:\work\obras\huca\siga\aforo_stat.prg
+|4,39,120,6,1708594781,"C:\\work\\obras\\huca\\siga\\aforo_stat.prg"
+-'  120  6  C:\work\obras\huca\siga\aforo_stat.prg
+|4,39,120,6,1708594781,"C:\\work\\obras\\huca\\siga\\aforo_stat.prg"
+-'  120  6  C:\work\obras\huca\siga\aforo_stat.prg
+|4,39,120,6,1708594781,"C:\\work\\obras\\huca\\siga\\aforo_stat.prg"
+-'  120  6  C:\work\obras\huca\siga\aforo_stat.prg
+|4,39,120,6,1708594781,"C:\\work\\obras\\huca\\siga\\aforo_stat.prg"
+-'  120  6  C:\work\obras\huca\siga\aforo_stat.prg
+|4,39,120,6,1708594781,"C:\\work\\obras\\huca\\siga\\aforo_stat.prg"
+-'  120  6  C:\work\obras\huca\siga\aforo_stat.prg
+|4,39,120,6,1708594781,"C:\\work\\obras\\huca\\siga\\aforo_stat.prg"
+-'  120  6  C:\work\obras\huca\siga\aforo_stat.prg
+|4,39,120,6,1708594781,"C:\\work\\obras\\huca\\siga\\aforo_stat.prg"
+-'  120  6  C:\work\obras\huca\siga\aforo_stat.prg
+|4,39,120,6,1708594781,"C:\\work\\obras\\huca\\siga\\aforo_stat.prg"
+-'  120  6  C:\work\obras\huca\siga\aforo_stat.prg
+|4,39,120,6,1708594781,"C:\\work\\obras\\huca\\siga\\aforo_stat.prg"
+-'  120  6  C:\work\obras\huca\siga\aforo_stat.prg
+|4,39,120,6,1708594781,"C:\\work\\obras\\huca\\siga\\aforo_stat.prg"
+-'  120  6  C:\work\obras\huca\siga\aforo_stat.prg
+|4,39,120,6,1708594781,"C:\\work\\obras\\huca\\siga\\aforo_stat.prg"
+-'  226  5  C:\work\obras\huca\siga\aforo_stat.prg
+|4,39,226,5,1708594779,"C:\\work\\obras\\huca\\siga\\aforo_stat.prg"
+-'  190  16  C:\work\obras\huca\siga\aforo_stat.prg
+|4,39,190,16,1708594779,"C:\\work\\obras\\huca\\siga\\aforo_stat.prg"
+-'  226  5  C:\work\obras\huca\siga\aforo_stat.prg
+|4,39,226,5,1708594779,"C:\\work\\obras\\huca\\siga\\aforo_stat.prg"
+-'  190  16  C:\work\obras\huca\siga\aforo_stat.prg
+|4,39,190,16,1708594779,"C:\\work\\obras\\huca\\siga\\aforo_stat.prg"
+-'  226  5  C:\work\obras\huca\siga\aforo_stat.prg
+|4,39,226,5,1708594779,"C:\\work\\obras\\huca\\siga\\aforo_stat.prg"
+-'  190  16  C:\work\obras\huca\siga\aforo_stat.prg
+|4,39,190,16,1708594779,"C:\\work\\obras\\huca\\siga\\aforo_stat.prg"
+-'  226  5  C:\work\obras\huca\siga\aforo_stat.prg
+|4,39,226,5,1708594779,"C:\\work\\obras\\huca\\siga\\aforo_stat.prg"
+-'  190  16  C:\work\obras\huca\siga\aforo_stat.prg
+|4,39,190,16,1708594779,"C:\\work\\obras\\huca\\siga\\aforo_stat.prg"
+-'  226  5  C:\work\obras\huca\siga\aforo_stat.prg
+|4,39,226,5,1708594779,"C:\\work\\obras\\huca\\siga\\aforo_stat.prg"
+-'  190  16  C:\work\obras\huca\siga\aforo_stat.prg
+|4,39,190,16,1708594779,"C:\\work\\obras\\huca\\siga\\aforo_stat.prg"
+-'  226  5  C:\work\obras\huca\siga\aforo_stat.prg
+|4,39,226,5,1708594779,"C:\\work\\obras\\huca\\siga\\aforo_stat.prg"
+-'  190  16  C:\work\obras\huca\siga\aforo_stat.prg
+|4,39,190,16,1708594779,"C:\\work\\obras\\huca\\siga\\aforo_stat.prg"
+-'  226  5  C:\work\obras\huca\siga\aforo_stat.prg
+|4,39,226,5,1708594779,"C:\\work\\obras\\huca\\siga\\aforo_stat.prg"
+-'  190  16  C:\work\obras\huca\siga\aforo_stat.prg
+|4,39,190,16,1708594779,"C:\\work\\obras\\huca\\siga\\aforo_stat.prg"
+-'  226  5  C:\work\obras\huca\siga\aforo_stat.prg
+|4,39,226,5,1708594779,"C:\\work\\obras\\huca\\siga\\aforo_stat.prg"
+-'  190  16  C:\work\obras\huca\siga\aforo_stat.prg
+|4,39,190,16,1708594779,"C:\\work\\obras\\huca\\siga\\aforo_stat.prg"
+-'  226  5  C:\work\obras\huca\siga\aforo_stat.prg
+|4,39,226,5,1708594779,"C:\\work\\obras\\huca\\siga\\aforo_stat.prg"
+-'  190  16  C:\work\obras\huca\siga\aforo_stat.prg
+|4,39,190,16,1708594779,"C:\\work\\obras\\huca\\siga\\aforo_stat.prg"
+-'  226  5  C:\work\obras\huca\siga\aforo_stat.prg
+|4,39,226,5,1708594779,"C:\\work\\obras\\huca\\siga\\aforo_stat.prg"
+-'  190  16  C:\work\obras\huca\siga\aforo_stat.prg
+|4,39,190,16,1708594779,"C:\\work\\obras\\huca\\siga\\aforo_stat.prg"
+-'  226  5  C:\work\obras\huca\siga\aforo_stat.prg
+|4,39,226,5,1708594779,"C:\\work\\obras\\huca\\siga\\aforo_stat.prg"
+-'  190  16  C:\work\obras\huca\siga\aforo_stat.prg
+|4,39,190,16,1708594779,"C:\\work\\obras\\huca\\siga\\aforo_stat.prg"
+-'  226  5  C:\work\obras\huca\siga\aforo_stat.prg
+|4,39,226,5,1708594779,"C:\\work\\obras\\huca\\siga\\aforo_stat.prg"
+-'  190  16  C:\work\obras\huca\siga\aforo_stat.prg
+|4,39,190,16,1708594779,"C:\\work\\obras\\huca\\siga\\aforo_stat.prg"
+-'  226  5  C:\work\obras\huca\siga\aforo_stat.prg
+|4,39,226,5,1708594779,"C:\\work\\obras\\huca\\siga\\aforo_stat.prg"
+-'  190  16  C:\work\obras\huca\siga\aforo_stat.prg
+|4,39,190,16,1708594779,"C:\\work\\obras\\huca\\siga\\aforo_stat.prg"
+-'  226  5  C:\work\obras\huca\siga\aforo_stat.prg
+|4,39,226,5,1708594779,"C:\\work\\obras\\huca\\siga\\aforo_stat.prg"
+-'  190  16  C:\work\obras\huca\siga\aforo_stat.prg
+|4,39,190,16,1708594779,"C:\\work\\obras\\huca\\siga\\aforo_stat.prg"
+-'  226  5  C:\work\obras\huca\siga\aforo_stat.prg
+|4,39,226,5,1708594779,"C:\\work\\obras\\huca\\siga\\aforo_stat.prg"
+-'  190  16  C:\work\obras\huca\siga\aforo_stat.prg
+|4,39,190,16,1708594779,"C:\\work\\obras\\huca\\siga\\aforo_stat.prg"
+-'  226  5  C:\work\obras\huca\siga\aforo_stat.prg
+|4,39,226,5,1708594779,"C:\\work\\obras\\huca\\siga\\aforo_stat.prg"
+-'  190  16  C:\work\obras\huca\siga\aforo_stat.prg
+|4,39,190,16,1708594779,"C:\\work\\obras\\huca\\siga\\aforo_stat.prg"
+-'  1  0  C:\work\obras\huca\siga\aforo_stat.prg
+|4,39,1,0,1708594749,"C:\\work\\obras\\huca\\siga\\aforo_stat.prg"
+-'  1  0  C:\work\obras\huca\siga\aforo_stat.prg
+|4,39,1,0,1708594749,"C:\\work\\obras\\huca\\siga\\aforo_stat.prg"
+-'  1  0  C:\work\obras\huca\siga\aforo_stat.prg
+|4,39,1,0,1708594749,"C:\\work\\obras\\huca\\siga\\aforo_stat.prg"
+-'  1  0  C:\work\obras\huca\siga\aforo_stat.prg
+|4,39,1,0,1708594749,"C:\\work\\obras\\huca\\siga\\aforo_stat.prg"
+-'  1  0  C:\work\obras\huca\siga\aforo_stat.prg
+|4,39,1,0,1708594749,"C:\\work\\obras\\huca\\siga\\aforo_stat.prg"
+-'  1  0  C:\work\obras\huca\siga\aforo_stat.prg
+|4,39,1,0,1708594749,"C:\\work\\obras\\huca\\siga\\aforo_stat.prg"
+-'  1  0  C:\work\obras\huca\siga\aforo_stat.prg
+|4,39,1,0,1708594749,"C:\\work\\obras\\huca\\siga\\aforo_stat.prg"
+-'  1  0  C:\work\obras\huca\siga\aforo_stat.prg
+|4,39,1,0,1708594749,"C:\\work\\obras\\huca\\siga\\aforo_stat.prg"
+-'  1  0  C:\work\obras\huca\siga\aforo_stat.prg
+|4,39,1,0,1708594749,"C:\\work\\obras\\huca\\siga\\aforo_stat.prg"
+-'  1  0  C:\work\obras\huca\siga\aforo_stat.prg
+|4,39,1,0,1708594749,"C:\\work\\obras\\huca\\siga\\aforo_stat.prg"
+-'  1  0  C:\work\obras\huca\siga\aforo_stat.prg
+|4,39,1,0,1708594749,"C:\\work\\obras\\huca\\siga\\aforo_stat.prg"
+-'  1  0  C:\work\obras\huca\siga\aforo_stat.prg
+|4,39,1,0,1708594749,"C:\\work\\obras\\huca\\siga\\aforo_stat.prg"
+-'  1  0  C:\work\obras\huca\siga\aforo_stat.prg
+|4,39,1,0,1708594749,"C:\\work\\obras\\huca\\siga\\aforo_stat.prg"
+-'  1  0  C:\work\obras\huca\siga\aforo_stat.prg
+|4,39,1,0,1708594749,"C:\\work\\obras\\huca\\siga\\aforo_stat.prg"
+
+# Historia de las marcas en los archivos (de la más reciente a la más antigua):
+
+> C:\work\misc\prg\001_test\auto\jarvis.prg
+	*	1708687924	0
+	"	40	0
+	.	16	0
+	+	11	11
+	+	9	2
+	+	11	0
+	+	13	11
+	+	41	0
+	+	14	15
+	+	21	0
+	+	19	25
+	+	16	12
+	+	21	0
+	+	27	0
+	+	22	11
+	+	35	13
+	+	23	18
+	+	36	16
+	+	24	20
+	+	37	19
+	+	25	25
+	+	38	24
+	+	49	6
+	+	51	0
+	+	54	26
+	+	58	20
+	+	59	0
+	+	11	0
+	+	38	23
+	+	40	0
+	+	14	14
+	+	18	11
+	+	24	11
+	+	37	11
+	+	58	6
+	+	48	7
+	+	19	16
+	+	25	16
+	+	38	16
+	+	37	20
+	+	24	26
+	+	25	28
+	+	27	0
+	+	28	15
+	+	31	25
+	+	25	26
+	+	16	0
+
+> C:\work\obras\miravete\README.md
+	*	1708609418	0
+	"	22	8
+
+> C:\work\obras\miravete\cas\notas.txt
+	*	1708606244	0
+	"	41	0
+
+> C:\work\misc\prg\001_test\str2int.prg
+	*	1708600698	0
+	"	8	9
+	^	8	10
+	.	8	9
+	+	3	0
+	+	4	11
+	+	2	7
+	+	4	9
+	+	6	16
+	+	10	0
+	+	2	7
+	+	9	0
+	+	8	9
+
+> C:\work\obras\huca\siga\aforo_stat.prg
+	*	1708594779	0
+	"	120	6
+
+> C:\work\obras\huca\About.txt
+	*	1708594562	0
+	"	21	0
+
+> C:\work\obras\huca\Changelog.txt
+	*	1708594499	0
+	"	1	0
+
+> C:\work\obras\fuentebuena\README.md
+	*	1708589082	0
+	"	20	50
+	^	20	43
+	.	20	42
+	+	20	42
+
+> C:\work\ToDo.txt
+	*	1708503932	0
+	"	93	0
+	^	84	29
+	.	84	29
+	+	173	0
+	+	179	0
+	+	188	0
+	+	175	1
+	+	128	28
+	+	129	18
+	+	130	0
+	+	97	0
+	+	96	0
+	+	92	0
+	+	92	78
+	+	92	49
+	+	92	53
+	+	92	81
+	+	92	9
+	+	92	0
+	+	92	64
+	+	49	5
+	+	49	0
+	+	49	15
+	+	49	0
+	+	49	18
+	+	49	0
+	+	49	18
+	+	49	0
+	+	49	20
+	+	92	44
+	+	97	0
+	+	163	0
+	+	123	0
+	+	121	8
+	+	123	7
+	+	127	0
+	+	123	0
+	+	55	0
+	+	49	0
+	+	55	0
+	+	54	0
+	+	49	0
+	+	55	0
+	+	121	0
+	+	124	0
+	+	117	0
+	+	92	0
+	+	104	0
+	+	114	0
+	+	121	0
+	+	116	0
+	+	117	30
+	+	121	1
+	+	29	0
+	+	119	25
+	+	121	0
+	+	125	34
+	+	127	9
+	+	125	35
+	+	127	47
+	+	108	39
+	+	92	0
+	+	102	66
+	+	163	0
+	+	171	0
+	+	161	0
+	+	162	0
+	+	171	0
+	+	176	0
+	+	177	12
+	+	202	0
+	+	209	0
+	+	38	12
+	+	41	16
+	+	92	0
+	+	91	48
+	+	125	0
+	+	127	0
+	+	133	0
+	+	159	0
+	+	160	0
+	+	133	0
+	+	61	76
+	+	62	79
+	+	85	0
+	+	84	0
+	+	69	73
+	+	69	78
+	+	71	22
+	+	70	76
+	+	71	68
+	+	72	70
+	+	74	0
+	+	68	0
+	+	69	0
+	+	68	62
+	+	69	2
+	+	117	0
+	+	58	0
+	+	94	70
+	+	92	0
+	+	48	0
+	+	84	29
+	a	36	0
+
+> G:\Mi unidad\00_personal\000_Datos.txt
+	*	1708200408	0
+	"	204	0
+	^	104	0
+	.	204	0
+	+	168	39
+	+	189	25
+	+	13	29
+	+	9	0
+	+	8	17
+	+	9	17
+	+	11	0
+	+	190	43
+	+	177	55
+	+	14	35
+	+	14	4
+	+	14	0
+	+	18	13
+	+	18	0
+	+	18	9
+	+	19	0
+	+	36	0
+	+	17	0
+	+	14	0
+	+	39	0
+	+	40	12
+	+	42	33
+	+	175	30
+	+	195	40
+	+	162	23
+	+	84	14
+	+	85	38
+	+	17	0
+	+	78	0
+	+	81	21
+	+	83	0
+	+	84	42
+	+	86	0
+	+	88	0
+	+	89	24
+	+	90	0
+	+	93	0
+	+	99	0
+	+	100	0
+	+	99	46
+	+	100	0
+	+	103	39
+	+	99	0
+	+	100	35
+	+	99	0
+	+	17	0
+	+	20	19
+	+	21	19
+	+	19	10
+	+	17	13
+	+	18	11
+	+	19	14
+	+	14	0
+	+	22	0
+	+	37	8
+	+	44	19
+	+	101	26
+	+	102	24
+	+	4	19
+	+	105	0
+	+	104	0
+	+	105	0
+	+	204	0
+	a	140	45
+
+> G:\Mi unidad\01_tunelia\02_Aquaterra\dudas.txt
+	*	1707896458	0
+	"	27	62
+	^	10	0
+	.	9	55
+	+	27	1
+	+	25	59
+	+	49	0
+	+	13	0
+	+	5	9
+	+	4	76
+	+	5	3
+	+	5	8
+	+	7	20
+	+	4	31
+	+	12	37
+	+	11	75
+	+	17	0
+	+	11	75
+	+	12	12
+	+	6	0
+	+	23	0
+	+	26	0
+	+	38	31
+	+	39	22
+	+	39	59
+	+	47	60
+	+	48	58
+	+	9	55
+
+> C:\tmp\docker_compose.txt
+	*	1707826838	0
+	"	1	0
+
+> C:\tmp\Portatil.txt
+	*	1707816316	0
+	"	1	0
+
+> C:\tmp\kopia-0.15.0-windows-x64\README.md
+	*	1707484332	0
+	"	1	0
+
+> C:\work\soft\000_misc\psos_m30\README.md
+	*	1707466955	0
+	"	1	0
+
+> G:\Mi unidad\01_tunelia\000_Datos.txt
+	*	1707461727	0
+	"	33	9
+	^	54	0
+	.	50	0
+	+	121	45
+	+	98	32
+	+	100	20
+	+	98	24
+	+	87	11
+	+	90	30
+	+	55	60
+	+	51	32
+	+	52	3
+	+	53	3
+	+	55	0
+	+	55	26
+	+	55	1
+	+	51	7
+	+	55	3
+	+	55	0
+	+	56	0
+	+	44	0
+	+	42	0
+	+	42	22
+	+	41	32
+	+	54	0
+	+	42	0
+	+	50	0
+	a	54	0
+
+> C:\work\misc\prg\001_test\mb_server.prg
+	*	1707219736	0
+	"	31	11
+	^	42	18
+	.	42	17
+	+	32	17
+	+	33	17
+	+	34	17
+	+	35	17
+	+	36	17
+	+	38	17
+	+	39	17
+	+	40	17
+	+	41	17
+	+	42	17
+
+> C:\work\obras\fuentebuena\siga\ercc\siga.prg
+	*	1707216402	0
+	"	9	1
+	^	9	2
+	.	9	1
+	+	9	1
+
+> C:\work\obras\fuentebuena\siga\ercc\fan.prg
+	*	1707216395	0
+	"	267	0
+	^	297	6
+	.	290	0
+	+	291	0
+	+	290	4
+	+	291	0
+	+	297	5
+	+	290	0
+
+> C:\work\obras\fuentebuena\siga\ercc\init.prg
+	*	1707216395	0
+	"	295	18
+	.	295	4
+	+	295	4
+
+> C:\work\obras\fuentebuena\siga\ercc\siga.dev
+	*	1707214386	0
+	"	47	12
+	^	44	32
+	.	108	0
+	+	51	4
+	+	52	4
+	+	53	4
+	+	44	31
+	+	108	0
+	a	44	31
+
+> C:\work\obras\fuentebuena\siga\ercc\mb_sim.dev
+	*	1707214260	0
+	"	29	0
+
+> C:\work\soft\000_misc\modbus\README.md
+	*	1707214215	0
+	"	1	0
+
+> C:\tmp\002_bd\bd.fuentebuena\Data\User.BDT
+	*	1707213626	0
+	"	10	117
+
+> C:\tmp\dashy-conf1.yml
+	*	1707063153	0
+	"	252	23
+
+> C:\tmp\dashy-conf.yml
+	*	1707063152	0
+	"	125	15
+	^	126	46
+	.	127	0
+	+	70	23
+	+	71	31
+	+	72	40
+	+	70	26
+	+	51	17
+	+	104	20
+	+	137	30
+	+	138	32
+	+	139	0
+	+	140	17
+	+	161	0
+	+	141	25
+	+	142	32
+	+	144	31
+	+	145	21
+	+	145	29
+	+	145	28
+	+	145	20
+	+	145	23
+	+	146	24
+	+	148	37
+	+	149	26
+	+	145	21
+	+	152	37
+	+	157	23
+	+	158	25
+	+	160	32
+	+	147	29
+	+	151	0
+	+	152	0
+	+	159	25
+	+	161	17
+	+	171	0
+	+	145	5
+	+	145	0
+	+	153	0
+	+	137	15
+	+	141	15
+	+	115	0
+	+	128	0
+	+	116	29
+	+	118	38
+	+	119	22
+	+	120	28
+	+	115	21
+	+	119	22
+	+	122	40
+	+	127	7
+	+	127	9
+	+	127	11
+	+	127	47
+	+	127	19
+	+	116	0
+	+	127	19
+	+	123	6
+	+	127	8
+	+	124	5
+	+	125	7
+	+	126	7
+	+	127	7
+	+	126	9
+	+	127	9
+	+	127	0
+	+	126	45
+	+	127	0
+	a	127	82
+
+> C:\tmp\NERD_tree_1
+	*	1707059140	0
+	"	21	0
+	.	1	0
+	+	1	0
+
+> C:\Users\vgm\Downloads\dashy_conf(1).yml
+	*	1706996750	0
+	"	31	0
+
+> C:\Users\vgm\Downloads\dashy_conf.yml
+	*	1706979968	0
+	"	1	0
+
+> C:\Users\vgm\OneDrive - ATMC30\Escritorio\asesoria_monica.txt
+	*	1706793690	0
+	"	2	0
+
+> C:\work\obras\aucalsa\jarvis\negron_I\mb_exu_sur.dev
+	*	1706614887	0
+	"	41	0
+
+> C:\work\obras\aucalsa\jarvis\negron_I\jarvis.dev
+	*	1706614877	0
+	"	48	18
+
+> C:\work\obras\aucalsa\jarvis\negron_I\cas.dev
+	*	1706614723	0
+	"	952	42
+
+> C:\work\obras\aucalsa\jarvis\negron_I\exu.prg
+	*	1706614557	0
+	"	265	15
+
+> C:\work\obras\axarquia\siga\torrox1\panel_af.prg
+	*	1705997731	0
+	"	57	0
+
+> \\192.168.60.10\Intercambio\VMs-KVM\DatosVMs.txt
+	*	1705479250	0
+	"	1	0
+
+> C:\tmp\bd_aucalsa\Data\Device.BDT
+	*	1705401743	0
+	"	648	0
+
+> C:\tmp\bd_aucalsa\Data\RefVar1.BDT
+	*	1705399389	0
+	"	1	0
+
+> C:\tmp\bd_aucalsa\Data\RefVar.BDT
+	*	1705399379	0
+	"	381	0
+
+> C:\tmp\bd_aucalsa\Data\Device0.BDT
+	*	1705399304	0
+	"	1	0
+
+> C:\tmp\bd_aucalsa\Data\TrapType.BDT
+	*	1705399249	0
+	"	1	0
+
+> C:\tmp\bd_aucalsa\Data\Trap.bdt
+	*	1705399242	0
+	"	1	0
+
+> C:\Users\vgm\AppData\Local\Temp\7zO0E350B14\README.md
+	*	1705315747	0
+	"	1	0
+
+> C:\work\doc\soft\cortos\analogica\lectura.txt
+	*	1705231492	0
+	"	1	0
+
+> C:\work\doc\soft\cortos\analogica\conversion_4-20mA.txt
+	*	1705231487	0
+	"	1	0
+
+> C:\work\doc\soft\cortos\byte.txt
+	*	1705231482	0
+	"	1	0
+
+> C:\work\doc\soft\cortos\pclon.txt
+	*	1705231475	0
+	"	1	0
+
+> C:\work\doc\soft\cortos\Sincronizar hora w2k y linux.txt
+	*	1705231464	0
+	"	1	0
+
+> C:\Users\vgm\OneDrive - ATMC30\Escritorio\docker run --detach --hostname gitl.txt
+	*	1704975196	0
+	"	1	40
+
+> \\192.168.60.10\Intercambio\vgimeno\ConfigDebian.txt
+	*	1704962638	0
+	"	21	0
+
+> C:\tmp\docker run --detach --hostname gitl.txt
+	*	1703849635	0
+	"	1	0
+
+> C:\work\obras\aucalsa\shd\bd\Data\Device.BDT
+	*	1703671078	0
+	"	347	30
+	^	353	2
+	.	347	30
+	+	1558	8
+	+	1559	8
+	+	1560	8
+	+	1561	14
+	+	1562	14
+	+	1563	14
+	+	1564	14
+	+	1565	8
+	+	1566	8
+	+	1567	8
+	+	1568	8
+	+	1569	8
+	+	1570	8
+	+	1571	8
+	+	1572	14
+	+	1573	8
+	+	1574	8
+	+	1575	8
+	+	1577	8
+	+	1578	8
+	+	1579	8
+	+	1580	8
+	+	1581	8
+	+	1582	8
+	+	1583	14
+	+	1584	14
+	+	1585	8
+	+	1586	8
+	+	1587	8
+	+	1588	8
+	+	1589	8
+	+	1590	8
+	+	1591	8
+	+	1592	8
+	+	1593	8
+	+	1594	8
+	+	1595	8
+	+	1596	8
+	+	1597	14
+	+	1598	8
+	+	1599	8
+	+	1600	8
+	+	1601	8
+	+	1602	8
+	+	1603	8
+	+	1604	8
+	+	1605	8
+	+	1606	8
+	+	1607	8
+	+	1608	8
+	+	1609	8
+	+	1610	8
+	+	1611	8
+	+	1612	14
+	+	1613	8
+	+	1614	8
+	+	1615	8
+	+	1616	8
+	+	1617	8
+	+	1618	8
+	+	1619	8
+	+	1620	8
+	+	1621	8
+	+	1622	8
+	+	1623	8
+	+	1624	8
+	+	1625	8
+	+	1626	8
+	+	1627	8
+	+	1628	8
+	+	1629	8
+	+	1630	8
+	+	1631	8
+	+	1632	8
+	+	353	2
+	+	339	13
+	+	361	18
+	+	339	8
+	+	348	8
+	+	349	8
+	+	350	8
+	+	351	8
+	+	352	8
+	+	353	8
+	+	354	8
+	+	355	8
+	+	356	8
+	+	357	8
+	+	358	8
+	+	359	8
+	+	360	8
+	+	339	29
+	+	340	29
+	+	341	29
+	+	342	29
+	+	343	29
+	+	344	30
+	+	345	30
+	+	346	30
+	+	347	30
+
+> c:\tmp\dai.txt
+	*	1703671057	0
+	"	1	0
+	.	23	0
+	+	1	0
+	+	23	0
+
+> C:\work\obras\aucalsa\jarvis\negron_II\fan_ctrl.prg
+	*	1703663924	0
+	"	111	0
+
+> C:\work\obras\aucalsa\jarvis\negron_II\fan.prg
+	*	1703662718	0
+	"	98	0
+
+> C:\work\obras\aucalsa\jarvis\pando\jarvis.prg
+	*	1703241677	0
+	"	25	0
+	^	70	19
+	.	70	16
+	+	8	1
+	+	70	18
+	+	8	1
+	+	67	0
+	+	38	0
+	+	70	0
+	+	66	0
+	+	70	16
+
+> C:\work\obras\aucalsa\jarvis\pando\autolink.dev
+	*	1703236092	0
+	"	56	0
+
+> C:\work\obras\aucalsa\jarvis\pando\jarvis.dev
+	*	1703236091	0
+	"	75	6
+
+> C:\work\obras\aucalsa\jarvis\pando\actions2.prg
+	*	1703235266	0
+	"	28	0
+
+> C:\work\obras\aucalsa\jarvis\pando\cas.dev
+	*	1703235264	0
+	"	559	0
+
+> C:\work\obras\aucalsa\jarvis\pando\jarvis.act
+	*	1703234504	0
+	"	54	31
+
+> C:\work\misc\prg\cas_test.prg
+	*	1703163918	0
+	"	84	11
+	^	75	14
+	.	84	11
+	+	8	13
+	+	3	19
+	+	3	17
+	+	1	14
+	+	49	9
+	+	76	0
+	+	73	6
+	+	76	6
+	+	73	24
+	+	76	24
+	+	73	5
+	+	76	5
+	+	3	0
+	+	1	12
+	+	20	11
+	+	21	1
+	+	27	7
+	+	21	1
+	+	23	0
+	+	1	14
+	+	73	30
+	+	76	30
+	+	58	0
+	+	57	4
+	+	76	5
+	+	80	26
+	+	59	7
+	+	85	30
+	+	59	2
+	+	22	0
+	+	77	39
+	+	79	28
+	+	55	0
+	+	54	15
+	+	83	36
+	+	57	6
+	+	80	4
+	+	83	4
+	+	49	1
+	+	57	5
+	+	73	1
+	+	76	1
+	+	77	1
+	+	79	1
+	+	73	0
+	+	76	0
+	+	77	0
+	+	79	0
+	+	49	9
+	+	82	4
+	+	3	0
+	+	75	13
+	+	78	0
+	+	81	0
+	+	84	0
+	+	78	9
+	+	81	9
+	+	84	9
+	+	78	11
+	+	81	11
+	+	84	11
+
+> \\192.168.60.10\Administracion\Gestion\Gestion23\KeyEMClient.txt
+	*	1703072458	0
+	"	1	0
+
+> C:\work\obras\aucalsa\CHANGELOG
+	*	1702989450	0
+	"	7	24
+	^	7	25
+	.	7	24
+	+	4	12
+	+	8	0
+	+	7	24
+
+> C:\work\obras\aucalsa\shd\shd_aucalsa.svi
+	*	1702978117	0
+	"	81	0
+	^	81	1
+	.	81	0
+	+	81	0
+	+	64	0
+	+	77	0
+	+	81	0
+
+> C:\work\obras\aucalsa\shd\bd\aucalsa.svi
+	*	1702977827	0
+	"	91	0
+
+> C:\work\obras\aucalsa\old\cas\bd\Data\Device0.BDT
+	*	1702974775	0
+	"	354	0
+
+> C:\work\obras\aucalsa\old\cas\bd\Data\Device2.BDT
+	*	1702974758	0
+	"	41	0
+
+> C:\work\obras\aucalsa\old\cas\bd\Data\Device1.BDT
+	*	1702974753	0
+	"	57	0
+
+> C:\work\obras\aucalsa\shd\bd\Data\Device1.BDT
+	*	1702974628	0
+	"	57	12
+
+> C:\work\obras\aucalsa\shd\bd\Data\Device0.BDT
+	*	1702974615	0
+	"	353	0
+
+> C:\work\obras\aucalsa\shd\bd\Data\CatDef.BDT
+	*	1702973136	0
+	"	1	0
+	^	42	25
+	.	42	83
+	+	43	64
+	+	42	25
+	+	43	0
+	+	42	83
+
+> C:\temp\nav\ser\sdgt\dgtmap.c
+	*	1702541775	0
+	"	261	54
+
+> C:\temp\nacho\nav\ser\sdgt\cdgt.c
+	*	1702540617	0
+	"	195	28
+
+> C:\temp\nacho\nav\ser\sdgt\dgt.h
+	*	1702536523	0
+	"	51	0
+
+> C:\work\obras\aucalsa\README.md
+	*	1702461434	0
+	"	21	49
+	^	43	76
+	.	43	75
+	+	40	25
+	+	41	19
+	+	42	18
+	+	37	21
+	+	34	22
+	+	35	16
+	+	42	18
+	+	43	18
+	+	42	33
+	+	40	57
+	+	42	51
+	+	43	51
+	+	18	59
+	+	19	48
+	+	29	42
+	+	43	75
+
+> C:\work\obras\axarquia\siga\torrox1\panel_pmv.prg
+	*	1702453333	0
+	"	193	79
+
+> C:\work\misc\prg\paneles\sainco_eth.prg
+	*	1702452891	0
+	"	50	6
+	^	30	33
+	.	30	32
+	+	25	0
+	+	40	4
+	+	42	0
+	+	43	0
+	+	45	0
+	+	41	0
+	+	42	20
+	+	2	26
+	+	19	3
+	+	7	0
+	+	20	0
+	+	25	0
+	+	11	0
+	+	2	0
+	+	8	3
+	+	9	3
+	+	10	3
+	+	11	4
+	+	19	4
+	+	20	0
+	+	12	0
+	+	20	0
+	+	25	0
+	+	12	0
+	+	23	14
+	+	18	0
+	+	19	11
+	+	23	54
+	+	25	0
+	+	21	0
+	+	22	3
+	+	25	7
+	+	26	0
+	+	34	0
+	+	38	17
+	+	43	3
+	+	44	3
+	+	46	0
+	+	42	20
+	+	48	2
+	+	49	2
+	+	2	0
+	+	38	0
+	+	37	0
+	+	39	7
+	+	22	3
+	+	23	7
+	+	23	37
+	+	26	0
+	+	34	8
+	+	35	0
+	+	38	16
+	+	39	0
+	+	27	25
+	+	30	32
+
+> C:\work\obras\axarquia\siga\torrox1\panel_sainco.prg
+	*	1702452400	0
+	"	72	13
+
+> C:\work\obras\axarquia\siga\torrox1\panel.prg
+	*	1702452308	0
+	"	71	16
+
+> C:\work\obras\axarquia\siga\torrox1\siga.prg
+	*	1702452292	0
+	"	400	34
+
+> C:\work\obras\axarquia\siga\lagos\siga.prg
+	*	1702451973	0
+	"	201	0
+
+> C:\work\obras\axarquia\siga\lagos\panel_pmv.prg
+	*	1702451966	0
+	"	281	4
+
+> C:\work\obras\axarquia\siga\lagos\panel.prg
+	*	1702451899	0
+	"	321	12
+
+> C:\work\obras\axarquia\siga\lagos\panel_sainco.prg
+	*	1702451861	0
+	"	381	0
+
+> C:\work\obras\axarquia\siga\moxa\torrox2\siga.dev
+	*	1702451564	0
+	"	41	0
+
+> C:\work\misc\prg\paneles\sainco_eth_mem.prg
+	*	1702451296	0
+	"	15	8
+	.	15	8
+	+	15	8
+
+> C:\work\misc\prg\paneles\G32_morata.prg
+	*	1702451234	0
+	"	131	0
+
+> C:\work\misc\prg\paneles\dgt.prg
+	*	1702451221	0
+	"	139	25
+	^	139	26
+	.	139	25
+	+	139	25
+
+> C:\work\misc\prg\paneles\sice.prg
+	*	1702451183	0
+	"	25	0
+	^	31	56
+	.	3	0
+	+	1	14
+	+	58	20
+	+	51	0
+	+	58	0
+	+	3	0
+
+> C:\work\misc\prg\paneles\alba.prg
+	*	1702451181	0
+	"	29	6
+	^	23	0
+	.	3	0
+	+	23	0
+	+	26	20
+	+	3	0
+
+> C:\work\misc\prg\paneles\mem_eth_sainco.prg
+	*	1702451111	0
+	"	37	20
+	^	41	0
+	.	37	20
+	+	41	4
+	+	34	0
+	+	41	0
+	+	37	20
+
+> C:\work\misc\prg\paneles\servidor_panel_fijo.prg
+	*	1702451040	0
+	"	57	0
+
+> C:\work\misc\prg\paneles\sainco.dev
+	*	1702450716	0
+	"	3	0
+
+> C:\work\misc\prg\paneles\eth_sainco.dev
+	*	1702450715	0
+	"	2	0
+
+> C:\work\misc\prg\paneles\sainco.prg
+	*	1702450656	0
+	"	30	6
+	^	26	0
+	.	25	4
+	+	27	0
+	+	25	4
+
+> \\192.168.60.10\Sistemas\004_Recursos_Graficos\shield\temas\README.md
+	*	1702366291	0
+	"	1	0
+
+> C:\tmp\002_bd\000_obj\Data\ObjID.bdt
+	*	1701435787	0
+	"	1	0
+
+> C:\tmp\002_bd\000_obj\Data\Device.bdt
+	*	1701435328	0
+	"	1	0
+
+> C:\tmp\002_bd\000_obj\Data\Mod.bdt
+	*	1701435296	0
+	"	1	0

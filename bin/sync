@@ -1,0 +1,104 @@
+#!/bin/bash
+# Script para actualizar máquinas de trabajo
+
+HOWCALLED=`basename $0`
+
+# Ficheros de cnf para actualizar en las máquinas
+DOTNEXUS=".bashrc bin .dircolors .tmux.conf .vimrc .vim"
+DOTCASIOPEA=".bashrc bin .dircolors .tmux.conf .vimrc .vim"
+
+# Colores
+c_yellow=$(tput setaf 11)
+c_blue=$(tput setaf 12)
+c_purple=$(tput setaf 13)
+c_red=$(tput setaf 9)
+c_none=$(tput sgr0)
+
+# Uso
+function usage() {
+  echo -e "${c_yellow}Sincronización de máquinas remotas de trabajo${c_none}"
+  echo
+  echo -e "Uso: ${c_blue}$HOWCALLED [copia] [opción]${c_none}"
+  echo
+  echo "Copias:"
+  echo -e "     ${c_red}pi${c_none}       : Kernel Jarvis a Rasp Pi 3 (personal)"
+  echo -e "     ${c_red}work${c_none}     : Work a portatil HP."
+  echo -e "     ${c_red}library${c_none}  : Líbreria a nexus"
+  echo -e "     ${c_red}curro${c_none}    : Curro a nexus"
+  echo -e "     ${c_red}nexus${c_none}    : dotfiles a nexus"
+  echo -e "     ${c_red}casiopea${c_none} : dotfiles a casiopea"
+  echo
+  echo "Opciones:"
+  echo -e "     ${c_red}-i${c_none} : Modo inverso. Destino a Origen."
+  echo -e "     ${c_red}-f${c_none} : Forzar. Ignorar archivos nuevos en destino."
+}
+
+HOWCALLED=`basename $0`
+EXCLUDE="$HOME/cnf/exclude_rsync"
+
+if [ $# -eq 0 ]
+ then
+   usage
+   exit 1
+fi
+
+case "$1" in
+    pi)
+        SOUR="/mnt/d/work/soft/jarvis/kernel"
+        DEST="-e ssh tunelia@pi:/home/tunelia/work/jarvis"
+        BCKP="/home/tunelia/work_backup"
+        ;;
+    work)
+        SOUR="/mnt/d/work"
+        DEST="-e ssh electro7@casiopea:/mnt/extra"
+        BCKP="/mnt/extra/work_backup"
+        ;;
+    library)
+        SOUR="/mnt/h/library"
+        DEST="-e ssh electro7@nexus:/mnt/extra"
+        BCKP="/mnt/extra/sync_backup"
+        ;;
+    curro)
+        SOUR="/mnt/h/curro"
+        DEST="-e ssh electro7@nexus:/mnt/extra"
+        BCKP="/mnt/extra/sync_backup"
+        ;;
+    nexus)
+        SOUR="${HOME}"
+        DEST="-e ssh electro7@nexus:/home/electro7"
+        DOT="${DOTNEXUS}"
+        ;;
+    casiopea)
+        SOUR="${HOME}"
+        DEST="-e ssh electro7@casiopea:/home/electro7"
+        DOT="${DOTCASIOPEA}"
+        ;;
+esac
+
+if [ "$2" == "-i" ] ; then
+    TEMP_SOUR=$DEST
+    TEMP_DEST=$SOUR
+    DEST=$TEMP_DEST
+    SOUR=$TEMP_SOUR
+    BCKP="/mnt/d/sync_backup"
+fi
+
+TEST=`rsync -avvun --exclude-from=$EXCLUDE $SOUR $DEST | grep "is newer"`
+NUM=`echo $TEST | wc -c`
+
+if [[ $NUM -lt 2 || "$2" == "-f" ]] ; then
+    echo -e "${c_blue}Enviando nuevos cambios a destino -> $DEST ${c_none}"
+    echo
+    if [[ -n "${DOT}" ]] ; then
+        cd $SOUR
+        rsync -L -W -avzzhi --progress \
+            --exclude-from=$EXCLUDE ${DOT} ${DEST}
+    else
+        rsync -p -W --chmod=ug+rwx -avzzhi --progress \
+            --exclude-from=$EXCLUDE -b --backup-dir=$BCKP $SOUR $DEST
+    fi
+else
+    echo -e "${c_yellow}¡ATENCIÓN! Nuevos cambios en destino! -> $DEST ${c_none}"
+    echo
+    echo $TEST
+fi

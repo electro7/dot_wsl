@@ -1,0 +1,81 @@
+#!/bin/bash
+# Script para limpiar directorios recursivamente
+
+HOWCALLED=`basename $0`
+
+# Colores
+C_G="\033[0;32m"    # Verde
+C_C="\033[0;36m"    # Cyan
+C_Y="\033[0;33m"    # Amarillo
+C_B="\033[0;34m"    # Blue
+C_P="\033[0;35m"    # Purple
+C_R="\033[0;31m"    # Rojo
+C_N="\033[0m"       # None
+
+# Uso
+function usage() {
+  echo -e "${C_Y}Limpieza de archivos y directorios basura recursivamente${C_N}"
+  echo
+  echo -e "Uso: ${C_B}$HOWCALLED [directorio]${C_N}"
+  echo
+  echo "Opciones:"
+  echo -e "    ${C_R}-c${C_N} : Limpia directorio de Shield/Cas"
+  echo -e "    ${C_R}-f${C_N} : Modo forzado, sin confirmación"
+  echo
+}
+
+DIR=$(pwd)
+FILES="*.blg *.ilk *.idb *.obj *.pch *.pdb *.ncb *.opt *.plg *.dvg *.sdf cas.blg cas.trp .*.swp"
+DIRS=".vs .gimp* .thumbnails .cache"
+CAS="logs mibs backup temp apps *copia*"
+CASFILES="trap.bdt trap0.bdt trap1.bdt cas.blg cas.trp shield.blg shield.trp"
+
+# Opciones
+while getopts "cfh" o; do
+    case "${o}" in
+        c)
+            DIRS=$CAS
+            FILES=$CASFILES
+            ;;
+        f)
+            FORCE="1"
+            ;;
+        h)
+            usage
+            exit 0
+            ;;
+    esac
+done
+
+if [ -z "$FORCE" ]; then 
+    echo
+    echo -n -e "${C_B}¿Desea borrar todos los ficheros temporales en $DIR? ${C_Y}[s/N]:${C_N} "
+    read si;
+else
+    si=y
+fi
+if test "$si" = "y" -o "$si" = "s"; then
+    cd $DIR
+    for F in $FILES
+        do find . -iname "$F" -type f -delete -print
+    done
+else
+    echo -e "${C_R}Cancelando...${C_N}";
+fi
+
+if [ -z "$FORCE" ]; then 
+    echo
+    echo -n -e "${C_B}¿Desea borrar todos los directorios temporales en $DIR? ${C_Y}[s/N]:${C_N} "
+    read si;
+else
+    si=y
+fi
+if test "$si" = "y" -o "$si" = "s"; then
+    cd $DIR
+    for F in $DIRS
+        do find . -iname "$F" -type d -print -exec rm -rf {} +
+    done
+else
+    echo -e "${C_R}Cancelado...${C_N}";
+fi
+

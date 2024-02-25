@@ -1,0 +1,88 @@
+﻿*markdown_cheatsheet.txt*    Ayuda raṕida MarkDown    Last Change: 26 Mar 2021
+
+CHEATSHEET                                               *markdown*
+
+Mi chuletario personal para escribir en markdown
+
+<NOTA>: Fenerar los tags para navegar por la ayuda -> ":helptags .vim/doc/"
+
+Énfasis~
+
+**bold**
+_italic_
+__bold__
+
+Enlaces~
+
+Un [ejemplo](http://url.com/ "Titulo")
+
+<http://www.google.es>
+
+Etiquetas~
+
+Una [etiqueta][id]. Después, en cualquier parte del documento, definir el
+elnace:
+
+[id]: http://example.com/  "Titulo"
+
+Imagenes~
+
+![texto](/path/img.jpg "Titulo")
+
+Encabezados~
+
+Header 1
+========
+
+Header 2
+--------
+
+# Header 1 #
+
+## Header 2 ##
+
+###### Header 6
+
+Listas~
+
+1.  Foo
+2.  Bar
+
+*   Una lista.  
+
+    Con varios parrafos.     
+
+*   Coche
+
+*   Abaco 
+    * pregunta
+*   Burbujas
+    1.  coche
+    2.  palomitas
+        * REFUERZO 
+    3. Burguer
+*   Calculadora
+
+Citas~
+
+> Texto entre comillas.
+> 
+> > Y puede estar anidado
+
+Código~
+
+~~~~
+Bloque de código
+~~~~
+
+``codigo en una línea``
+
+Reglas Horizontales~
+
+---
+
+* * *
+
+- - - - 
+
+vim:tw=78:sw=2:ts=2:nowrap:ft=help:norl:cole=2:et:

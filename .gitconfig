@@ -1,0 +1,43 @@
+[user]
+	name = Vicente Gimeno
+	email = vgimeno@tunelia.com
+[core]
+	editor = vim
+	filemode = false
+[pull]
+    rebase = false
+[fetch]
+    prune = false
+[rebase]
+    autoStash = false
+[diff]
+	tool = kdiff3
+[difftool "kdiff3"]
+	path = /mnt/c/Program Files/KDiff3/kdiff3.exe
+[difftool]
+    prompt = false
+    keepBackup = false
+    trustExitcode = false
+[alias]
+	d = difftool
+[merge]
+	tool = kdiff3
+[credential "http://192.168.60.10:10080"]
+    username = vgimeno
+	provider = gitlab
+[mergetool "kdiff3"]
+	path = /mnt/c/Program Files/KDiff3/kdiff3.exe
+	trustExitCode = true
+	keepBackup = false
+[difftool "kdiff3"]
+	path = /mnt/c/Program Files/KDiff3/kdiff3.exe
+[credential]
+	helper = store
+[safe]
+	directory = C:/work/soft/shd
+	directory = C:/work/soft/hlib
+	directory = C:/work/soft/timap
+	directory = C:/work/soft/000_misc/modbus
+	directory = C:/work/soft/jarvis
+[gui]
+	recentrepo = //192.168.60.10/Sistemas/004_Recursos_Graficos/shield/temas

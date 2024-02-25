@@ -1,0 +1,23 @@
+#!/bin/bash
+
+T='Hi!'   # The test text
+
+echo
+echo -n "    "
+for FG in {0..15}
+do
+    printf " %2d  " $FG
+done
+
+echo $(tput sgr0)
+
+for FG in {0..15}
+do
+    printf " %2d " $FG
+    for BG  in {0..15}
+        do echo -en "$(tput setab $BG)$(tput setaf $FG) $T "
+    done
+    echo $(tput sgr0)
+done
+
+echo $(tput sgr0)
