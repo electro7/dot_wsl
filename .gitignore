@@ -1,6 +1,7 @@
 .swp
 .uuid
 backup/*
+bin/jarvis_w32.exe
 .bash_*
 .cache/
 .config/*
@@ -20,6 +21,7 @@ backup/*
 .dmrc
 doc/*
 downloads/*
+downloads
 extra
 .esd_auth
 .fehbg
@@ -51,6 +53,8 @@ extra
 mail/*
 mbox
 music
+tmp
+work
 .mailcheckrc
 .mldonkey/*
 .mozilla/*
