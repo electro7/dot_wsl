@@ -75,6 +75,7 @@ tmp/*
 .vim/spell/*
 .vim/.netrwhist
 .viminfo
+_viminfo
 .vboxclient*
 .weechat/*
 !.weechat/*.conf
