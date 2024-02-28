@@ -65,6 +65,7 @@ work
 .pulse*
 .private/*
 .ssh/*
+.sudo*
 .themes/*
 .tmux/*
 .thumbnails/*
