@@ -1,7 +1,7 @@
 #
 # Recorrer todos los directorios de trabajo y da el estado de GIT
 #
-# E7 - 23 sep 2019 
+# E7 - 23 sep 2019
 
 
 # Colors
@@ -35,8 +35,8 @@ function g_status() {
   local c_clean="$c_green"
   local c_mod="$esc$c_yellow"
   local c_untrack="$c_red"
-  local c_ahead="$c_purple"
-  local c_begind="$c_purple"
+  local c_ahead="$c_red"
+  local c_behind="$c_red"
   local c_none="$c_none"
 
   # Char for status
@@ -79,7 +79,7 @@ function g_status() {
   fi
 
   # Total count
-  if [ $(( unmerged_c + mod_c + untrack + add_c )) -eq 0 ]
+  if [ $(( behind_c + unmerged_c + mod_c + untrack + add_c )) -eq 0 ]
   then
     is_clean=1
   fi
@@ -113,6 +113,7 @@ g_dirs=$(find . -name .gitignore)
 for D in ${g_dirs}
 do
   cd $(dirname ${D})
+  git remote update >/dev/null
   g_status
   cd ${c_pwd}
 done
