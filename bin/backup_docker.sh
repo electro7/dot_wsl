@@ -133,7 +133,7 @@ main () {
     done
 
     # Borra backups antiguos
-    find ${DEST_DIR} -type f -mtime +${SAVE_DAY}
+    find ${DEST_DIR} -type f -mtime +${SAVE_DAY} -delete
 }
 
 main
