@@ -3,7 +3,7 @@
 # Fichero de opciones del shell bash
 #
 # Electro7
-# 25 Feb 2024 
+# 25 Feb 2024
 # Versión común - WSL, debian y archlinux
 #======================================================================#
 
@@ -93,7 +93,7 @@ export QT_AUTO_SCREEN_SCALE_FACTOR=0
 #----------------------------------------------------------------------#
 
 # Alias WSL
-if [[ -n $(grep WSL /proc/version) ]]; then
+if [[ -n $(grep -E 'WSL|icrosoft' /proc/version) ]]; then
   alias start="/mnt/c/Windows/System32/cmd.exe /c "start""
   alias s="start"
   alias gv="start gvim.exe"
