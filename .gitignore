@@ -24,6 +24,7 @@ downloads/*
 downloads
 extra
 .esd_auth
+.dbus*
 .fehbg
 .fetchmailrc
 .fltk/*
