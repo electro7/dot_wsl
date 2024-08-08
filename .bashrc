@@ -161,11 +161,15 @@ alias vbox_ctrl="VBoxManage controlvm"
 alias vbox_ls="VBoxManage list vms"
 
 # SSH
-alias pi="ssh electro7@pi"
-alias pi_work="ssh electro7@pi"
-#alias pi_work="ssh tunelia@pi_work"
-alias nexus="ssh electro7@nexus"
-alias casiopea="ssh electro7@casiopea"
+alias ssh_spve="ssh root@spve.tunelia.com"
+alias ssh_o1pve="ssh root@192.168.60.91"
+alias ssh_o2pve="ssh root@192.168.60.92"
+alias ssh_git="ssh root@git.tunelia.com"
+alias ssh_obras="ssh root@obras.tunelia.com"
+alias ssh_plan="ssh root@plan.tunelia.com"
+alias ssh_dev="ssh root@proyect.tunelia.com"
+alias ssh_portainer="ssh tunelia@portainer.tunelia.com"
+alias ssh_wiki="ssh root@wiki.tunelia.com"
 
 #----------------------------------------------------------------------#
 # Funiones propias
