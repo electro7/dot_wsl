@@ -259,7 +259,7 @@ export SYS="Debian"
 
 # Borra temporal si existe
 if [ `ps -ef | grep ssh-agent | grep -v grep | wc -l` -eq 0 ]; then
-  rm -f /tmp/ssh-agent*
+  rm -f /tmp/ssh-agent* > /dev/null
 fi
 
 # attempt to connect to a running agent, sharing over sessions (putty)
