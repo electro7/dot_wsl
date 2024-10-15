@@ -170,6 +170,10 @@ alias ssh_plan="ssh root@plan.tunelia.com"
 alias ssh_dev="ssh root@proyectos.tunelia.com"
 alias ssh_portainer="ssh tunelia@portainer.tunelia.com"
 alias ssh_wiki="ssh root@wiki.tunelia.com"
+alias ssh_jarvis1="ssh tunelia@192.168.60.55"
+alias ssh_jarvis2="ssh tunelia@192.168.60.56"
+alias ssh_jarvis3="ssh tunelia@192.168.60.57"
+alias ssh_jarvis4="ssh tunelia@192.168.60.58"
 
 #----------------------------------------------------------------------#
 # Funiones propias
@@ -259,7 +263,7 @@ export SYS="Debian"
 
 # Borra temporal si existe
 if [ `ps -ef | grep ssh-agent | grep -v grep | wc -l` -eq 0 ]; then
-  rm -f /tmp/ssh-agent* > /dev/null
+  rm -f /tmp/ssh-agent* 2&> /dev/null
 fi
 
 # attempt to connect to a running agent, sharing over sessions (putty)

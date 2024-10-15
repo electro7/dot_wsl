@@ -27,7 +27,7 @@ syn keyword prgFunction         .action .autolink .jetio .lontcp .smodbus
 syn keyword prgFunction         .share .timetab .varcli .varser .webser
 syn keyword prgIdentifier       log warning trace rand error
 syn keyword prgIdentifier	validate remember name desc index enabled enable
-syn keyword prgIdentifier	enable disable setlength clearlength lenght
+syn keyword prgIdentifier	enable disable setlength clearlength length
 syn keyword prgIdentifier	beep hex dupindex dupstat shanswer loops
 syn keyword prgIdentifier	keyboard diginp time date clock shutdown
 syn keyword prgIdentifier	digout wday mday month year
