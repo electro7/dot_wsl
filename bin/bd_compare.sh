@@ -51,9 +51,9 @@ case "$1" in
     device)
         SRC=${2}/Data/Device.BDT
         DST=${3}/Data/Device.BDT
-        # Campos nombre, carpeta, módulo, objeto, código, tipo
-        vimdiff <(awk -F',' '{print $2,"Fol="$3,"Mod="$8,"Obj="$9,"Cod="$11,"Typ="$12}' ${SRC}) \
-            <(awk -F',' '{print $2,"Fol="$3,"Mod="$8,"Obj="$9,"Cod="$11,"Typ="$12}' ${DST})
+        # Campos nombre, carpeta, módulo, código, tipo
+        vimdiff <(awk -F',' '{print $2,"Fol="$3,"Mod="$8,"Cod="$11,"Typ="$12}' ${SRC}) \
+            <(awk -F',' '{print $2,"Fol="$3,"Mod="$8,"Cod="$11,"Typ="$12}' ${DST})
         ;;
     refvar)
         SRC=${2}/Data/RefVar.BDT

@@ -20,7 +20,7 @@ dos2unix *.prg *.dev *.sh siga.* 2&>/dev/null
 echo " OK"
 echo --------------------------------------------------------------------------
 echo -e "Comprimiendo..."
-tar czvf autom.tar.gz * .bashrc .vimrc
+tar czvf autom.tar.gz * .bashrc .vimrc 
 mv autom.tar.gz ..
 cd ..
 rm -rf tmp

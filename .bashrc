@@ -161,23 +161,33 @@ alias vbox_ctrl="VBoxManage controlvm"
 alias vbox_ls="VBoxManage list vms"
 
 # SSH
-alias ssh_spve="ssh root@spve.tunelia.com"
-alias ssh_o1pve="ssh root@192.168.60.91"
-alias ssh_o2pve="ssh root@192.168.60.92"
+alias ssh_proxmox1="ssh root@spve.tunelia.com"
+alias ssh_proxmox2="ssh root@192.168.60.91"
+alias ssh_proxmox3="ssh root@192.168.60.92"
+alias ssh_proxmox4="ssh root@192.168.70.241"
 alias ssh_git="ssh root@git.tunelia.com"
 alias ssh_man="ssh root@obras.tunelia.com"
 alias ssh_plan="ssh root@plan.tunelia.com"
 alias ssh_dev="ssh root@proyectos.tunelia.com"
-alias ssh_portainer="ssh tunelia@portainer.tunelia.com"
+alias ssh_portainer1="ssh tunelia@portainer.tunelia.com"
+alias ssh_portainer2="ssh tunelia@192.168.60.95"
 alias ssh_wiki="ssh root@wiki.tunelia.com"
 alias ssh_jarvis1="ssh tunelia@192.168.60.55"
 alias ssh_jarvis2="ssh tunelia@192.168.60.56"
 alias ssh_jarvis3="ssh tunelia@192.168.60.57"
 alias ssh_jarvis4="ssh tunelia@192.168.60.58"
+alias ssh_wazuh="ssh root@wazuh.tunelia.com"
+alias ssh_siem="ssh root@siem.tunelia.com"
+alias ssh_testlink="ssh root@192.168.60.106"
 
 #----------------------------------------------------------------------#
 # Funiones propias
 #----------------------------------------------------------------------#
+
+# MSTSC
+mstsc() {
+  start mstsc.exe /v:$1 /w:1920 /h:1080 /noConsentPrompt
+}
 
 # Cambiar a directorio obras
 cdc() {
