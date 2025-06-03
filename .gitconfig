@@ -41,3 +41,8 @@
 	directory = C:/work/soft/jarvis
 [gui]
 	recentrepo = //192.168.60.10/Sistemas/004_Recursos_Graficos/shield/temas
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true

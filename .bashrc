@@ -180,6 +180,9 @@ alias ssh_wazuh="ssh root@wazuh.tunelia.com"
 alias ssh_siem="ssh root@siem.tunelia.com"
 alias ssh_testlink="ssh root@192.168.60.106"
 
+# Alias util
+alias view_net="sudo ss -tuanp"
+alias view_con="sudo lsof -i -np"
 #----------------------------------------------------------------------#
 # Funiones propias
 #----------------------------------------------------------------------#
