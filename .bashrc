@@ -135,6 +135,8 @@ alias gg="git pull"
 alias gd="git diff"
 alias greset="git reset --hard"
 alias gco="git checkout"
+alias gb="git branch"
+alias gm="git merge"
 
 # Mis chuletas
 alias chuleta="vim ~/.vim/doc/chuletario.txt"
