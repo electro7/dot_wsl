@@ -1,5 +1,6 @@
 .swp
 .uuid
+AppData/*
 backup/*
 bin/jarvis_w32.exe
 .bash_*

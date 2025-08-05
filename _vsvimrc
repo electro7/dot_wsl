@@ -21,6 +21,7 @@ set tabstop=4
 set backspace=2
 set nowrap
 set textwidth=80
+set guicursor=
 
 " Search
 set hlsearch
