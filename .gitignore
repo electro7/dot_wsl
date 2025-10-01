@@ -68,6 +68,7 @@ soft
 .pulse*
 .private/*
 .ssh/*
+.ssh
 .sudo*
 .themes/*
 .tmux/*
