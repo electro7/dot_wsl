@@ -226,11 +226,14 @@ nnoremap <leader>x :BD<CR>
 " [F5] Run compilers
 nnoremap <silent> <F5> :call ExecCompiler()<CR>
 " [F9] Show Tags
-noremap <F9> :TagbarToggle<CR>
+"noremap <F9> :TagbarToggle<CR>
+noremap <leader>c :TagbarToggle<CR>
 " [F10] Show File explorer
-noremap <F10> :NERDTreeFind<CR>
+"noremap <F10> :NERDTreeFind<CR>
+noremap <leader>f :NERDTreeFind<CR>
 " [F11] Buffer explorer
-noremap <F11> :ToggleBufExplorer<CR>
+" noremap <F11> :ToggleBufExplorer<CR>
+noremap <leader>b :ToggleBufExplorer<CR>
 "noremap <F11> :CtrlPBuffer<CR>
 
 "}}}

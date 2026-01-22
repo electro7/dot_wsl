@@ -58,6 +58,7 @@ music
 tmp
 work
 soft
+ssh_key
 .mailcheckrc
 .mldonkey/*
 .mozilla/*

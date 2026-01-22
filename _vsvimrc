@@ -80,12 +80,14 @@ nnoremap <leader>vr :source $HOME/_vsvimrc<CR>
 nnoremap <leader>w :%s/\s\+$\\| \+\ze\t//gce<CR>
 " Ir a la definición
 nmap <leader>gd :vsc Edit.GoToDefinition<CR>
+nmap <leader>gf :vsc Edit.GoToDefinition<CR>
+nmap <leader>g :vsc Edit.GoToDefinition<CR>
 " Ir al explorador de soluciones
 nmap <leader>f :vsc View.SolutionExplorer<CR>
 " Ir al explorador de recursos
-nmap <leader>fr :vsc View.ResourceView<CR>
+nmap <leader>r :vsc View.ResourceView<CR>
 " Ir al visor de clases (tags)
-nmap <leader>fc :vsc View.ClassView<CR>
+nmap <leader>c :vsc View.ClassView<CR>
 " Ir a las propiedades
 nmap <leader>p :vsc View.PropertiesWindow<CR>
 " Ir a la barra de navegación
