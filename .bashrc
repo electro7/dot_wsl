@@ -94,7 +94,7 @@ export QT_AUTO_SCREEN_SCALE_FACTOR=0
 
 # Alias WSL
 if [[ -n $(grep -E 'WSL|icrosoft' /proc/version) ]]; then
-  alias start="/mnt/c/Windows/System32/cmd.exe /c "start""
+  alias start="explorer.exe"
   alias s="start"
   alias gv="start gvim.exe"
   alias ping='sudo ping'
@@ -196,8 +196,14 @@ mstsc() {
 
 # Cambiar a directorio obras
 cdc() {
-  cd $(find /mnt/c/work/obras -maxdepth 3 -type d -name *$1* | tail -n 1)
+  cd "$(find /mnt/c/work/obras -maxdepth 3 -type d -iname *$1* | tail -n 1)"
 }
+
+# Cambiar a directorio obras en NAS
+cdo() {
+  cd "$(find /mnt/z -maxdepth 1 -type d -iname *$1* | tail -n 1)"
+}
+
 
 # Busqueda recursiva
 gr() {

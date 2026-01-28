@@ -21,7 +21,6 @@ set tabstop=4
 set backspace=2
 set nowrap
 set textwidth=80
-set guicursor=
 
 " Search
 set hlsearch
@@ -85,7 +84,7 @@ nmap <leader>g :vsc Edit.GoToDefinition<CR>
 " Ir al explorador de soluciones
 nmap <leader>f :vsc View.SolutionExplorer<CR>
 " Ir al explorador de recursos
-nmap <leader>r :vsc View.ResourceView<CR>
+nmap <leader>t :vsc View.ResourceView<CR>
 " Ir al visor de clases (tags)
 nmap <leader>c :vsc View.ClassView<CR>
 " Ir a las propiedades
