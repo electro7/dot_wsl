@@ -34,6 +34,26 @@ set magic
 set timeout timeoutlen=500 ttimeout ttimeoutlen=100
 
 "}}}
+" Abreviations {{{
+" -----------------------------------------------------------------------------
+
+" Time
+iab _datetime <C-R>=strftime("%a %b %d %T %Z %Y")<CR>
+iab _time <C-R>=strftime("%H:%M")<CR>
+iab _date <C-R>=strftime("%d %b %Y")<CR>
+
+" Personal
+iab _name Vicente Gimeno Morales
+iab _mail vgimeno@tunelia.com
+
+" HOME
+iab _home ~/
+
+" Comments
+iab _cc // ----------------------------------------------------------------------------
+iab _ct ///////////////////////////////////////////////////////////////////////////////
+ 
+"}}}
 " Mappings :help key-notation  {{{
 " -----------------------------------------------------------------------------
 
