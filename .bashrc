@@ -98,6 +98,7 @@ if [[ -n $(grep -E 'WSL|icrosoft' /proc/version) ]]; then
   alias s="start"
   alias gv="start gvim.exe"
   alias ping='sudo ping'
+  alias z="sudo mount -t drvfs '\\\\192.168.60.10\\obras' /mnt/z"
 fi
 
 # Alias contra borrados accidentales.
@@ -138,6 +139,31 @@ alias gco="git checkout"
 alias gb="git branch"
 alias gm="git merge"
 
+# Alias/Función para crear commit, tag y subir todo
+gtag() {
+  if [ -z "$1" ]; then
+    echo "Error: Debes indicar la versión."
+    echo "Uso: gtag <versión>"
+    echo "Ejemplo: gtag v1.2.0"
+    return 1
+  fi
+
+  git add .
+
+  # Abrir el editor para el mensaje extenso
+  echo "Abriendo editor para el mensaje del commit..."
+  if git commit; then
+    # Capturamos el mensaje
+    local MSG=$(git log -1 --pretty=%B)
+    git tag -a "$1" -m "$MSG"
+    git push origin --all
+    git push origin --tags
+    echo "Todo subido: Rama y Tag $1"
+  else
+    echo "Commit cancelado. No se creó el tag."
+  fi
+}
+
 # Mis chuletas
 alias chuleta="vim ~/.vim/doc/chuletario.txt"
 alias todo="vim ~/work/ToDo.txt"
@@ -163,10 +189,11 @@ alias vbox_ctrl="VBoxManage controlvm"
 alias vbox_ls="VBoxManage list vms"
 
 # SSH
-alias ssh_proxmox1="ssh root@spve.tunelia.com"
-alias ssh_proxmox2="ssh root@192.168.60.91"
-alias ssh_proxmox3="ssh root@192.168.60.92"
-alias ssh_proxmox4="ssh root@192.168.70.241"
+alias ssh_sistemas="ssh root@192.168.60.90"
+alias ssh_ofi1="ssh root@192.168.60.91"
+alias ssh_ofi2="ssh root@192.168.60.92"
+alias ssh_ofi3="ssh root@192.168.60.93"
+alias ssh_taller="ssh root@192.168.70.241"
 alias ssh_git="ssh root@git.tunelia.com"
 alias ssh_man="ssh root@obras.tunelia.com"
 alias ssh_plan="ssh root@plan.tunelia.com"
@@ -180,11 +207,11 @@ alias ssh_jarvis2="ssh tunelia@192.168.60.57"
 alias ssh_jarvis3="ssh tunelia@192.168.60.58"
 alias ssh_wazuh="ssh root@wazuh.tunelia.com"
 alias ssh_siem="ssh root@siem.tunelia.com"
-alias ssh_testlink="ssh root@192.168.60.106"
 
 # Alias util
 alias view_net="sudo ss -tuanp"
 alias view_con="sudo lsof -i -np"
+
 #----------------------------------------------------------------------#
 # Funiones propias
 #----------------------------------------------------------------------#
@@ -201,13 +228,18 @@ cdc() {
 
 # Cambiar a directorio obras en NAS
 cdo() {
+  sudo mount -t drvfs '\\192.168.60.10\obras' /mnt/z
   cd "$(find /mnt/z -maxdepth 1 -type d -iname *$1* | tail -n 1)"
 }
 
-
 # Busqueda recursiva
 gr() {
-  grep -rin . -e "$1"
+  if [ -z "$1" ] || [ -z "$2" ]; then
+    echo "Uso: gr <texto_a_buscar> <extension>"
+    echo "Ejemplo: gr hola  *.prg"
+    return 1
+  fi
+  grep -rain . -e "$1" --include="$2"
 }
 
 # Arrancar y parar máquinas vituales de vbox
