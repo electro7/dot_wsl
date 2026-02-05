@@ -205,6 +205,11 @@ alias ssh_jarvis0="ssh tunelia@192.168.60.55"
 alias ssh_jarvis1="ssh tunelia@192.168.60.56"
 alias ssh_jarvis2="ssh tunelia@192.168.60.57"
 alias ssh_jarvis3="ssh tunelia@192.168.60.58"
+alias ssh_jarvis4="ssh tunelia@192.168.60.59"
+alias ssh_wine1="ssh tunelia@192.168.60.61"
+alias ssh_wine2="ssh tunelia@192.168.60.62"
+alias ssh_jarvis5="ssh tunelia@192.168.60.63"
+alias ssh_jarvis_sim="ssh tunelia@192.168.60.64"
 alias ssh_wazuh="ssh root@wazuh.tunelia.com"
 alias ssh_siem="ssh root@siem.tunelia.com"
 
@@ -250,6 +255,10 @@ vbox_off() {
   VBoxManage controlvm $1 savestate
 }
 
+# Contar líneas de código
+code_cnt() {
+  find . \( -name "*.c" -o -name "*.cpp" -o -name "*.h" \) -exec wc -l {} +
+}
 #----------------------------------------------------------------------#
 # OTROS
 #----------------------------------------------------------------------#

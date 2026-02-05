@@ -46,3 +46,7 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+[pager]
+	branch = less -F -X
+	log = less -F -X
+	diff = less -F -X
