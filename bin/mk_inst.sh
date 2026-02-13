@@ -7,7 +7,8 @@ COMMON="/mnt/c/work/obras/000_common/"
 if [ -e autom.tar.gz ]; then rm -f autom.tar.gz; fi
 if [ -d tmp ]; then rm -rf tmp; fi
 mkdir tmp
-cp  ${COMMON}* ${COMMON}.* tmp 2>/dev/null
+cp  ${COMMON}.* tmp 2>/dev/null
+cp  ${COMMON}autom.sh tmp 2>/dev/null
 cp * .bashrc .vimrc .virc tmp 2>/dev/null
 cd tmp
 echo --------------------------------------------------------------------------

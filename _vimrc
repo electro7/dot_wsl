@@ -31,7 +31,7 @@ Plugin 'gmarik/Vundle.vim'
 "Plugin 'Shougo/unite.vim'                  " Find files and buffers using ag
 "Plugin 'bling/vim-airline'                  " Pretty statusbar :h vim-airline
 "Plugin 'edkolev/promptline.vim'             " Prompt generator for bash
-"Plugin 'godlygeek/tabular'                  " Text alignment (:h tabular)
+Plugin 'godlygeek/tabular'                  " Text alignment (:h tabular)
 Plugin 'jlanzarotta/bufexplorer'            " Buffer explorer
 Plugin 'tmux-plugins/vim-tmux-focus-events' " tmux integration
 Plugin 'itchyny/lightline.vim'              " Light statusbar
@@ -220,7 +220,7 @@ nnoremap <silent> <leader>w ma<bar>:%s/\s\+$\\| \+\ze\t//ge<CR><bar>'a<bar>:nohl
 " [x] Close current buffer without close panel (bufkill)
 nnoremap <leader>x :BD<CR>
 
-" Function keys
+" Keys for plugins
 " ···············································
 " [F2] Multiple cursor select all
 " [F5] Run compilers
@@ -235,6 +235,8 @@ noremap <leader>f :NERDTreeFind<CR>
 " noremap <F11> :ToggleBufExplorer<CR>
 noremap <leader>b :ToggleBufExplorer<CR>
 "noremap <F11> :CtrlPBuffer<CR>
+" Simplemente añadir delimitador y ENTER
+noremap <leader>t :Tabularize /
 
 "}}}
 " Abreviations {{{

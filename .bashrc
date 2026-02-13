@@ -99,6 +99,7 @@ if [[ -n $(grep -E 'WSL|icrosoft' /proc/version) ]]; then
   alias gv="start gvim.exe"
   alias ping='sudo ping'
   alias z="sudo mount -t drvfs '\\\\192.168.60.10\\obras' /mnt/z"
+  alias diff="/mnt/c/datos/curro/soft/000_misc/WinMerge/WinMergeU.exe"
 fi
 
 # Alias contra borrados accidentales.
