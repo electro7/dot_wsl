@@ -15,24 +15,22 @@
     username = vgimeno
     provider = gitlab
 [diff]
-    tool = winmerge
-    external = git_merge.sh
+    tool = vimdiff
 [difftool]
     prompt = false
-[difftool "wimerge"]
-    cmd = git_merge.sh "$LOCAL" "$REMOTE"
+[difftool "vimdiff"]
+    path = /usr/bin/vimdiff
     keepBackup = false
     trustExitcode = false
-    prompt = false
-[alias]
-    d = diff
-    m = mergetool
 [merge]
     tool = winmerge
 [mergetool "winmerge"]
     cmd = git_merge.sh "$LOCAL" "$REMOTE"
     trustExitCode = true
     keepBackup = false
+[alias]
+    d = difftool
+   m = mergetool
 [credential]
     helper = store
 [safe]
