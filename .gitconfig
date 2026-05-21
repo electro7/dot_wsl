@@ -1,52 +1,52 @@
 [user]
-	name = Vicente Gimeno
-	email = vgimeno@tunelia.com
+    name = Vicente Gimeno
+    email = vgimeno@tunelia.com
 [core]
-	editor = vim
-	filemode = false
+    editor = vim
+    filemode = false
+    autocrlf = input
 [pull]
     rebase = false
 [fetch]
     prune = false
 [rebase]
     autoStash = false
-[diff]
-	tool = kdiff3
-[difftool "kdiff3"]
-	path = /mnt/c/Program Files/KDiff3/kdiff3.exe
-[difftool]
-    prompt = false
-    keepBackup = false
-    trustExitcode = false
-[alias]
-	d = difftool
-[merge]
-	tool = kdiff3
 [credential "http://192.168.60.10:10080"]
     username = vgimeno
-	provider = gitlab
-[mergetool "kdiff3"]
-	path = /mnt/c/Program Files/KDiff3/kdiff3.exe
-	trustExitCode = true
-	keepBackup = false
-[difftool "kdiff3"]
-	path = /mnt/c/Program Files/KDiff3/kdiff3.exe
+    provider = gitlab
+[diff]
+    tool = winmerge
+    external = git_merge.sh
+[difftool]
+    prompt = false
+[difftool "wimerge"]
+    cmd = git_merge.sh "$LOCAL" "$REMOTE"
+    keepBackup = false
+    trustExitcode = false
+    prompt = false
+[alias]
+    d = diff
+    m = mergetool
+[merge]
+    tool = winmerge
+[mergetool "winmerge"]
+    cmd = git_merge.sh "$LOCAL" "$REMOTE"
+    trustExitCode = true
+    keepBackup = false
 [credential]
-	helper = store
+    helper = store
 [safe]
-	directory = C:/work/soft/shd
-	directory = C:/work/soft/hlib
-	directory = C:/work/soft/timap
-	directory = C:/work/soft/000_misc/modbus
-	directory = C:/work/soft/jarvis
-[gui]
-	recentrepo = //192.168.60.10/Sistemas/004_Recursos_Graficos/shield/temas
+    directory = C:/work/soft/shd
+    directory = C:/work/soft/hlib
+    directory = C:/work/soft/timap
+    directory = C:/work/soft/000_misc/modbus
+    directory = C:/work/soft/jarvis
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
 [pager]
-	branch = less -F -X
-	log = less -F -X
-	diff = less -F -X
+    branch = less -F -X
+    log = less -F -X
+    diff = less -F -X

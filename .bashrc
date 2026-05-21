@@ -227,15 +227,76 @@ mstsc() {
   start mstsc.exe /v:$1 /w:1920 /h:1080 /noConsentPrompt
 }
 
+# OBRAS
+#----------------------------------------#
 # Cambiar a directorio obras
 cdc() {
   cd "$(find /mnt/c/work/obras -maxdepth 3 -type d -iname *$1* | tail -n 1)"
 }
-
 # Cambiar a directorio obras en NAS
 cdo() {
   sudo mount -t drvfs '\\192.168.60.10\obras' /mnt/z
   cd "$(find /mnt/z -maxdepth 1 -type d -iname *$1* | tail -n 1)"
+}
+cds() {
+  cdo $*
+  cd 03*/
+  cd 02*/
+}
+lip() {
+  pushd . > /dev/null
+  cdo $*
+
+  if cd 03*/ && cd 02*/; then
+    local ip_file
+    ip_file=$(command ls -1 | grep -i "IP" | head -n 1)
+    if [ -n "$ip_file" ]; then
+      echo "Lanzando: $ip_file"
+      start "$ip_file"
+    else
+      echo "No se encontró ningún archivo con 'IP' en $(pwd)"
+    fi
+  else
+    echo "No se puedo acceder a la ruta."
+  fi
+
+  popd > /dev/null
+}
+lsi() {
+  pushd . > /dev/null
+  cdo "$@"
+
+  if cd 03*/ && cd 02*/; then
+    local si_files=()
+    mapfile -t si_files < <(command ls -1 | grep -i "señal")
+
+    local total=${#si_files[@]}
+
+    if [ "$total" -eq 0 ]; then
+      echo "No se encontró ningún archivo con 'señal' en $(pwd)"
+    elif [ "$total" -eq 1 ]; then
+      echo "Lanzando: ${si_files[0]}"
+      start "${si_files[0]}"
+    else
+      echo "Se encontraron varios. Selecciona uno:"
+      local old_ps3=$PS3
+      PS3="¿Número? (Ctrl+C cancela): "
+      select opt in "${si_files[@]}"; do
+        if [ -n "$opt" ]; then
+          echo "Lanzando: $opt"
+          start "$opt"
+          break
+        else
+          echo "Opción no válida."
+        fi
+      done
+      PS3=$old_ps3 # Restauramos el prompt original
+    fi
+  else
+    echo "No se pudo acceder a la ruta."
+  fi
+
+  popd > /dev/null
 }
 
 # Busqueda recursiva
