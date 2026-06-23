@@ -134,11 +134,11 @@ alias gcm="git commit -a -m"
 alias gs="git status"
 alias gp="git push"
 alias gg="git pull"
-alias gd="git diff"
+alias gd="git difftool"
 alias greset="git reset --hard"
 alias gco="git checkout"
 alias gb="git branch"
-alias gm="git merge"
+alias gm="git mergetool"
 
 # Alias/Función para crear commit, tag y subir todo
 gtag() {
@@ -248,17 +248,35 @@ lip() {
   cdo $*
 
   if cd 03*/ && cd 02*/; then
-    local ip_file
-    ip_file=$(command ls -1 | grep -i "IP" | head -n 1)
-    if [ -n "$ip_file" ]; then
-      echo "Lanzando: $ip_file"
-      start "$ip_file"
-    else
+    local si_files=()
+    mapfile -t si_files < <(command ls -1 | grep -i "IP")
+
+    local total=${#si_files[@]}
+
+    if [ "$total" -eq 0 ]; then
       echo "No se encontró ningún archivo con 'IP' en $(pwd)"
+    elif [ "$total" -eq 1 ]; then
+      echo "Lanzando: ${si_files[0]}"
+      start "${si_files[0]}"
+    else
+      echo "Se encontraron varios. Selecciona uno:"
+      local old_ps3=$PS3
+      PS3="¿Número? (Ctrl+C cancela): "
+      select opt in "${si_files[@]}"; do
+        if [ -n "$opt" ]; then
+          echo "Lanzando: $opt"
+          start "$opt"
+          break
+        else
+          echo "Opción no válida."
+        fi
+      done
+      PS3=$old_ps3 # Restauramos el prompt original
     fi
   else
-    echo "No se puedo acceder a la ruta."
+    echo "No se pudo acceder a la ruta."
   fi
+
 
   popd > /dev/null
 }
