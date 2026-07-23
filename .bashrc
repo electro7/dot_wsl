@@ -320,8 +320,8 @@ lsi() {
 # Busqueda recursiva
 gr() {
   if [ -z "$1" ] || [ -z "$2" ]; then
-    echo "Uso: gr <texto_a_buscar> <extension>"
-    echo "Ejemplo: gr hola  *.prg"
+    echo "Uso: gr \"texto_a_buscar\" \"extension\""
+    echo "Ejemplo: gr \"hola\" \"*.prg\""
     return 1
   fi
   grep -rain . -e "$1" --include="$2"
