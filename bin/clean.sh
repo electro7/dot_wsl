@@ -28,7 +28,7 @@ DIR=$(pwd)
 FILES="*.blg *.ilk *.idb *.obj *.pch *.pdb *.ncb *.opt *.plg *.dvg *.sdf cas.blg cas.trp .*.swp"
 DIRS=".vs .gimp* .thumbnails .cache"
 CAS="logs mibs backup temp apps *copia*"
-CASFILES="trap.bdt trap0.bdt trap1.bdt cas.blg cas.trp shield.blg shield.trp"
+CASFILES="trap.bdt trap0.bdt trap1.bdt cas.blg cas.trp shield.blg shield.trp Trap.bdt Trap0.bdt Trap1.bdt"
 
 # Opciones
 while getopts "cfh" o; do
@@ -47,7 +47,7 @@ while getopts "cfh" o; do
     esac
 done
 
-if [ -z "$FORCE" ]; then 
+if [ -z "$FORCE" ]; then
     echo
     echo -n -e "${C_B}¿Desea borrar todos los ficheros temporales en $DIR? ${C_Y}[s/N]:${C_N} "
     read si;
@@ -63,7 +63,7 @@ else
     echo -e "${C_R}Cancelando...${C_N}";
 fi
 
-if [ -z "$FORCE" ]; then 
+if [ -z "$FORCE" ]; then
     echo
     echo -n -e "${C_B}¿Desea borrar todos los directorios temporales en $DIR? ${C_Y}[s/N]:${C_N} "
     read si;

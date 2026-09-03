@@ -48,3 +48,5 @@
     branch = less -F -X
     log = less -F -X
     diff = less -F -X
+[credential "http://git.tunelia.com"]
+	provider = generic
