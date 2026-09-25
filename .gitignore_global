@@ -59,3 +59,14 @@ ehthumbs.db
 ###################
 .hg/
 .svn/
+
+# SHield #
+###################
+Trap.bdt
+Trap0.bdt
+Trap1.bdt
+
+# Jarvis #
+###################
+*.pst
+*.psk

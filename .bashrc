@@ -239,13 +239,13 @@ cdo() {
   cd "$(find /mnt/z -maxdepth 1 -type d -iname *$1* | tail -n 1)"
 }
 cds() {
-  cdo $*
+  cdo "$*"
   cd 03*/
   cd 02*/
 }
 lip() {
   pushd . > /dev/null
-  cdo $*
+  cdo "$*"
 
   if cd 03*/ && cd 02*/; then
     local si_files=()

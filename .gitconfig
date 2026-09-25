@@ -5,6 +5,7 @@
     editor = vim
     filemode = false
     autocrlf = input
+	excludesfile = /home/vgimeno/.gitignore_global
 [pull]
     rebase = false
 [fetch]
