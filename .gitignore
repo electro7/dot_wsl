@@ -95,3 +95,9 @@ _viminfo
 .zprezto/*
 .zcompdump
 .zhistory
+.claude/*
+!.claude/CLAUDE.md
+.claude.json
+.claude.json.tmp.*
+.local/*
+!.local/share/
