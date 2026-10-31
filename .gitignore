@@ -97,6 +97,7 @@ _viminfo
 .zhistory
 .claude/*
 !.claude/CLAUDE.md
+!.claude/statusline.sh
 .claude.json
 .claude.json.tmp.*
 .local/*

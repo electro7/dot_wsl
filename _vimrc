@@ -8,7 +8,7 @@
 " - linux -> ~/.vimrc
 " - win -> $HOME/_vimrc
 "
-" Electro7 - Version 3.4 - 25 Feb 2024 
+" Electro7 - Version 3.4 - 25 Feb 2024
 "==============================================================================
 
 " Vim Plugins {{{
@@ -75,6 +75,8 @@ if has('gui_running') | sil! set guifont=Consolas:h9 lines=60 columns=90
 sil! set autoindent expandtab shiftwidth=4 softtabstop=4 tabstop=4 smarttab
 sil! set backspace=2 nowrap textwidth=0 foldcolumn=0 nofoldenable foldignore=
 sil! set foldlevelstart=99 foldmethod=indent foldnestmax=1 autoread mouse=a
+" En modo diff no plegar las zonas iguales (por omision vim las pliega)
+sil! set diffopt+=context:99999
 sil! set hidden modeline
 
 " Insert completion
@@ -258,8 +260,8 @@ iab _home ~/
 iab _cc <C-R>="// " . repeat("-", 76)<CR><CR>
 iab _ct <C-R>="/" . repeat("/", 78)<CR><CR>
 iab _cm ```c<CR>```<esc>O
- 
-  
+
+
 " -----------------------------------------------------------------------------
 "}}}
 " Plugin Settings {{{
