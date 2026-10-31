@@ -3,10 +3,13 @@
 #   ┌[directorio]─[rama ↑n ↓n ≈n ●n …]─[modelo ctx%]
 # Claude Code envia por stdin un JSON con los datos de la sesion.
 
-IFS=$'\t' read -r model dir ctx < <(
+IFS=$'\t' read -r model eff dir ctx r5 r7 < <(
     jq -r '[.model.display_name // .model.id // "?",
+            (.effort.level // .effort // "-" | tostring),
             .workspace.current_dir // .cwd // "-",
-            (.context_window.used_percentage // "-" | tostring)] | @tsv'
+            (.context_window.used_percentage // "-" | tostring),
+            (.rate_limits.five_hour.used_percentage // "-" | tostring),
+            (.rate_limits.seven_day.used_percentage // "-" | tostring)] | @tsv'
 )
 [ "$dir" = "-" ] && dir=$PWD
 
@@ -31,7 +34,7 @@ if (( off > 0 )); then
     new_pwd="../${new_pwd#*/}"
 fi
 
-out="${c_dg}┌[${c_gy}${new_pwd}${c_dg}]"
+out="${c_dg}[${c_gy}${new_pwd}${c_dg}]"
 
 # --no-optional-locks: no pelear por el indice con git del usuario.
 # -uno: no recorrer ficheros sin seguimiento (lento en /mnt/c).
@@ -66,9 +69,47 @@ if st=$(git -C "$dir" --no-optional-locks status --porcelain -b -uno 2>/dev/null
     out+="${g}${c_dg}]"
 fi
 
-# Modelo y contexto usado
+# Bloque 1, alineado a la derecha: [modelo | esfuerzo | % de contexto]
+sep="${c_dg} | "
 info="${c_cy}${model}"
-[ "$ctx" != "-" ] && info+="${c_gy} $(printf '%.0f' "$ctx")%"
-out+="${c_dg}─[${info}${c_dg}]${c_of}"
+[ "$eff" != "-" ] && info+="${sep}${c_gy}${eff}"
+[ "$ctx" != "-" ] && info+="${sep}${c_gy}$(printf '%.0f' "$ctx")%"
+right="${c_dg}[${info}${c_dg}]"
+
+# Bloque 2: [now % | week %], consumo del limite de la sesion (5 h) y de la semana.
+# Solo existe con suscripcion Claude.ai y tras la primera respuesta.
+# Color: gris <70%, amarillo >=70%, rojo >=90%.
+quota() {    # quota etiqueta porcentaje
+    local p c
+    p=$(printf '%.0f' "$2")
+    c=$c_gy
+    (( p >= 70 )) && c=$c_ye
+    (( p >= 90 )) && c=$c_rd
+    printf '%s%s %s%%' "$c" "$1" "$p"
+}
+q=""
+[ "$r5" != "-" ] && q+="$(quota now "$r5")"
+[ "$r7" != "-" ] && q+="${q:+$sep}$(quota week "$r7")"
+[ -n "$q" ] && right+=" ${c_dg}[${q}${c_dg}]"
+right+="${c_of}"
+
+# Ancho del terminal: COLUMNS, o el tty de control; si no hay, sin alinear
+cols=${COLUMNS:-}
+[[ $cols =~ ^[0-9]+$ ]] || cols=$(stty size </dev/tty 2>/dev/null | cut -d' ' -f2)
+[[ $cols =~ ^[0-9]+$ ]] || cols=0
+
+# Longitud visible (sin secuencias de color)
+strip() { sed -e $'s/\e\\[[0-9;]*m//g' <<< "$1"; }
+l=$(strip "$out");   l=${#l}
+r=$(strip "$right"); r=${#r}
+
+margen=4    # Claude Code deja un pequeno margen a los lados
+pad=$(( cols - margen - l - r ))
+if (( cols > 0 && pad >= 1 )); then
+    printf -v sp '%*s' "$pad" ''
+    out+="${c_of}${sp}${right}"
+else
+    out+="${c_dg}─${right}"
+fi
 
 printf '%s\n' "$out"
