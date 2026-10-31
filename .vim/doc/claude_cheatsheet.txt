@@ -1,0 +1,82 @@
+﻿*claude_cheatsheet.txt*    Claude Code: comandos y atajos   Last change: 31 oct 2026
+
+CLAUDE CODE                                                     *claude* *claude_cheat*
+
+Chuleta de Claude Code en la consola de WSL1. Para la lista actual: /help
+
+==============================================================================
+CONTENIDO                                                *claude_contenido*
+
+- Comandos con /                                        |claude_comandos|
+- Atajos de teclado                                     |claude_atajos|
+- Prefijos en el mensaje                                |claude_prefijos|
+- Modos de permisos                                     |claude_modos|
+- Desde la línea de comandos                            |claude_cli|
+- Mi flujo de trabajo                                   |claude_flujo|
+
+==============================================================================
+
+------------------------------------------------------------------------------
+COMANDOS CON /                                               *claude_comandos*
+
+  /help         : Lista de comandos (la fuente más fiable)
+  /clear        : Conversación nueva y limpia (al cambiar de tarea)
+  /compact      : Resume la conversación para ahorrar contexto
+  /context      : Cuánto contexto llevo usado
+  /resume       : Retomar una conversación anterior
+  /rewind       : Volver atrás en la conversación y los cambios
+  /memory       : Editar los CLAUDE.md y la memoria
+  /permissions  : Qué puede hacer sin preguntar
+  /model        : Cambiar de modelo
+  /config       : Opciones generales (vim, idioma, verbose...)
+  /theme        : Tema de colores (auto sigue al terminal)
+  /init         : Crear un CLAUDE.md nuevo (no hace falta si ya existe)
+  /exit         : Salir
+
+------------------------------------------------------------------------------
+ATAJOS DE TECLADO                                               *claude_atajos*
+
+  Shift+Tab     : Cambiar de modo (normal / aceptar ediciones / plan)
+  Esc           : Interrumpir lo que está haciendo
+  Esc Esc       : Rebobinar a un mensaje anterior
+  Ctrl+C        : Cancelar; dos veces, salir
+  Ctrl+G        : Editar el mensaje en vim (EDITOR)
+  Ctrl+R        : Buscar en el historial de mensajes
+  Ctrl+O        : Vista normal / detallada de lo que hace
+  \ + Enter     : Salto de línea en el mensaje
+
+------------------------------------------------------------------------------
+PREFIJOS EN EL MENSAJE                                         *claude_prefijos*
+
+  !comando      : Ejecuta el comando de shell; la salida entra en la charla
+                  Ej: ! git status
+  @ruta         : Menciona un fichero para que lo lea (Tab autocompleta)
+                  Ej: @src/main.c
+
+------------------------------------------------------------------------------
+MODOS DE PERMISOS                                                  *claude_modos*
+
+  normal        : Pide permiso en cada edición o comando (el que uso)
+  acceptEdits   : Aplica las ediciones sin preguntar
+  plan          : Solo lee y propone; no cambia nada hasta aprobar el plan
+
+------------------------------------------------------------------------------
+DESDE LA LÍNEA DE COMANDOS                                          *claude_cli*
+
+  claude            : Sesión nueva en la carpeta actual
+  claude -c         : Continuar la última conversación de esta carpeta
+  claude -r         : Elegir una conversación anterior
+  claude -p "texto" : Respuesta única, sin abrir sesión (para scripts)
+
+------------------------------------------------------------------------------
+MI FLUJO DE TRABAJO                                               *claude_flujo*
+
+  - Lanzar `claude` desde la carpeta del proyecto (carga su CLAUDE.md)
+  - Claude no edita mis fuentes: prepara una copia y abre vimdiff en una
+    ventana nueva; yo aplico los bloques con |do| y guardo con :w
+  - Propuestas en .claude/propuestas/ (ignorada en git)
+  - /clear entre tareas distintas; /compact si la sesión se alarga
+
+==============================================================================
+
+vim:tw=78:sw=2:ts=2:nowrap:ft=help:norl:cole=2:et:

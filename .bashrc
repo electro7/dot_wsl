@@ -99,7 +99,14 @@ if [[ -n $(grep -E 'WSL|icrosoft' /proc/version) ]]; then
   alias gv="start gvim.exe"
   alias ping='sudo ping'
   alias z="sudo mount -t drvfs '\\\\192.168.60.10\\obras' /mnt/z"
-  alias diff="/mnt/c/datos/curro/soft/000_misc/WinMerge/WinMergeU.exe"
+  # WinMergeU.exe es de Windows: hay que pasarle las rutas convertidas con wslpath
+  diff() {
+    local a=() f
+    for f in "$@"; do
+      if [[ $f == -* ]]; then a+=("$f"); else a+=("$(wslpath -w "$f")"); fi
+    done
+    /mnt/c/datos/curro/soft/000_misc/WinMerge/WinMergeU.exe "${a[@]}"
+  }
 fi
 
 # Alias contra borrados accidentales.
