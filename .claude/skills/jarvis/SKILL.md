@@ -22,6 +22,11 @@ Shield, que habla con Jarvis por el driver `cas`.
 | `plantillas/` | Esqueletos para copiar y adaptar. |
 | `aprendizajes.md` | Bitácora de lo descubierto y aún sin clasificar. Leerla en tareas no triviales. |
 
+## Tareas en curso
+
+- **Completar la documentación oficial (mkdocs)**: plan y preguntas pendientes en
+  `tareas/documentacion.md`. Si Vicente retoma el tema, empezar por sus preguntas pendientes.
+
 ## Fuentes de verdad (si esta skill no basta)
 
 - Manual: `/mnt/c/work/soft/jarvis/docs/` (lang.md, filedev.md, driver.md, commandline.md, anex.md).

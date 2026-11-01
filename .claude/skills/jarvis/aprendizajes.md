@@ -18,6 +18,8 @@ fichero temático, se mueve allí y se borra de aquí.
   diagrama describe un ciclo de scan clásico (leer E/S → lógica → escribir E/S); el manual
   describe un modelo por eventos (estados al entrar, when/msg, timers) con drivers por
   tuberías. Sin verificar en jarvis.cpp cuál es el bucle real. Avisado a Vicente.
+  Además describe ethraw como enlace entre nodos Jarvis; Vicente confirma que es para
+  integrar equipos por TCP/UDP con protocolos programados en el .prg (ya en dispositivos.md).
 - 2026-11-01 — Semántica exacta de `format(fmt)`, `stamp(t)`, `file_open(nombre, modo)` y
   `sunrise/sunset`: falta leer sus implementaciones (CDevice::fn_format en kernel/jarvis).
 

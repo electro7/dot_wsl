@@ -20,7 +20,7 @@ Matrices con asterisco: `dev[*].x  Elemento *` (0..N-1), `*+` (1..N), `*3` (3 ci
 | Driver | Línea típica en jarvis.prg | Para qué |
 | --- | --- | --- |
 | cas | `#driver "cas"` | Shield. Siempre el primero. `-c` traza paquetes, `-s` estadísticas. |
-| ethraw | `#driver "ethraw -m MSG_ETHRAW"` | TCP/UDP crudo: protocolos propios hechos en .prg. |
+| ethraw | `#driver "ethraw -m MSG_ETHRAW"` | Integrar equipos directamente por TCP/UDP: el protocolo se programa en el .prg. |
 | modbus | `#driver "modbus -n -p -t 100 -m MSG_MODBUS"` | Cabeceras WAGO / Modbus TCP. |
 | action | `#driver "action -w 10"` | Acciones configurables desde Shield. Siempre el último. |
 | autolink | `#driver "autolink"` | Propagar un cambio interno como externo (dispara `when`). |
@@ -76,6 +76,12 @@ port.cnf      config          // opcional: "ip:puerto" para cambiar destino
 .ethraw
 ```
 Máx. 128 conexiones. Patrón de autómata en patrones.md.
+
+Uso (confirmado por Vicente, 2026-11-01): integrar equipos de campo directamente por TCP o
+UDP. El driver solo mueve bytes; el protocolo "simple" (Modbus TCP o RTU encapsulado a mano,
+tramas propietarias de SOS, DAI, SAI, centrales de incendio...) se programa en el propio .prg
+con buffers `char[]`, `setlength()` y `crc()`. No es un enlace entre nodos Jarvis (para eso
+están varcli/varser). Ejemplos: fire_apsensing.prg (Modbus TCP a mano), sos_*.prg, dai_*.prg.
 
 ## serial
 
