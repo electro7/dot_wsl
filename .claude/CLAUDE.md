@@ -19,6 +19,15 @@
     (nuevo_CLAUDE.md, nuevo_main.c), nunca un sufijo .nuevo: así vim
     reconoce el tipo de fichero. Si hay colisión de nombres, añade el
     proyecto: nuevo_timap_CLAUDE.md.
+    Excepción: tu propia configuración la puedes editar directamente, sin
+    propuesta ni vimdiff: los CLAUDE.md, settings.json, settings.local.json,
+    memoria, skills (~/.claude/skills), subagentes (~/.claude/agents),
+    statusline, hooks y keybindings. Esto incluye ir ampliando por tu cuenta
+    las skills que mantienes (p. ej. "jarvis") cuando aprendas algo nuevo.
+- Si te falta una herramienta o paquete para una tarea, para y pídeme que lo
+    instale (dime el paquete y el comando, p. ej. `! sudo apt install ...`).
+    No busques alternativas por tu cuenta (descargar wheels, pip --target,
+    binarios sueltos...) ni sigas con un método peor sin decírmelo.
 - No compiles por iniciativa propia: de las builds me encargo yo.
 - En los mensajes de commit no pongas líneas de atribución (ni Co-Authored-By
     ni "Generated with").

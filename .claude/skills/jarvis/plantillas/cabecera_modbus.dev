@@ -1,0 +1,37 @@
+//
+// INSTALACION  : <obra>
+// DESCRIPCION  : <cabecera> (incluido desde jarvis.dev entre .modbus IP y .modbus)
+//
+// En jarvis.dev:
+//   #ifndef SIM
+//   #define IP_UPD_1   192.168.x.y
+//   .modbus IP_UPD_1
+//   #include "mb_upd_1.dev"
+//   .modbus
+//   #endif
+//
+
+// Cabecera
+// ------------------------------------------------------------------
+upd[0].in                       %IP000.0
+
+// ENTRADAS DIGITALES
+// ------------------------------------------------------------------
+eq[0].in_on                     %IX096.0    // Retorno marcha equipo 1
+eq[0].in_local                  %IX096.1    // Remoto equipo 1
+eq[0].in_hot                    %IX096.2    // Averia equipo 1
+//                              %IX096.3
+
+// SALIDAS DIGITALES
+// ------------------------------------------------------------------
+eq[0].out_on                    %QX096.0    // Marcha equipo 1
+//                              %QX096.1
+
+// ENTRADAS ANALOGICAS
+// ------------------------------------------------------------------
+co[0].filter.in                 %IW000      // CO 1
+
+// Trazas (pantallas modbus de Shield)
+// ------------------------------------------------------------------
+mb_e_upd1[0].in                 %IW096
+mb_s_upd1[0].in                 %IW608
