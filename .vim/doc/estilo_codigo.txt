@@ -134,7 +134,7 @@ ficheros fuente.
         ...
     }
 
-- Para separar grupos de funciones se usa una línea. Ejemplo:
+- Para comentar funciones se usa una línea. Ejemplo:
 
 >    /* Archivo SVI
 >    *  ----------------------------------------------------------------------

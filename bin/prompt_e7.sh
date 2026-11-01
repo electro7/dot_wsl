@@ -66,15 +66,14 @@ function __prompt_e7_end {
 # Git status
 # ---------------------------------------------------------------------------
 function __prompt_e7_git_status {
-  set -- $(git rev-parse --abbrev-ref HEAD --is-inside-work-tree 2>/dev/null)
-  local branch=$1
-  local in_tree=$2
+  # Una sola llamada a git (un unico recorrido del arbol de trabajo).
+  # Antes eran 5 procesos git, cada uno recorriendo el arbol: en /mnt/c con
+  # la cache fria eso eran varios segundos.
+  local status_out
+  status_out=$(git status --porcelain=v2 --branch 2>/dev/null) || return 1
 
-  # No .git in current dir -> exit
-  if [ -z "$branch" ] || [ "$in_tree" != "true" ]
-  then
-    return 1
-  fi
+  # No git repo (or no output) -> exit
+  [ -z "$status_out" ] && return 1
 
   # colors
   local c_branch="$c_blue"
@@ -98,32 +97,30 @@ function __prompt_e7_git_status {
   local unmerged_c=0 mod_c=0 untrack=0
   local add_c=0 is_clean=""
 
-  # Retrieve remote status
-  set -- $(git rev-list --left-right --count @{upstream}...HEAD 2>/dev/null)
-  local behind_c=$1
-  local ahead_c=$2
-
-  # Current git chanhes in all files
-  # Added (A), Copied (C), Deleted (D), Modified (M), Renamed (R), changed (T),
-  # Unmerged (U), Unknown (X), Broken (B)
-  while read line; do
+  # Parse de la salida de status (solo builtins de bash, sin mas procesos)
+  #   # branch.head <rama>        # branch.ab +<ahead> -<behind>
+  #   1/2 XY ...  (X = indice, Y = arbol de trabajo)
+  #   u ...       (sin fusionar)       ? ...  (sin seguimiento)
+  local branch="" behind_c=0 ahead_c=0
+  local line xy
+  while IFS= read -r line; do
     case "$line" in
-      M*) mod_c=$(( $mod_c + 1 )) ;;
-      U*) unmerged_c=$(( $unmerged_c + 1 )) ;;
+      "# branch.head "*) branch=${line#\# branch.head } ;;
+      "# branch.ab "*)
+        set -- ${line#\# branch.ab }
+        ahead_c=${1#+}
+        behind_c=${2#-}
+        ;;
+      "1 "*|"2 "*)
+        xy=${line:2:2}
+        [[ ${xy:0:1} != "." ]] && add_c=$(( add_c + 1 ))
+        [[ ${xy:1:1} == "M" ]] && mod_c=$(( mod_c + 1 ))
+        ;;
+      "u "*) unmerged_c=$(( unmerged_c + 1 )) ;;
+      "? "*) untrack=1 ;;
     esac
-  done < <(git diff --name-status)
-
-  # Current git chanhes in all files (cached)
-  while read line; do
-    case "$line" in
-      *) add_c=$(( $add_c + 1 )) ;;
-    esac
-  done < <(git diff --name-status --cached)
-
-  # List untrached file
-  if [ -n "$(git ls-files --others --exclude-standard)" ]; then
-    untrack=1
-  fi
+  done <<< "$status_out"
+  [[ "$branch" == "(detached)" ]] && branch="HEAD"
 
   # Total count
   if [ $(( unmerged_c + mod_c + untrack + add_c )) -eq 0 ]
@@ -137,13 +134,13 @@ function __prompt_e7_git_status {
   [[ $ahead_c -gt 0 ]] \
     && printf "%s" "${lw_space}${c_untrack}${ahead_ch}${ahead_c}"
   [[ $behind_c -gt 0 ]] \
-    && printf "%s" "${lw_space}${c_behind}${behind_ch}${behind_c}"
+    && printf "%s" "${lw_space}${c_begind}${behind_ch}${behind_c}"
   [[ $mod_c -gt 0 ]] \
     && printf "%s" "${lw_space}${c_mod}${mod_ch}${mod_c}"
   [[ $unmerged_c -gt 0 ]] \
     && printf "%s" "${lw_space}${c_untrack}${unmerged_c}"
   [[ $add_c -gt 0 ]] \
-    && printf "%s" "${lw_space}${c_add}${dadd_ch}${add_c}"
+    && printf "%s" "${lw_space}${c_add}${add_ch}${add_c}"
   [[ $untrack -gt 0 ]] \
     && printf "%s" "${lw_space}${c_untrack}${untrack_ch}"
   [[ $is_clean -gt 0 ]] \

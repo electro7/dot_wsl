@@ -6,6 +6,13 @@
     filemode = false
     autocrlf = input
 	excludesfile = /home/vgimeno/.gitignore_global
+    # Rendimiento en /mnt/c (DrvFs, WSL1)
+    untrackedCache = true
+    preloadindex = true
+    checkStat = minimal
+    trustctime = false
+[feature]
+    manyFiles = true
 [pull]
     rebase = false
 [fetch]

@@ -98,6 +98,8 @@ _viminfo
 .claude/*
 !.claude/CLAUDE.md
 !.claude/statusline.sh
+!.claude/skills/
+.claude/skills/synced/
 .claude.json
 .claude.json.tmp.*
 .local/*

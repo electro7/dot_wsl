@@ -3,13 +3,15 @@
 #   ┌[directorio]─[rama ↑n ↓n ≈n ●n …]─[modelo ctx%]
 # Claude Code envia por stdin un JSON con los datos de la sesion.
 
-IFS=$'\t' read -r model eff dir ctx r5 r7 < <(
+IFS=$'\t' read -r model eff dir ctx r5 r7 cost dur < <(
     jq -r '[.model.display_name // .model.id // "?",
             (.effort.level // .effort // "-" | tostring),
             .workspace.current_dir // .cwd // "-",
             (.context_window.used_percentage // "-" | tostring),
             (.rate_limits.five_hour.used_percentage // "-" | tostring),
-            (.rate_limits.seven_day.used_percentage // "-" | tostring)] | @tsv'
+            (.rate_limits.seven_day.used_percentage // "-" | tostring),
+            (.cost.total_cost_usd // "-" | tostring),
+            (.cost.total_duration_ms // "-" | tostring)] | @tsv'
 )
 [ "$dir" = "-" ] && dir=$PWD
 
@@ -91,6 +93,18 @@ q=""
 [ "$r5" != "-" ] && q+="$(quota now "$r5")"
 [ "$r7" != "-" ] && q+="${q:+$sep}$(quota week "$r7")"
 [ -n "$q" ] && right+=" ${c_dg}[${q}${c_dg}]"
+
+# Bloque 3: [coste de la sesion | tiempo transcurrido]
+t=""
+[ "$cost" != "-" ] && t+="${c_gy}$(printf '$%.2f' "$cost")"
+if [ "$dur" != "-" ]; then
+    s=$(( ${dur%.*} / 1000 ))
+    if   (( s >= 3600 )); then d=$(printf '%dh%02dm' $(( s / 3600 )) $(( s % 3600 / 60 )))
+    elif (( s >= 60 ));   then d="$(( s / 60 ))m"
+    else d="${s}s"; fi
+    t+="${t:+$sep}${c_gy}${d}"
+fi
+[ -n "$t" ] && right+=" ${c_dg}[${t}${c_dg}]"
 right+="${c_of}"
 
 # Ancho del terminal: COLUMNS, o el tty de control; si no hay, sin alinear
