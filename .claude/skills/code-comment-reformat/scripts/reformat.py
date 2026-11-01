@@ -49,6 +49,7 @@ def clean_banner(l):
     return s.rstrip()
 
 def block(indent, body, ln):
+    indent = indent.expandtabs(4); body = [b.expandtabs(4) for b in body]
     out = [indent + '/*']
     for b in body:
         out.append(indent + ('*  ' + b if b else '*'))
@@ -76,6 +77,7 @@ def isfunc(idx):
     return False
 
 def func_comment(indent, body, ln):
+    indent = indent.expandtabs(4); body = [b.expandtabs(4) for b in body]
     body = [x for x in body if not re.fullmatch(r'-{20,}', x)]
     while body and not body[-1]: body.pop()
     title = body[0]; rest = body[1:]
@@ -111,6 +113,7 @@ while k < len(lines):
             out.append('*' * 72 + '/')
         elif isfunc(j):
             out.extend(func_comment('', body, k)); nfunc.append(k)
+            while j < len(lines) and not lines[j].strip(): j += 1   # pegado a lo que sigue
         elif len(body) == 1 and vw('/* ' + body[0] + ' */') <= W:
             out.append('/* ' + body[0] + ' */')
         else:
@@ -137,7 +140,9 @@ while k < len(lines):
             while texts and not texts[-1]: texts.pop()
             if texts and not texts[0].startswith('#') and any(not re.fullmatch(r'-{20,}', x) for x in texts) and isfunc(e + 1):
                 out.extend(func_comment('', texts, k)); nfunc.append(k)
-                k = e + 1; continue
+                k = e + 1
+                while k < len(lines) and not lines[k].strip(): k += 1   # pegado a lo que sigue
+                continue
     pos, nb = scan(L, in_blk)
     if pos < 0:
         out.append(L); in_blk = nb; k += 1; continue
@@ -147,7 +152,9 @@ while k < len(lines):
         if '*/' in raw:
             rep.append('sin tocar ("*/" dentro), linea %d' % (k + 1)); out.append(L)
         else:
-            new = code + '/* ' + raw + ' */'
+            base = code.rstrip(' \t')
+            gap = ' ' * (vw(code) - vw(base)) if '\t' in code[len(base):] else code[len(base):]
+            new = base + gap + '/* ' + raw.expandtabs(4) + ' */'
             if vw(new) <= W or vw(L) > W: out.append(new)
             else:
                 rep.append('final de linea sin convertir (pasaria de 80), linea %d' % (k + 1)); out.append(L)
@@ -165,8 +172,9 @@ while k < len(lines):
     elif indent == '' and isfunc(m) and lines[m].strip():
         body = [r[1:] if r[:1] in ' \t' else r for r in raws]
         out.extend(func_comment(indent, body, grp[0])); nfunc.append(grp[0])
+        while m < len(lines) and not lines[m].strip(): m += 1   # pegado a lo que sigue
     elif len(grp) == 1 and vw(indent + '/*' + raws[0] + ' */') <= W:
-        out.append(indent + '/*' + raws[0] + ' */')
+        out.append(indent.expandtabs(4) + '/*' + raws[0].expandtabs(4) + ' */')
     else:
         body = [r[1:] if r[:1] in ' \t' else r for r in raws]
         out.extend(block(indent, body, grp[0]))

@@ -9,6 +9,12 @@
     wt.exe -w new wsl.exe -d Debian -- vimdiff original propuesta
     Yo aplico los cambios. WinMerge (WinMergeU.exe, con rutas de wslpath -w)
     queda como alternativa si te lo pido.
+    Cada vez que abras un vimdiff para que yo apruebe cambios, añade en la
+    respuesta este recordatorio de mis atajos (solo en modo diff):
+    Shift+Abajo/Arriba = siguiente/anterior diferencia (]c / [c),
+    Shift+Izquierda = traer cambio del otro fichero (do),
+    Shift+Derecha = enviar cambio al otro fichero (dp).
+    No incluyas :w ni :qa, eso ya lo sé.
     La propuesta se llama nuevo_<fichero> y conserva la extensión original
     (nuevo_CLAUDE.md, nuevo_main.c), nunca un sufijo .nuevo: así vim
     reconoce el tipo de fichero. Si hay colisión de nombres, añade el
@@ -20,3 +26,9 @@
     respeta la codificación y los finales de línea del original, toca solo las
     líneas necesarias (localizándolas por contenido, no por número de línea) y
     en ficheros nuevos evita acentos en los comentarios.
+- Wiki MediaWiki de la empresa: http://wiki.tunelia.com/api.php (solo HTTP).
+    Credenciales en ~/.config/wiki.cred (nunca las muestres ni las copies).
+    Para anotar o editar usa la skill "wiki"; no publiques nada sin mi visto
+    bueno tras revisar la comparación con vimdiff. Si al terminar un trabajo
+    hay algo que merezca registrarse, proponlo, pero no lo escribas por tu
+    cuenta.

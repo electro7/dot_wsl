@@ -165,6 +165,17 @@ nnoremap <M-Down> :m+<CR>==
 inoremap <M-Up> <Esc>:m--<CR>==gi
 inoremap <M-Down> <Esc>:m+<CR>==gi
 
+" Shift +
+" ···············································
+" Solo en modo diff (vimdiff); fuera de el conservan su funcion por omision
+" [S-Down/S-Up] Siguiente / anterior diferencia
+nnoremap <expr> <S-Down> &diff ? ']c' : "\<S-Down>"
+nnoremap <expr> <S-Up> &diff ? '[c' : "\<S-Up>"
+" [S-Left] Obtener cambio del otro fichero (do)
+nnoremap <expr> <S-Left> &diff ? 'do' : "\<S-Left>"
+" [S-Right] Enviar cambio al otro fichero (dp)
+nnoremap <expr> <S-Right> &diff ? 'dp' : "\<S-Right>"
+
 " Keys alone
 " ···············································
 " [TAB] Next window

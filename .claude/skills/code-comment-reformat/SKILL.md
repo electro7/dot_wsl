@@ -120,6 +120,9 @@ despues de todo el texto (NO justo despues del titulo):
 - Es idempotente: si el comentario ya tiene linea de guiones (en este formato
   o en el anterior, con los guiones en linea propia tras el titulo), se quita
   y se vuelve a poner al final.
+- El comentario de funcion va PEGADO a lo que le sigue (la declaracion de la
+  funcion): sin lineas en blanco entre el cierre `*/` y el codigo. Si el
+  original tenia lineas en blanco ahi, se eliminan.
 - Si una funcion no tiene comentario, NO lo inventes: listala en el resumen
   como "sin comentario".
 
@@ -127,6 +130,14 @@ despues de todo el texto (NO justo despues del titulo):
 Un banner que no precede a una funcion (seccion, variables globales, tipos,
 macros) NO lleva linea de guiones: una linea se convierte en
 `/* texto */` y varias en bloque multilinea (regla 2).
+
+## Sangria
+
+La sangria es SIEMPRE con espacios (4 por nivel), nunca con tabuladores. En
+los comentarios que se reescriben no se deja ningun tabulador: ni en la
+sangria del comentario, ni en el texto, ni en el hueco entre el codigo y un
+comentario de final de linea (se sustituye por espacios manteniendo la
+columna). El codigo en si no se toca, aunque tenga tabuladores.
 
 ## Casos que NO se tocan
 
