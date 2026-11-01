@@ -77,6 +77,12 @@ sil! set backspace=2 nowrap textwidth=0 foldcolumn=0 nofoldenable foldignore=
 sil! set foldlevelstart=99 foldmethod=indent foldnestmax=1 autoread mouse=a
 " En modo diff no plegar las zonas iguales (por omision vim las pliega)
 sil! set diffopt+=context:99999
+" diffthis/vimdiff activan foldenable en cada ventana; lo desactivamos siempre
+augroup SinPliegueDiff
+  autocmd!
+  autocmd OptionSet diff if v:option_new | setlocal nofoldenable | endif
+  autocmd VimEnter,WinEnter,BufWinEnter,DiffUpdated * if &diff | setlocal nofoldenable | endif
+augroup END
 sil! set hidden modeline
 
 " Insert completion
