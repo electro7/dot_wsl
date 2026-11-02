@@ -34,3 +34,6 @@ fichero temático, se mueve allí y se borra de aquí.
   `--ignore-files`) que respeta `.gitignore` y **no encontraba nada en el árbol del kernel**
   (/mnt/c/work/soft/jarvis/kernel). Usar `command grep -a` ahí. Los fuentes del kernel están en
   Latin-1 con CRLF.
+- 2026-11-02 — La documentación mkdocs (`soft/jarvis/docs/*.md`) está en **UTF-8**, no en Latin-1
+  como las obras y el kernel. Casi todo con LF; commandline.md y dev/*.md con CRLF (o mezcla).
+  Conservar lo que tenga cada fichero.

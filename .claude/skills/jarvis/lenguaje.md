@@ -82,7 +82,7 @@ autom A : PADRE {                                      // herencia: redefine est
   fuera), `temporal` (no se notifica al SCADA). En la práctica no se usan: el estado visible es
   un campo enum `cas`.
 - Dentro de un autómata, `index()` da su índice en la matriz; `name()`/`desc()` sus nombres.
-- Límites: `MAX_STRUCT_FIELDS` = 256 en kernel/jarvis/typedef.h (anex.md dice 64; está desactualizado).
+- Límites: `MAX_STRUCT_FIELDS` = 256 en kernel/jarvis/typedef.h; `CTypeDef::AddField` lo comprueba para cualquier struct, no solo las que van en una matriz (anex.md corregido en la rama `docs`).
 
 ## Sentencias
 

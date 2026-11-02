@@ -49,7 +49,14 @@ Propuesta aceptada por Vicente el 2026-11-01. Se retoma en la siguiente sesión.
 - Comprobar que el sitio genera sin enlaces rotos: necesita mkdocs + mkdocs-material; si no
   están instalados, pedir a Vicente que los instale (no buscar alternativas).
 
-## Preguntas pendientes para Vicente
+## Respuestas de Vicente (2026-11-02)
+
+- Entrega: rama local `docs` en soft/jarvis, creada desde master (origin/mkdoc ya estaba
+  fusionada). Él revisa con git diff/GitLab y fusiona. Sin push sin permiso.
+- Destinatario: se incluye la fase 4 (patrones de túneles), pero en una tanda posterior.
+- Alcance: fases 0-3 primero; después se deciden la 4 y el resto de drivers.
+
+## Preguntas que se le hicieron (ya respondidas)
 
 1. **Entrega de cambios:** `soft/jarvis` es su repo de fuentes; la regla general es propuesta
    `nuevo_*.md` + vimdiff, pesado para ficheros nuevos de documentación. Propuesta: trabajar
@@ -59,3 +66,32 @@ Propuesta aceptada por Vicente el 2026-11-01. Se retoma en la siguiente sesión.
    túneles (fase 4)? Afecta a lo que ve un cliente (el código se entrega con las
    instalaciones).
 3. **Alcance:** ¿fases 0-3 primero y luego decidir la 4 y el resto de drivers?
+
+## Fase 0: inventario (2026-11-02, rama `docs` creada, sin commits)
+
+Nav/estructura:
+- nav: `fileother.md` → `filemore.md`; títulos "Introdución", "Otros archicos", "Desarrolo".
+- index.md (portada) también se numera "1. Introducción", igual que intro.md.
+- Los capítulos 1-9 están en un fichero cada uno; tuto.md mezcla `#` sin numerar.
+
+Erratas (confirmadas en el kernel):
+- lang.md 4.2.5: string "128 caracteres" → 64 (DEFAULT_STRING, ucsHead.h:40).
+- lang.md 4.2.3: dice "256 elementos si se usa en una matriz": cuadra con MAX_STRUCT_FIELDS=256
+  (typedef.h:13), pero la condición "en una matriz" hay que verificarla; anex.md dice 64.
+- lang.md 4.2.1: `int"` (comilla de más), "int [0...9]", "1 decimale".
+- lang.md: "4.3.4Mensajes", "4.3.6Instrucciones" (sin espacio).
+- driver.md: 7.2 Modbus sigue con 7.3.3-7.3.5; falta 7.3 y 7.6; salta de smodbus (7.5) a varcli (7.7).
+
+Drivers: uso en obras (nº de obras con módulo `.drv` en .dev / líneas #driver) frente a documentación:
+- Documentados: action, modbus, jetio, smodbus, varcli, varser, mqtt.
+- Sin documentar y usados: **ethraw (9 obras), cas (10), serial (4), autolink (3), csnmp (3)**,
+  timetab (1), lontcp, drvgen (en #driver pero no en kernel/help).
+- Sin uso en obras: webser, sunrise, cgi, xgi, dlmod, xscada → una línea en el apéndice.
+- Orden de la fase 3: cas, ethraw, serial, autolink, csnmp, timetab.
+
+mkdocs y mkdocs-material NO están instalados: hacen falta para la fase 5.
+
+## Fase 1 hecha (2026-11-02): commit 1d8a76a en `docs`
+- Pendiente de verificar en una fase posterior: anex.md dice "Reloj: centésimas", pero dev_driver.md
+  y tick_t hablan de milésimas.
+- Siguiente: fase 2 (lang.md).
