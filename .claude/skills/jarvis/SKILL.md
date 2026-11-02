@@ -24,10 +24,9 @@ completada y verificada contra el kernel el 2026-11-02. Leerla en local, por apa
 | `patterns.md` | Patrones de desarrollo |
 | `anex.md` | Límites del kernel y otros drivers |
 
-La documentación ya no lleva numeración de capítulos (decisión 2026-11-02, rama `docs_reformat`): cita por
-fichero y título (`driver/cas.md`, sección «Flags de presentación»; `lang/funciones.md`, función `hex`).
-**Mientras `docs_reformat` no esté fusionada en master**, master conserva el `lang.md` y el `driver.md`
-antiguos y numerados.
+La documentación ya no lleva numeración de capítulos (decisión 2026-11-02): cita por fichero y título
+(`driver/cas.md`, sección «Flags de presentación»; `lang/funciones.md`, función `hex`). La rama `docs_reformat`
+se fusionó en master el 2026-11-02 (41c9cb7), así que master ya tiene `lang/` y `driver/`.
 
 Si la documentación y el kernel discrepan, manda el kernel (y proponer a Vicente corregir la doc).
 
@@ -43,8 +42,6 @@ Si la documentación y el kernel discrepan, manda el kernel (y proponer a Vicent
 | `regenerar_catalogo.py` | Calcula copias y versión más reciente (por último commit) para actualizar `catalogo.md`. |
 | `plantillas/` | Esqueletos para copiar y adaptar. |
 | `aprendizajes.md` | Bitácora de lo descubierto y aún sin clasificar. Leerla en tareas no triviales. |
-| `tareas/documentacion.md` | Historial de la tarea de documentación (2026-11-02). |
-| `tareas/revision-web.md` | Informe del revisor de legibilidad de la web y fases acordadas (2026-11-02). |
 
 ## Otras fuentes
 
@@ -61,13 +58,19 @@ Si la documentación y el kernel discrepan, manda el kernel (y proponer a Vicent
 
 ## Si hay que tocar la documentación (`soft/jarvis/docs`)
 
-- Rama `docs_reformat` (pendiente de fusionar): ahí se edita directamente; en cualquier otra rama, propuesta en
-  `~/.claude/propuestas/jarvis/`. Sin commit ni push si Vicente no lo pide.
+- La rama `docs_reformat` ya está fusionada: en adelante, propuesta en `~/.claude/propuestas/jarvis/` salvo que
+  Vicente indique otra cosa. Sin commit ni push si Vicente no lo pide.
 - Convenciones: sin numeración de capítulos; nombres de driver en minúsculas y en código en línea (`cas`);
   protocolos (Modbus, MQTT, SNMP) con mayúsculas; UTF-8; avisos como admoniciones; esquemas en SVG en línea
-  (`includes/*.svg`), nunca Mermaid (depende de internet).
+  (`includes/*.svg`, incluidos con `--8<--` dentro de `<div markdown="0">`), nunca Mermaid (depende de internet).
+- Ejemplos completos de un driver: sección «Ejemplo completo» con el código en un desplegable
+  (`??? example "Código del ejemplo"`), como en `driver/timetab.md` y `driver/action.md`.
+- Un `<nombre>` en prosa fuera de código lo traga el HTML (desaparece): escribirlo siempre `` `<nombre>` ``.
+- Glosario con tooltips en `includes/abreviaturas.md` (solo siglas). Sin redirecciones de URLs viejas.
+- No mencionar en la doc xscada, dlmod, drvgen ni sunrise; no hay capítulo de «patrones de túneles»
+  (es `patterns.md`, «Patrones de desarrollo»), ni nombres de obras ni datos internos.
 - Validar con `mkdocs build --strict --site-dir <fuera del repo>`; nunca dejar `site/` en el repositorio.
-  Historial y técnica de capturas en `tareas/revision-web.md`.
+  Técnica de capturas de la web en `aprendizajes.md` (Herramientas).
 
 ## Flujo de trabajo con Vicente
 
