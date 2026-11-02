@@ -9,6 +9,8 @@
     original está en mi home, directamente en ~/.claude/propuestas/) y ábreme tú
     mismo la comparación con vimdiff en una ventana nueva de Windows Terminal:
     wt.exe -w new wsl.exe -d Debian -- vimdiff original propuesta
+    (wt.exe toma ';' como separador de sus subcomandos: para ordenes
+    compuestas, lanzar un script, `wt.exe ... -- bash script.sh`).
     Yo aplico los cambios. WinMerge (WinMergeU.exe, con rutas de wslpath -w)
     queda como alternativa si te lo pido.
     Cada vez que abras un vimdiff para que yo apruebe cambios, añade en la
