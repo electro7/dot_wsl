@@ -77,6 +77,7 @@ autom A_EQ
         }
         else if (in_hot || !in_local) {
             ? cas.desc(), " -- no comandado, averia/local!\n";
+            manual = false;
             cmd = EQ_OFF;
             check();
         }
@@ -145,6 +146,7 @@ autom A_EQ
         // Local / averia
         when in_hot, in_local {
             if (!in_local || in_hot) {
+                manual = false;     // como fan.prg (out(FAN_OFF)): evita falso desacuerdo al volver
                 cmd = EQ_OFF;
                 out_on = false;
                 out_on.validate();

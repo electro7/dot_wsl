@@ -4,7 +4,7 @@ Los patrones genéricos están en la documentación oficial
 (`/mnt/c/work/soft/jarvis/docs/patterns.md`): estructura de un proyecto, equipo con mando y
 retorno, medida analógica con filtro y niveles, protocolo propio sobre ethraw o serial, órdenes desde
 SHIELD con botón, coordinación por mensajes, simulación, persistencia y contadores, recomendaciones.
-Plantillas para copiar en `plantillas/`. Aquí, lo específico de las obras que no va en la documentación.
+Plantillas para copiar en `plantillas/` (validadas con `jarvis.exe`). Aquí, lo específico de las obras que no va en la documentación.
 
 ## Equipos (fan.prg, sem.prg, barrier.prg...)
 

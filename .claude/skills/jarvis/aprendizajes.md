@@ -6,8 +6,6 @@ va a la documentación oficial (proponerlo a Vicente), no a esta skill.
 
 ## Pendiente de confirmar o clasificar
 
-- 2026-11-01 — Las plantillas de `plantillas/` no se han compilado nunca: validarlas con
-  Vicente la primera vez que se usen y anotar aquí las correcciones.
 - 2026-11-02 — Fallos del código encontrados al contrastar la documentación con el kernel (la doc ya está
   corregida; esto es lo que habría que arreglar en el código, sin proponerlo si Vicente no lo pide):
   - action: el límite de 64 pasos se comprueba tarde (`CompileProg` ya ha escrito `m_step[64]` fuera del array).
@@ -37,7 +35,7 @@ va a la documentación oficial (proponerlo a Vicente), no a esta skill.
 - 2026-11-02 — Repaso ortográfico: `hunspell -d es_ES -l` sobre la prosa (sin bloques de código);
   no detecta tildes que dan otra palabra válida ("por que", "continua", "si").
 - 2026-11-02 — Capturas de la web: `mkdocs build --site-dir /mnt/c/Windows/Temp/...` y
-  `msedge.exe --headless --screenshot` (Windows solo ve rutas bajo /mnt/c; `wslpath -w`). En
+  `msedge.exe --headless --screenshot` (no está en el PATH desde aquí: `/mnt/c/Program Files (x86)/Microsoft/Edge/Application/msedge.exe`; también sirve `--print-to-pdf`) (Windows solo ve rutas bajo /mnt/c; `wslpath -w`). En
   `/mnt/c/Windows/Temp` no se puede listar ni usar comodines: borrar los temporales por nombre. Un fragmento `#`
   en la URL de `file:///` deja la captura en blanco. Un `.svg` suelto sin `xmlns` se muestra como XML: probarlo
   dentro de un HTML.

@@ -44,7 +44,7 @@ fan[0].in_on    %IX096.0      // I entrada, Q salida, M memoria; X bit, W word, 
 co[0].filter.in %IW001
 upd[0].in       %IP000.0      // presencia de cabecera (convención obras)
 
-.ethraw 192.168.0.90:4000,tcp   // sin IP = servidor; UDP por omisión
+.ethraw 192.168.0.90:4000,tcp,silent=30   // sin IP = servidor; UDP por omisión
 port.inp                        // input: cada bloque recibido SUSTITUYE (no acumula)
 port.out                        // output volatile + setlength + validate
 port.cnf    config              // opcional: "ip:puerto"

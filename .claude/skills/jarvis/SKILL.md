@@ -40,7 +40,8 @@ Si la documentación y el kernel discrepan, manda el kernel (y proponer a Vicent
 | `obra.md` | Estructura de los repositorios de obra, `jarvis.prg` tipo y dominio de túneles. |
 | `catalogo.md` | **Antes de escribir un módulo nuevo**: qué módulos existen y dónde está su versión más reciente. |
 | `regenerar_catalogo.py` | Calcula copias y versión más reciente (por último commit) para actualizar `catalogo.md`. |
-| `plantillas/` | Esqueletos para copiar y adaptar. |
+| `plantillas/` | Esqueletos para copiar y adaptar: `equipo_digital.prg`, `cabecera_modbus.dev`, `protocolo_tcp.prg`. Validadas con `jarvis.exe` el 2026-11-02. |
+| `probar.sh` | Lanza `jarvis.exe` en una carpeta de prueba y muestra la salida (ver «Probar un .prg»). |
 | `aprendizajes.md` | Bitácora de lo descubierto y aún sin clasificar. Leerla en tareas no triviales. |
 
 ## Otras fuentes
@@ -58,8 +59,8 @@ Si la documentación y el kernel discrepan, manda el kernel (y proponer a Vicent
 
 ## Si hay que tocar la documentación (`soft/jarvis/docs`)
 
-- La rama `docs_reformat` ya está fusionada: en adelante, propuesta en `~/.claude/propuestas/jarvis/` salvo que
-  Vicente indique otra cosa. Sin commit ni push si Vicente no lo pide.
+- Propuesta `nuevo_<fichero>` en `~/.claude/propuestas/jarvis/` y vimdiff, salvo que Vicente indique otra cosa.
+  Sin commit ni push si Vicente no lo pide.
 - Convenciones: sin numeración de capítulos; nombres de driver en minúsculas y en código en línea (`cas`);
   protocolos (Modbus, MQTT, SNMP) con mayúsculas; UTF-8; avisos como admoniciones; esquemas en SVG en línea
   (`includes/*.svg`, incluidos con `--8<--` dentro de `<div markdown="0">`), nunca Mermaid (depende de internet).
@@ -72,13 +73,29 @@ Si la documentación y el kernel discrepan, manda el kernel (y proponer a Vicent
 - Validar con `mkdocs build --strict --site-dir <fuera del repo>`; nunca dejar `site/` en el repositorio.
   Técnica de capturas de la web en `aprendizajes.md` (Herramientas).
 
+## Probar un .prg con jarvis.exe (autorizado por Vicente, 2026-11-02)
+
+- Solo en una carpeta temporal bajo `/mnt/c` (p. ej. `/mnt/c/Windows/Temp/jarvis_test`; Windows no ve el resto),
+  nunca en una obra real, y borrarla al terminar (`rm -rf`). Sin drivers que abran puertos o conecten con equipos.
+- Usar `probar.sh CARPETA [SEGUNDOS] ["ARGS"] [drivers]` (por defecto `-q -u`: sin log ni `.pst`). Lanza con PowerShell,
+  con entrada y salida a fichero, y mata el proceso por PID al acabar el tiempo: Jarvis se queda en su bucle y un
+  `timeout` de bash dejaría el proceso de Windows vivo. Comprobar al final que no quedan `jarvis*`/drivers.
+- `jarvis.exe` (instalado en `C:\Program Files (x86)\Jarvis`, 2.3.14 o posterior) ya no espera tecla al salir si la
+  entrada no es consola; las versiones anteriores se quedaban en `getch()`. Los errores de compilación salen por la
+  salida y termina solo. `jarvis_w32.exe` es gráfico: no sirve para capturar salida (solo logs en `%appdata%`).
+- Para simular señales de campo (los `when` solo reaccionan a drivers): driver `autolink` (`driver/autolink.md`).
+- Para plantillas y módulos: añadir stubs mínimos (`TUBE`, `ZONE`, `USE`, `INTERVAL_CHECK`, `msg_t MSG_MODBUS`...).
+- Un `.dev` no se prueba solo: un `jarvis.prg` que declare sus dispositivos (cada `autom` necesita al menos un `stat`) y un
+  `jarvis.dev` que lo incluya; con `-de` se listan los dispositivos ya enlazados. Para modbus, `.modbus 127.0.0.1`.
+
 ## Flujo de trabajo con Vicente
 
 1. Buscar en `catalogo.md` y en las obras un módulo parecido; partir de él antes que de cero.
 2. Las fuentes de las obras **no se editan**: propuesta `nuevo_<fichero>.prg` en `~/.claude/propuestas/<obra>/`,
    en la **misma codificación (Latin-1) y finales de línea** que el original, tocando solo lo
    necesario, y abrir vimdiff (ver CLAUDE.md global). Ficheros nuevos: sin acentos en comentarios.
-3. No compilar ni ejecutar Jarvis por iniciativa propia.
+3. Jarvis solo se ejecuta para probar, en una carpeta temporal y con `probar.sh` (ver «Probar un .prg»); nunca en una obra
+   real. No compilar el código C del kernel.
 4. Respetar el estilo de la obra: 4 espacios, separadores `// ----`, cabecera
    `INSTALACIÓN / DESCRIPCIÓN`, `vim: set et ts=4 sw=4 sts=4:` al final.
 
@@ -92,5 +109,7 @@ Esta skill se amplía sobre la marcha (permiso explícito de Vicente, se edita d
   añadirlo a la documentación oficial; no duplicar aquí lo que ya está allí.
 - Cuando una entrada esté confirmada y encaje en un fichero temático, moverla allí y borrarla
   de la bitácora.
+- Anotar solo lo que cambia cómo se trabaja con Jarvis (trampas, herramientas, correcciones de Vicente); no detalles de uso
+  que ya estén en la documentación ni cosas menores.
 - Si un módulo nuevo se crea o se localiza una versión mejor, actualizar `catalogo.md`.
 - Mencionar a Vicente en una línea qué se ha anotado.

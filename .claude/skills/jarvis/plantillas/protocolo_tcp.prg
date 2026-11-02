@@ -156,10 +156,13 @@ autom A_XXCOM
 /*
  * jarvis.dev:
  *
- * .ethraw 192.168.0.90:502,tcp
+ * .ethraw 192.168.0.90:502,tcp,silent=30
  * xxcom.in
  * xxcom.out
  * .ethraw
+ *
+ * IMPORTANTE: poner siempre silent=N (30-120 s en las obras). Sin el, ethraw corta la conexion a los 5 s
+ * sin datos recibidos y el primer sondeo (a los XX_POLL*2 s) nunca llega a hacerse.
  */
 
 /* vim: set et ts=4 sw=4 sts=4: */
