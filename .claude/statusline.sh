@@ -3,14 +3,13 @@
 #   ┌[directorio]─[rama ↑n ↓n ≈n ●n …]─[modelo ctx%]
 # Claude Code envia por stdin un JSON con los datos de la sesion.
 
-IFS=$'\t' read -r model eff dir ctx r5 r7 cost dur < <(
+IFS=$'\t' read -r model eff dir ctx r5 r5r dur < <(
     jq -r '[.model.display_name // .model.id // "?",
             (.effort.level // .effort // "-" | tostring),
             .workspace.current_dir // .cwd // "-",
             (.context_window.used_percentage // "-" | tostring),
             (.rate_limits.five_hour.used_percentage // "-" | tostring),
-            (.rate_limits.seven_day.used_percentage // "-" | tostring),
-            (.cost.total_cost_usd // "-" | tostring),
+            (.rate_limits.five_hour.resets_at // "-" | tostring),
             (.cost.total_duration_ms // "-" | tostring)] | @tsv'
 )
 [ "$dir" = "-" ] && dir=$PWD
@@ -74,11 +73,11 @@ fi
 # Bloque 1, alineado a la derecha: [modelo | esfuerzo | % de contexto]
 sep="${c_dg} | "
 info="${c_cy}${model}"
-[ "$eff" != "-" ] && info+="${sep}${c_gy}${eff}"
+[ "$eff" != "-" ] && info+="${sep}${c_bl}${eff}"
 [ "$ctx" != "-" ] && info+="${sep}${c_gy}$(printf '%.0f' "$ctx")%"
 right="${c_dg}[${info}${c_dg}]"
 
-# Bloque 2: [now % | week %], consumo del limite de la sesion (5 h) y de la semana.
+# Bloque 2: [now % tiempo-al-reset], consumo del limite de la sesion (5 h).
 # Solo existe con suscripcion Claude.ai y tras la primera respuesta.
 # Color: gris <70%, amarillo >=70%, rojo >=90%.
 quota() {    # quota etiqueta porcentaje
@@ -90,13 +89,24 @@ quota() {    # quota etiqueta porcentaje
     printf '%s%s %s%%' "$c" "$1" "$p"
 }
 q=""
-[ "$r5" != "-" ] && q+="$(quota now "$r5")"
-[ "$r7" != "-" ] && q+="${q:+$sep}$(quota week "$r7")"
+if [ "$r5" != "-" ]; then
+    q+="$(quota now "$r5")"
+    # Reset de la ventana de 5 h: hora local y tiempo restante (epoch en s)
+    if [[ $r5r =~ ^[0-9]+ ]]; then
+        e=${BASH_REMATCH[0]}
+        (( e > 100000000000 )) && e=$(( e / 1000 ))
+        left=$(( e - $(date +%s) ))
+        if (( left > 0 )); then
+            if (( left >= 3600 )); then rem=$(printf '%dh%02dm' $(( left / 3600 )) $(( left % 3600 / 60 )))
+            else rem="$(( left / 60 ))m"; fi
+            q+=" ${c_gy}→${rem}"
+        fi
+    fi
+fi
 [ -n "$q" ] && right+=" ${c_dg}[${q}${c_dg}]"
 
-# Bloque 3: [coste de la sesion | tiempo transcurrido]
+# Bloque 3: [tiempo transcurrido]
 t=""
-[ "$cost" != "-" ] && t+="${c_gy}$(printf '$%.2f' "$cost")"
 if [ "$dur" != "-" ]; then
     s=$(( ${dur%.*} / 1000 ))
     if   (( s >= 3600 )); then d=$(printf '%dh%02dm' $(( s / 3600 )) $(( s % 3600 / 60 )))
