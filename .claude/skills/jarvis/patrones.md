@@ -1,135 +1,62 @@
-# Patrones probados en obra
+# Patrones en las obras
 
-Extraídos de 000_simulador (fan.prg, fire.prg, actions2.prg, modbus.prg, misc.prg) e
-islares/hoz (fire_apsensing.prg). Plantillas listas en `plantillas/`.
+Los patrones genéricos están en la documentación oficial
+(`/mnt/c/work/soft/jarvis/docs/patterns.md`): estructura de un proyecto, equipo con mando y
+retorno, medida analógica con filtro y niveles, protocolo propio sobre ethraw o serial, órdenes desde
+SHIELD con botón, coordinación por mensajes, simulación, persistencia y contadores, recomendaciones.
+Plantillas para copiar en `plantillas/`. Aquí, lo específico de las obras que no va en la documentación.
 
-## 1. Equipo digital con mando y retorno (ventilador, semáforo, circuito...)
+## Equipos (fan.prg, sem.prg, barrier.prg...)
 
-```c
-enum EQ { EQ_OFF, EQ_ON, EQ_MAN_OFF, EQ_MAN_ON, EQ_LOCAL, EQ_FAIL };
+- Localización: `TUBE tube; ZONE zone_ini, zone_fin;` asignadas en init.prg. `ready(TUBE t)`
+  filtra por tubo.
+- Ventiladores: `inv = true` si pueden invertir ante incendio en el otro tubo. Estados de
+  animación `FAN_ON1..3` con `<o>` en type.dev y un `MSG_FANIM` global.
+- Local/avería fuerzan `cmd = OFF`.
+- Contador de horas: `USE use;` de misc.prg (`start()/stop()/reset()`, `HOURS auto persistent
+  hours`), llamado desde `check()`.
 
-autom A_EQ
-{
-    TUBE tube;                          // localización (asignada en init.prg)
-    ZONE zone_ini, zone_fin;
-    bool pending_write;                 // orden en curso: no evaluar retornos
-    EQ auto persistent cmd;             // última orden: se repone al recuperar comunicación
+## Analógicas (fan_meters.prg)
 
-    bool input in_on, in_local, in_hot; // retornos
-    bool volatile output out_on;        // mando
-
-    EQ cas;                             // estado / órdenes Shield
-    USE use;                            // horas de funcionamiento (misc.prg)
-
-    EQ read() { ... }                   // retornos -> estado
-    void check() {                      // compara cmd con retornos
-        cas = read();
-        if (cas != cmd) cas.trap(true); else if (cas.trapped()) cas.trap(false);
-        cas.validate();
-    }
-    void write(EQ c) {
-        if (!cas.enabled()) ? cas.desc(), " -- desactivado\n";
-        else {
-            cmd = c; pending_write = true;
-            out_on = (c == EQ_ON || c == EQ_MAN_ON); out_on.validate();
-            ontime (INTERVAL_CHECK) { pending_write = false; check(); }
-        }
-    }
-    void cmd_auto(EQ c) { log cas.desc(), " -- orden automatismo = ", c, "\n"; cas = c; write(c); }
-    bool ready(TUBE t) { return cas == EQ_OFF && cas.enabled() && !cas.trapped() && !pending_write && tube == t; }
-
-    msg MSG_MODBUS (st) {
-        switch (st) {
-        case 0: cas.enable(false); -> init; break;
-        case 2: cas.enable(true); ontime (1) { write(cmd); -> base; } break;
-        }
-    }
-
-    stat init { -> base; }
-    stat base {
-        when cas { ? cas.desc(), " -- orden SCADA = ", cas, "\n"; write(cas); }
-        when in_on, in_local, in_hot if (!pending_write) check();
-    }
-};
-```
-Claves: manual vs automático se distingue por el estado (`*_MAN_*`), el automatismo solo
-toca equipos `ready()`; local/avería fuerzan `cmd = OFF`; estados de animación (`FAN_ON1..3`)
-con `<o>` en type.dev y un `MSG_FANIM` global.
-
-## 2. Analógica con filtro y niveles (CO, OPA, anemómetro, vibración)
-
-- Struct `ANA_FILTER_INT` de misc.prg: `ini(top, low, ANA_WAGO|ANA_JETIO)` y
+- `ANA_FILTER_INT` de misc.prg: `ini(top, low, ANA_WAGO|ANA_JETIO)` y
   `refresh(top, low, delta, noise)` → `ANA_OK / ANA_BAD / ANA_FAIL`.
 - WAGO 0-20 mA: 0..4095 cuentas; JETIO 4-20 mA: 4000..20000.
 - Valor de fallo para Shield: `ANA_ERROR_FXD1` (según tipo fixed/fixed1/fixed2/int).
-- Niveles `fixed1 static auto persistent max, high, prehigh, low, prelow, min;` con valores
-  por defecto en `stat init` si `max == 0`. Delta y ruido igual
-  (`ANA_FILTER_PARAM static auto persistent delta, noise`).
-- Lectura en `stat refresh { every (INTERVAL_ANALOG) read(); }`.
+- Niveles `static auto persistent`, uno por línea; valores por defecto en `stat init` si
+  `max == 0`. `ANA_FILTER_PARAM static auto persistent delta, noise`.
+- El ejemplo `ANA_FILTER`/`A_CO` de «Medida analógica con filtro y niveles» es una simplificación escrita para la
+  documentación; para una obra, partir de `misc.prg` + `fan_meters.prg` reales.
 
-## 3. Protocolo propio sobre ethraw (o serial)
+## Protocolos (fire_apsensing.prg, sos_*.prg, dai_*.prg)
 
-```c
-autom A_XXCOM
-{
-    string output volatile out;
-    char input in[256];
-    bool eth;
-    int r_comm, step;
-    XX_CTRL cas;                         // FCL_INIT / CORRECT / FAIL
-
-    void ask() { int w = 0; out[w++] = ...; out.setlength(w); if (eth) out.validate(); }
-    bool chk() { return in[6] == 1 && in[7] == fun; }
-
-    msg MSG_ETHRAW (st) { eth = st; if (!st && cas != FCL_FAIL) cas = FCL_FAIL; }
-
-    stat init  { ontime (POLL) -> run; }
-    stat run   { ontime (POLL) { step = -1; -> poll; } }
-    stat poll  { if (++step >= N_STEPS) -> run; else -> query; }
-    stat query {
-        ask();
-        ontime (TIMEOUT) {
-            if (cas != FCL_FAIL && r_comm++ > RETRY) { warning cas.desc(), " -- Fallo comunicación!\n"; cas = FCL_FAIL; }
-            -> run;
-        }
-        when in { if (chk()) { /* decodificar según step */ r_comm = 0; cas = FCL_CORRECT; } -> poll; }
-    }
-};
-```
 - Tabla de lecturas como array de struct inicializado (`FIRE_REGISTER fire_reg[] = {...}`).
 - Macros de extracción: `#define WORD(n) (int) ((in[9+n*2] << 8) | in[10+n*2])`.
-- Modbus TCP hecho a mano: cabecera MBAP de 7 bytes (trans, proto 0, len, id) + función.
-- Re-entrar en `poll`/`query` reinicia los `ontime` del estado: es la forma de encadenar.
+- Estado de comunicación en un enum `XX_CTRL cas` (INIT / CORRECT / FAIL) visible en Shield.
 
-## 4. Orden desde Shield con botón
+## Mensajes globales (misc.prg)
 
-```c
-BUTTON reset;                            // typedef bool BUTTON; type.dev: <x>Botón
-when reset { if (reset) { MSG_RESET -> *; } reset = false; }
-```
+`MSG_ACT_CLOSE, MSG_ACT_ALERT, MSG_ACT_FIRE, MSG_ACT_FIREOTHER, MSG_CLOSE_BARRIER,
+MSG_OPEN_BARRIER, MSG_CCTV_CAM, MSG_LIGHT_DAI, MSG_MEGA_FIRE...`, con el tubo como argumento.
 
-## 5. Coordinación por mensajes globales
-
-misc.prg declara `MSG_ACT_CLOSE, MSG_ACT_ALERT, MSG_ACT_FIRE, MSG_ACT_FIREOTHER,
-MSG_CLOSE_BARRIER, MSG_OPEN_BARRIER, MSG_CCTV_CAM, MSG_LIGHT_DAI, MSG_MEGA_FIRE...`.
-Se envían con el tubo como argumento: `MSG_CLOSE_BARRIER (tube) -> *;` y cada receptor filtra
-`if (t == tube)`.
-
-## 6. Acciones (actions2.prg)
+## Acciones (actions2.prg)
 
 `A_ACTION` por tubo: `ACT action[64]`, `int volatile control`, `string status`,
 `ACTION_CMD cmd[64]` (Shield escribe 777 para lanzar), `ACTION_CNF cnf[64]` (byte 0 = valor
 ACT_RUN a mostrar), `ACT_RUN cas`. Para lanzar desde un autómata:
-`control = n; control.validate();`.
+`control = n; control.validate();`. Nombres editables: `ACTION dindesc cas;`.
 
-## 7. Simulación
+## Simulación
 
-Cada módulo lleva `#ifdef SIM`: estado forzado a correcto, valores `rand()`, y un campo
-`XX_SIM sim;` mandable desde Shield con `when sim cas = ...;`. Los automatismos simulan la
-física (velocidad de aire según ventiladores, etc.) en sim.prg.
+`#ifdef SIM` en cada módulo; campo `XX_SIM sim;` mandable desde Shield con `when sim cas = ...;`.
+La física simulada (velocidad de aire según ventiladores, etc.) va en sim.prg; escenarios de
+formación en schemas.prg.
 
-## 8. Persistencia y contadores
+## Redundancia (redun.prg)
 
-- `USE` (misc.prg): `start()`/`stop()`/`reset()`, horas en `HOURS auto persistent hours`.
-- Para guardar periódicamente algo no auto: `every (10:00) x.remember();`.
-- Los autómatas no se guardan solos: `remember()` explícito.
+Explicación y esquemas en `docs/lang/redundancia.md`. En las obras: `#dup IP intervalo` por máquina en
+jarvis.prg (dentro de `#ifndef SIM_REDUN`), `#include "redun.prg"` y `A_DUP redu[N];` con **una instancia por
+máquina** (`index()` = índice de la máquina vigilada; `dupindex()` = la local). Las copias son prácticamente
+idénticas (villaviciosa = cefontes, 118 líneas). Constantes: `DUP_T_CONFIRM` 5 s, `DUP_T_RESET` 5 s,
+`DUP_T_MIX_RESET` 600 s, `DUP_RESET_ALL`. Reinicia con `system("sudo reboot -f")`.
+Fallo conocido en la condición `new != RS_RUNNING || new != RS_SUPERVISION` (siempre verdadera; debería ser `&&`):
+no cambia el resultado porque `wait` se corrige solo, pero no tocar sin avisar a Vicente.

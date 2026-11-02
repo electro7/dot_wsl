@@ -12,11 +12,14 @@ Ruta: `/mnt/c/work/obras/<obra>/` (un repositorio git por obra en gitlab.tunelia
 
 ## Ficheros de una remota
 
+Versión genérica (para cliente) en la documentación oficial, `patterns.md` («Estructura de un proyecto»). Aquí, la realidad de las obras.
+
 | Fichero | Contenido |
 | --- | --- |
 | `jarvis.prg` | Principal: pragmas, mensajes de driver, `#driver`, `#define N_XXX` + `#include` de módulos, `init.prg`, automatismos globales. |
 | `misc.prg` | Tipos comunes (TUBE, ZONE, CT, GALLERY, USE, ANA_FILTER_INT, PBOOL), `CTRL` (estadísticas), mensajes globales. Se incluye el primero. |
 | `modbus.prg` | `MB_SERVER`/`JT_SERVER` (estado de cabeceras), refresco de pantallas modbus. |
+| `redun.prg` | Autómata `A_DUP` de redundancia (27 copias); ver `patrones.md`. |
 | `<equipo>.prg` | Un módulo por equipo/fabricante. |
 | `init.prg` | Instancias (`A_FAN fan[N_FAN];`) y su configuración: tube, zone_ini/fin, inv, tp, `settype`. |
 | `fan_ctrl.prg` | Automatismo de ventilación `FANCTRL` (uno por tubo: `fctrl_ta.tube = TUBE1;`). |
