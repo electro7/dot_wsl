@@ -20,10 +20,11 @@ para reajustar el ancho. No compiles.
    `nuevo_<fichero>`, conservando la extension (`nuevo_main.c`). Ubicacion:
    - Si el original esta en el home del usuario (~): en `~/.claude/propuestas/`
      (crealo si no existe).
-   - Si es de un proyecto (p. ej. bajo /mnt/c/work): junto al original, en su
-     mismo directorio.
+   - Si es de un proyecto (p. ej. bajo /mnt/c/work): en
+     `~/.claude/propuestas/<proyecto>/`, nunca dentro del proyecto (para que no
+     entren en git).
    Si ya existe una copia con ese nombre, o hay colision entre ficheros con el
-   mismo nombre, anade el proyecto: `nuevo_<proyecto>_main.c`.
+   mismo nombre, anade la ruta relativa: `nuevo_<carpeta>_main.c`.
 2. Antes de editar, averigua codificacion y finales de linea del original:
    - `file <fichero>`
    - `grep -c $'\r' <fichero>` (si es mayor que 0, son CRLF)

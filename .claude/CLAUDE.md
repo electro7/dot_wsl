@@ -4,7 +4,9 @@
 - Shell: bash. Prefiero soluciones con herramientas estándar de línea de comandos.
 - Programación de bajo nivel: C con libc (Linux) y Win32 SDK (Windows).
 - No edites mis fuentes directamente: prepara las propuestas en una copia
-    (en .claude/propuestas/ si es en mi home, o junto al proyecto) y ábreme tú
+    dentro de ~/.claude/propuestas/<proyecto>/ (nunca en el árbol del proyecto, para
+    que no entren en git; <proyecto> es la carpeta del repositorio u obra, y si el
+    original está en mi home, directamente en ~/.claude/propuestas/) y ábreme tú
     mismo la comparación con vimdiff en una ventana nueva de Windows Terminal:
     wt.exe -w new wsl.exe -d Debian -- vimdiff original propuesta
     Yo aplico los cambios. WinMerge (WinMergeU.exe, con rutas de wslpath -w)
@@ -17,8 +19,9 @@
     No incluyas :w ni :qa, eso ya lo sé.
     La propuesta se llama nuevo_<fichero> y conserva la extensión original
     (nuevo_CLAUDE.md, nuevo_main.c), nunca un sufijo .nuevo: así vim
-    reconoce el tipo de fichero. Si hay colisión de nombres, añade el
-    proyecto: nuevo_timap_CLAUDE.md.
+    reconoce el tipo de fichero. Si hay colisión de nombres dentro de esa
+    carpeta, añade la ruta relativa: nuevo_docs_driver.md. Cuando yo aplique una
+    propuesta, bórrala de ~/.claude/propuestas/.
     Excepción: tu propia configuración la puedes editar directamente, sin
     propuesta ni vimdiff: los CLAUDE.md, settings.json, settings.local.json,
     memoria, skills (~/.claude/skills), subagentes (~/.claude/agents),
