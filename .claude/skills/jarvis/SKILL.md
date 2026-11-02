@@ -53,8 +53,6 @@ Si la documentación y el kernel discrepan, manda el kernel (y proponer a Vicent
   es la única ayuda. Los .txt antiguos (webser, cgi, xgi, lontcp, sigacgi...) siguen en la historia:
   `git -C /mnt/c/work/soft/jarvis show 4e97a66^:kernel/help/<driver>.txt`.
 - Flags de Shield: `/mnt/c/work/soft/shd/docs/AutoCreateFlags.md` (resumidos en `driver/cas.md`, «Flags de presentación»).
-- PDF en `/mnt/c/work/obras/`: `Manual desarrollo Shield.pdf` (2018, ya superado por la
-  documentación oficial) y `Memoria_PLC_Jarvis.pdf` (comercial; mapa de ficheros del kernel).
 - Obra de referencia: `/mnt/c/work/obras/000_simulador/jarvis/`.
 
 ## Si hay que tocar la documentación (`soft/jarvis/docs`)
