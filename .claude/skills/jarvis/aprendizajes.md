@@ -16,12 +16,6 @@ va a la documentación oficial (proponerlo a Vicente), no a esta skill.
 - 2026-11-02 — Memoria_PLC_Jarvis.pdf (comercial) es inexacto: cita `hal_io.c`, `map_memory.c`, `plc_logic.c`
   (no existen en el kernel), describe un ciclo de scan clásico (el kernel es por eventos, ver `lenguaje.md`) y
   presenta ethraw como enlace entre nodos Jarvis (es para equipos de campo). No usarlo como referencia técnica.
-- 2026-11-02 — Redundancia: detalles del kernel que no están en el capítulo (`dupctrl.cpp`, verificado): el
-  conflicto se evalúa en `Refresh`, registrado con `TIMEOUT_DUPCTRL` = 100 ticks; los ticks de `CTimeout` son
-  **milisegundos** (`COMMAFACTOR` = 1000, `current_ms()`), así que Refresh corre cada 100 ms y los 30 s de
-  `COUNT_CONFLICT` son 300 llamadas; el intervalo de `#dup` es `COUNT_RUN` = intervalo·1000/100 vueltas del bucle de
-  arranque (con `sleep_ms(100)`). `MSG_DEVICE_END` con la máquina en conflicto la pasa a `ENDING`. Puerto UDP 14018,
-  máximo 4 máquinas y 5 min para volver a pedir variables son constantes del código (`PORT`, `MAX`, `COUNT_PST`).
 
 ## Herramientas
 

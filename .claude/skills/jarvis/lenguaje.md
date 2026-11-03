@@ -55,6 +55,8 @@ Referencia completa y verificada contra el kernel: `/mnt/c/work/soft/jarvis/docs
 - `virtual` existe en el kernel, pero Vicente prefiere no usarla ni documentarla.
 - `return;` en funciones `void` es válido (grammar.y), aunque las obras suelen usar cadenas
   `if/else`.
+- Una función con tipo cuya última rama no hace `return` **devuelve 0** sin aviso (probado, 2.3.14). El compilador
+  solo detecta `return;` sin valor. `ANA_FILTER_INT.refresh()` de misc.prg dependía de ello (`ANA_OK == 0`).
 
 ## Convenciones de las obras
 

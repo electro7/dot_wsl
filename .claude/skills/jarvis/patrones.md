@@ -19,7 +19,13 @@ Plantillas para copiar en `plantillas/` (validadas con `jarvis.exe`). Aquí, lo 
 ## Analógicas (fan_meters.prg)
 
 - `ANA_FILTER_INT` de misc.prg: `ini(top, low, ANA_WAGO|ANA_JETIO)` y
-  `refresh(top, low, delta, noise)` → `ANA_OK / ANA_BAD / ANA_FAIL`.
+  `refresh(top, low, delta, noise)` → `ANA_OK / ANA_BAD / ANA_FAIL`. Tiene estado: llamarla **una vez por ciclo**
+  y decidir con el resultado guardado.
+- Cada sensor enlaza dos dispositivos: `x.in` (un bit, solo para que el autómata pertenezca al módulo modbus y reciba
+  `MSG_MODBUS`) y `x.filter.in` (la word). ICP por modbus: `.modbus IP,slow=200`.
+- Dos familias de `fan_meters.prg`: la simple (aucalsa/pando, aucalsa-ap66/vegaviesga: máquina off/prealm/alm por
+  sensor y alarma de anemómetro parado `ANE_ALM`) y la de ventilación sanitaria con modos (audasa-ap9/pedra:
+  `A_FMPARAM`, `FSENSOR_ALM`, `cas_avg`). Sin ventiladores basta la simple.
 - WAGO 0-20 mA: 0..4095 cuentas; JETIO 4-20 mA: 4000..20000.
 - Valor de fallo para Shield: `ANA_ERROR_FXD1` (según tipo fixed/fixed1/fixed2/int).
 - Niveles `static auto persistent`, uno por línea; valores por defecto en `stat init` si
@@ -60,3 +66,7 @@ idénticas (villaviciosa = cefontes, 118 líneas). Constantes: `DUP_T_CONFIRM` 5
 `DUP_T_MIX_RESET` 600 s, `DUP_RESET_ALL`. Reinicia con `system("sudo reboot -f")`.
 Fallo conocido en la condición `new != RS_RUNNING || new != RS_SUPERVISION` (siempre verdadera; debería ser `&&`):
 no cambia el resultado porque `wait` se corrige solo, pero no tocar sin avisar a Vicente.
+Kernel (`dupctrl.cpp`, verificado 2026-11-02): el conflicto se evalúa en `Refresh` cada 100 ms (ticks de `CTimeout` en
+ms); los 30 s de `COUNT_CONFLICT` son 300 llamadas; el intervalo de `#dup` es `COUNT_RUN` = intervalo·1000/100 vueltas
+del bucle de arranque; puerto UDP 14018, máximo 4 máquinas y 5 min para volver a pedir variables (`PORT`, `MAX`,
+`COUNT_PST`). `MSG_DEVICE_END` en conflicto pasa la máquina a `ENDING`.

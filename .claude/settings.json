@@ -2,30 +2,7 @@
   "permissions": {
     "defaultMode": "auto"
   },
-  "model": "sonnet",
-  "worktree": {
-    "baseRef": "fresh"
-  },
-  "statusLine": {
-    "type": "command",
-    "command": "~/.claude/statusline.sh"
-  },
-  "language": "Español",
-  "feedbackDrafts": "quiet",
-  "spinnerTipsEnabled": false,
-  "pluginConfigs": {
-    "cc-plugin-agents-md@builtin": {
-      "options": {
-        "instructionFiles": "claude-md-or-agents-md"
-      }
-    }
-  },
-  "timeFormat": "24-hour",
-  "theme": "auto",
-  "editorMode": "normal",
-  "verbose": false,
-  "autoContinueAtUsageLimit": false,
-  "terminalProgressBarEnabled": true,
+  "model": "opus",
   "hooks": {
     "SessionStart": [
       {
@@ -58,5 +35,28 @@
         ]
       }
     ]
-  }
+  },
+  "worktree": {
+    "baseRef": "fresh"
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "~/.claude/statusline.sh"
+  },
+  "language": "Español",
+  "feedbackDrafts": "quiet",
+  "spinnerTipsEnabled": false,
+  "pluginConfigs": {
+    "cc-plugin-agents-md@builtin": {
+      "options": {
+        "instructionFiles": "claude-md-or-agents-md"
+      }
+    }
+  },
+  "timeFormat": "24-hour",
+  "theme": "auto",
+  "editorMode": "normal",
+  "verbose": false,
+  "autoContinueAtUsageLimit": false,
+  "terminalProgressBarEnabled": true
 }

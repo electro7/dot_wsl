@@ -1,10 +1,10 @@
 ---
-name: revision-memoria
-description: Revisa y pone al dia la documentacion de contexto de Claude (CLAUDE.md global y de proyecto, memoria del proyecto y skills propias) con lo aprendido en la sesion, borrando lo obsoleto y condensando. Usar solo cuando el usuario lo pida (/revision-memoria, "revisa la memoria", "pon al dia el contexto").
+name: memory-rev
+description: Revisa y pone al dia la documentacion de contexto de Claude (CLAUDE.md global y de proyecto, memoria del proyecto y skills propias) con lo aprendido en la sesion, borrando lo obsoleto y condensando. Usar solo cuando el usuario lo pida (/memory-rev, "revisa la memoria", "pon al dia el contexto").
 disable-model-invocation: true
 ---
 
-# revision-memoria
+# memory-rev
 
 Objetivo: que lo que se carga como contexto sea correcto, escueto y rapido de
 leer. Menos texto, mismo contenido util.
@@ -61,8 +61,7 @@ leer. Menos texto, mismo contenido util.
   comparacion en ventana nueva:
   `wt.exe -w new wsl.exe -d Debian -- vimdiff original propuesta`
   (varios ficheros: un script con un vimdiff por fichero, o uno por ventana).
-  Anade el recordatorio de atajos de vimdiff del CLAUDE.md global. El usuario
-  aplica los cambios; cuando lo haga, borra la propuesta. Los ficheros a
+  El usuario aplica los cambios; cuando lo haga, borra la propuesta. Los ficheros a
   borrar enumeralos en el informe, no en vimdiff.
 - Commits solo si el usuario lo pide (repo `~/.claude` o `/mnt/c/work/home`),
   sin lineas de atribucion.

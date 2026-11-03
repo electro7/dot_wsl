@@ -24,9 +24,8 @@ completada y verificada contra el kernel el 2026-11-02. Leerla en local, por apa
 | `patterns.md` | Patrones de desarrollo |
 | `anex.md` | Límites del kernel y otros drivers |
 
-La documentación ya no lleva numeración de capítulos (decisión 2026-11-02): cita por fichero y título
-(`driver/cas.md`, sección «Flags de presentación»; `lang/funciones.md`, función `hex`). La rama `docs_reformat`
-se fusionó en master el 2026-11-02 (41c9cb7), así que master ya tiene `lang/` y `driver/`.
+La documentación no lleva numeración de capítulos: cita por fichero y título
+(`driver/cas.md`, sección «Flags de presentación»; `lang/funciones.md`, función `hex`).
 
 Si la documentación y el kernel discrepan, manda el kernel (y proponer a Vicente corregir la doc).
 
@@ -37,10 +36,10 @@ Si la documentación y el kernel discrepan, manda el kernel (y proponer a Vicent
 | `lenguaje.md` | Chuleta del lenguaje: modelo de ejecución, trampas, convenciones de las obras y mapa de `lang/`. |
 | `dispositivos.md` | Chuleta de .dev y drivers: líneas típicas, sintaxis de memoria y convenciones de las obras. |
 | `patrones.md` | Detalles de los módulos reales (misc.prg, fan_meters, actions2, redun...) que complementan `patterns.md`. |
-| `obra.md` | Estructura de los repositorios de obra, `jarvis.prg` tipo y dominio de túneles. |
+| `obra.md` | Estructura de los repositorios de obra, `jarvis.prg` tipo, dominio de túneles y **convención `espec/`** (ficha, listados de señales, `mapa.csv`): leerla al empezar una obra nueva. |
 | `catalogo.md` | **Antes de escribir un módulo nuevo**: qué módulos existen y dónde está su versión más reciente. |
 | `regenerar_catalogo.py` | Calcula copias y versión más reciente (por último commit) para actualizar `catalogo.md`. |
-| `plantillas/` | Esqueletos para copiar y adaptar: `equipo_digital.prg`, `cabecera_modbus.dev`, `protocolo_tcp.prg`. Validadas con `jarvis.exe` el 2026-11-02. |
+| `plantillas/` | Esqueletos para copiar y adaptar: `equipo_digital.prg`, `cabecera_modbus.dev`, `protocolo_tcp.prg` (validadas con `jarvis.exe`), `obra.md` (ficha de remota para `espec/`) y `jarvis_prueba.prg` (stub para compilar un módulo suelto con `probar.sh`). |
 | `probar.sh` | Lanza `jarvis.exe` en una carpeta de prueba y muestra la salida (ver «Probar un .prg»). |
 | `aprendizajes.md` | Bitácora de lo descubierto y aún sin clasificar. Leerla en tareas no triviales. |
 
@@ -61,11 +60,11 @@ Si la documentación y el kernel discrepan, manda el kernel (y proponer a Vicent
   Sin commit ni push si Vicente no lo pide.
 - Convenciones: sin numeración de capítulos; nombres de driver en minúsculas y en código en línea (`cas`);
   protocolos (Modbus, MQTT, SNMP) con mayúsculas; UTF-8; avisos como admoniciones; esquemas en SVG en línea
-  (`includes/*.svg`, incluidos con `--8<--` dentro de `<div markdown="0">`), nunca Mermaid (depende de internet).
+  (`includes/*.svg` en la raíz del repo, incluidos con `--8<--` dentro de `<div markdown="0">`), nunca Mermaid (depende de internet).
 - Ejemplos completos de un driver: sección «Ejemplo completo» con el código en un desplegable
   (`??? example "Código del ejemplo"`), como en `driver/timetab.md` y `driver/action.md`.
 - Un `<nombre>` en prosa fuera de código lo traga el HTML (desaparece): escribirlo siempre `` `<nombre>` ``.
-- Glosario con tooltips en `includes/abreviaturas.md` (solo siglas). Sin redirecciones de URLs viejas.
+- Glosario con tooltips en `includes/abreviaturas.md` (raíz del repo; solo siglas). Sin redirecciones de URLs viejas.
 - No mencionar en la doc xscada, dlmod, drvgen ni sunrise; no hay capítulo de «patrones de túneles»
   (es `patterns.md`, «Patrones de desarrollo»), ni nombres de obras ni datos internos.
 - Validar con `mkdocs build --strict --site-dir <fuera del repo>`; nunca dejar `site/` en el repositorio.
@@ -82,13 +81,15 @@ Si la documentación y el kernel discrepan, manda el kernel (y proponer a Vicent
   entrada no es consola; las versiones anteriores se quedaban en `getch()`. Los errores de compilación salen por la
   salida y termina solo. `jarvis_w32.exe` es gráfico: no sirve para capturar salida (solo logs en `%appdata%`).
 - Para simular señales de campo (los `when` solo reaccionan a drivers): driver `autolink` (`driver/autolink.md`).
-- Para plantillas y módulos: añadir stubs mínimos (`TUBE`, `ZONE`, `USE`, `INTERVAL_CHECK`, `msg_t MSG_MODBUS`...).
+- Para compilar un módulo suelto de una obra: copiar a la carpeta su `misc.prg` y el módulo, y usar
+  `plantillas/jarvis_prueba.prg` como `jarvis.prg` (pragmas, `INTERVAL_*`, `msg_t`, instancias). El compilador se para
+  en el **primer** error: corregir en la copia e iterar. Para plantillas: stubs mínimos (`TUBE`, `ZONE`, `USE`...).
 - Un `.dev` no se prueba solo: un `jarvis.prg` que declare sus dispositivos (cada `autom` necesita al menos un `stat`) y un
   `jarvis.dev` que lo incluya; con `-de` se listan los dispositivos ya enlazados. Para modbus, `.modbus 127.0.0.1`.
 
 ## Flujo de trabajo con Vicente
 
-1. Buscar en `catalogo.md` y en las obras un módulo parecido; partir de él antes que de cero.
+1. Obra nueva: partir de `espec/` de la remota (ficha, listados, mapa; ver `obra.md`). Buscar en `catalogo.md` y en las obras un módulo parecido; partir de él antes que de cero.
 2. Las fuentes de las obras **no se editan**: propuesta `nuevo_<fichero>.prg` en `~/.claude/propuestas/<obra>/`,
    en la **misma codificación (Latin-1) y finales de línea** que el original, tocando solo lo
    necesario, y abrir vimdiff (ver CLAUDE.md global). Ficheros nuevos: sin acentos en comentarios.

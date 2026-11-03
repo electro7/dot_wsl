@@ -6,7 +6,7 @@
 #   ARGS      opciones de jarvis (por defecto "-q -u": sin log ni .pst)
 #   driver    drivers a copiar junto al exe (autolink, modbus, ...)
 # Jarvis se queda en su bucle: siempre se mata por PID al terminar el tiempo.
-d=$1; s=${2:-15}; a=${3:--q -u}; shift 3 2>/dev/null
+d=$1; s=${2:-15}; a=${3:--q -u}; shift $(( $# < 3 ? $# : 3 ))
 inst="/mnt/c/Program Files (x86)/Jarvis"
 case "$d" in /mnt/c/*) ;; *) echo "la carpeta debe estar bajo /mnt/c"; exit 1;; esac
 [ -f "$d/jarvis.prg" ] || [ "$a" != "${a#-v}" ] || echo "aviso: no hay $d/jarvis.prg"

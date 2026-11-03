@@ -67,6 +67,13 @@ fan[1].cas  .1305 <r>Ventilador 2  // código fijo, al principio de la descripci
   incluido entre `.modbus IP` y `.modbus`, todo dentro de `#ifndef SIM`.
 - Códigos `@N` de type.dev y códigos de carpeta `.cas`: únicos en la obra; mirar los existentes
   antes de añadir.
+- Códigos fijos `.NNN` en carpetas `.cas` (Vicente, 2026-11-04): Shield autoasigna desde el código de la carpeta en
+  **orden de declaración en el código**, no del `cas.dev` (en `.cas Ventilación 500` el 500 es de `copa_alarm`). Para que
+  una ampliación no desplace códigos ya dados de alta: variables sueltas y especiales (parámetros, `.sim`, `.alm`) con
+  código fijo agrupado por decenas (`copa_alarm .560`, `co[0].sim .570`, `no[0].sim .575`); matrices de equipos
+  (`fan[*].cas`) sin código. Entradas nuevas en una carpeta existente: código fijo libre del bloque de decenas.
+- Retornos propios de salidas WAGO: la salida `%QXw.b` se lee en `%IX(512+w).b` (Hoz: `%QX096.x` ↔ `%IX608.x`);
+  trazas de palabras `%IW000..` (entradas) y `%IW512..` (salidas).
 - Los dispositivos que toca `action` no se reenvían solos a Shield: hace falta un `when` que
   valide o actúe (normalmente ya existe `when cas` en el equipo).
 - Acciones: un módulo `.action` por tubo; secuencias iniciales en `jarvis.act`

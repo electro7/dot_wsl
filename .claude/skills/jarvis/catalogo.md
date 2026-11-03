@@ -25,7 +25,7 @@ python3 ~/.claude/skills/jarvis/regenerar_catalogo.py sos.prg    # solo los indi
 | Módulo | Más reciente |
 | --- | --- |
 | fan.prg (80) | audasa-ap9/jarvis/campolongo (2026-10-13) |
-| fan_ctrl.prg (78), fan_meters.prg (91) | fan_ctrl: audasa-ap9/jarvis/campolongo; fan_meters: audasa-ap9/jarvis/pedra |
+| fan_ctrl.prg (78), fan_meters.prg (91) — fan_meters tiene dos familias, ver `patrones.md` | fan_ctrl: audasa-ap9/jarvis/campolongo; fan_meters: audasa-ap9/jarvis/pedra (sanitaria); simple: aucalsa-ap66/jarvis/vegaviesga |
 | fan_cnf.prg (20), fan_ctrl_fuction.prg (18), init_fan_cnf.prg (8) | fan_cnf: audasa-ap9/jarvis/campolongo; fan_ctrl_fuction: audasa-ap9/jarvis/campolongo; init_fan_cnf: tenerife/jarvis/guincho |
 | co_duran.prg (6) | cerrado_calderon/jarvis/casabermeja3 (2026-08-06) |
 | copa_visic.prg (4) | pancorbo_penamaria/jarvis/penamaria/ercc (2025-11-27) |
@@ -42,7 +42,7 @@ python3 ~/.claude/skills/jarvis/regenerar_catalogo.py sos.prg    # solo los indi
 ## Señalización y tráfico
 | Módulo | Más reciente |
 | --- | --- |
-| sem.prg (104) | aucalsa-ap66/jarvis/entrerregueras (2026-10-15) |
+| sem.prg (104) — tipos `A_SEMRAV` (41 copias), `A_SEMAA` ámbar-ámbar `out_up/out_down` (27, p. ej. sanjuan/jarvis/ercc), `A_SEMRR` (14), `A_SEMRA` (8); no todas las copias tienen todos | aucalsa-ap66/jarvis/entrerregueras (2026-10-15) |
 | barrier.prg (91) | audasa-ap9/jarvis/montecelo (2026-10-13) |
 | arrow.prg (38), speed.prg (23), galibo.prg (46) | arrow: tenerife/jarvis/tf4; speed: miravete/jarvis/ppal; galibo: tenerife/jarvis/chumberas |
 | panel.prg (90), panel_dgt.prg (84), panel_sdgt.prg (90) | panel: arroes/jarvis/villaviciosa; panel_dgt: arroes/jarvis/villaviciosa; panel_sdgt: audasa-ap9/jarvis/madroa |

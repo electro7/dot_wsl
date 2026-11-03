@@ -1,10 +1,10 @@
 ---
-name: fin-recapitula
-description: Cierra la sesion dejando un handoff conciso para retomar la tarea en la siguiente. Usar solo cuando el usuario lo pida (/fin-recapitula, "recapitula", "cierra sesion", "deja el handoff").
+name: handoff
+description: Cierra la sesion dejando un handoff conciso para retomar la tarea en la siguiente. Usar solo cuando el usuario lo pida (/handoff, "recapitula", "cierra sesion", "deja el handoff").
 disable-model-invocation: true
 ---
 
-# fin-recapitula
+# handoff
 
 Escribe `handoff.md` en la carpeta de memoria del proyecto (la que indica el
 sistema como "persistent file-based memory"; normalmente
