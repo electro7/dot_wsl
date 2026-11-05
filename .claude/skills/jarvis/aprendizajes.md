@@ -19,10 +19,8 @@ va a la documentación oficial (proponerlo a Vicente), no a esta skill.
 
 ## Herramientas
 
-- 2026-11-01 — En este entorno `grep` es una función de Claude Code (ugrep con
-  `--ignore-files`) que respeta `.gitignore` y **no encontraba nada en el árbol del kernel**
-  (/mnt/c/work/soft/jarvis/kernel). Usar `command grep -a` ahí. Los fuentes del kernel están en
-  Latin-1 con CRLF.
+- 2026-11-01 — En el kernel (`soft/jarvis/kernel`, Latin-1 CRLF) buscar con `command grep -a`:
+  el `grep` del entorno respeta `.gitignore` y omite los Latin-1 (regla general en el CLAUDE.md global).
 - 2026-11-02 — La documentación mkdocs (`soft/jarvis/docs/*.md`) está en **UTF-8**, no en Latin-1
   como las obras y el kernel. Casi todo con LF; commandline.md y dev/*.md con CRLF (o mezcla).
   Antes de subir cambios: `mkdocs build --strict` (el runner de GitLab también lo usa).

@@ -49,9 +49,10 @@ el propio codigo o en el historial de git. Ante la duda, pregunta.
    como `<pagina>.wiki`; sustituye `/` y espacios del titulo por `_`).
    Contenido en wikitext, UTF-8, finales LF. En la wiki SI se escriben acentos
    y enes con normalidad; solo se evitan en comentarios de ficheros de codigo.
-4. Abre la comparacion en una ventana nueva de Windows Terminal:
-   `wt.exe -w new wsl.exe -d Debian -- vimdiff <original> <propuesta>`
-   (si la pagina es nueva, crea un original vacio). Indica al usuario que
+4. Abre la comparacion con
+   `~/.claude/bin/propuesta.sh "wiki · <pagina>" <original> <propuesta>`
+   (nunca `wt.exe -w new` ni vimdiff directamente; si la pagina es nueva,
+   crea un original vacio). Guarda el timestamp en `<pagina>.timestamp`. Indica al usuario que
    revise y espera su visto bueno explicito. Si pide cambios, itera.
 5. Publica solo tras la aprobacion, con `action=edit`:
    - `title`, `text` (via `--data-urlencode "text@<propuesta>"`), `token`

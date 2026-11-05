@@ -27,7 +27,8 @@ para reajustar el ancho. No compiles.
    mismo nombre, anade la ruta relativa: `nuevo_<carpeta>_main.c`.
 2. Antes de editar, averigua codificacion y finales de linea del original:
    - `file <fichero>`
-   - `grep -c $'\r' <fichero>` (si es mayor que 0, son CRLF)
+   - `grep -ac $'\r' <fichero>` (si es mayor que 0, son CRLF; sin `-a` el
+     grep del entorno omite los ficheros Latin-1)
 3. Genera la propuesta con el script incluido en la skill (no modifica el
    original; conserva codificacion UTF-8/Latin-1, CRLF/LF y los bytes):
 
@@ -42,9 +43,11 @@ para reajustar el ancho. No compiles.
    sin comentarios, deben ser iguales) y que CRLF/bytes se conservan.
    Si el usuario ya conserva a proposito un `//` (p. ej. un comentario al
    final de linea que se pasaria de 80 columnas), respetalo y avisalo.
-4. Al terminar, muestra un resumen breve y abre la comparacion tu mismo:
-   `wt.exe -w new wsl.exe -d Debian -- vimdiff <original> <propuesta>`
-   (rutas absolutas). El usuario aplica los cambios. WinMerge solo si lo pide.
+4. Al terminar, muestra un resumen breve y abre la comparacion tu mismo, todos
+   los ficheros en UNA llamada (ver CLAUDE.md global):
+   `~/.claude/bin/propuesta.sh "<proyecto> · comentarios" orig1 nuevo1 [...]`
+   El usuario aplica los cambios (`:tabn` / `:tabp` entre ficheros). WinMerge
+   solo si lo pide.
 5. No hagas commit ni compiles.
 
 ## Reglas de formato

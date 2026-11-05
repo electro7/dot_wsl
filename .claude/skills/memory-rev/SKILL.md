@@ -57,10 +57,12 @@ leer. Menos texto, mismo contenido util.
   ficheros), no lo apliques ni lo vuelques en consola: prepara la propuesta
   como `nuevo_<fichero>` en `~/.claude/propuestas/` (sin subcarpeta de
   proyecto, es config de `~/.claude`; si hay colision de nombres, anade la
-  ruta relativa: `nuevo_skills_jarvis_SKILL.md`) y abre tu mismo la
-  comparacion en ventana nueva:
-  `wt.exe -w new wsl.exe -d Debian -- vimdiff original propuesta`
-  (varios ficheros: un script con un vimdiff por fichero, o uno por ventana).
+  ruta relativa: `nuevo_skills_jarvis_SKILL.md`; un CLAUDE.md de proyecto va
+  en `~/.claude/propuestas/<proyecto>/`) y abre tu mismo la comparacion,
+  todos los ficheros de la tanda en UNA llamada:
+  `~/.claude/bin/propuesta.sh "memoria · <tarea>" orig1 nuevo1 [orig2 nuevo2 ...]`
+  (nunca `wt.exe -w new` ni vimdiff directo). Con varios ficheros, indica al
+  usuario `:tabn` / `:tabp` para cambiar de pestana (su `gt` esta remapeado).
   El usuario aplica los cambios; cuando lo haga, borra la propuesta. Los ficheros a
   borrar enumeralos en el informe, no en vimdiff.
 - Commits solo si el usuario lo pide (repo `~/.claude` o `/mnt/c/work/home`),

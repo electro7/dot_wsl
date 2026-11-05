@@ -2,6 +2,9 @@
 - Responde en español.
 - Entorno: WSL 1 sobre Windows; los proyectos están en /mnt/c/work.
 - Shell: bash. Prefiero soluciones con herramientas estándar de línea de comandos.
+- En este entorno `grep` es una función que lanza ugrep con `-I`: omite sin
+    aviso los fuentes Latin-1 (casi todos los `.c/.h/.rc` de soft/). Buscar en
+    ellos siempre con `grep -a` (o `command grep`); `sed` sobre ellos con `LC_ALL=C`.
 - Programación de bajo nivel: C con libc (Linux) y Win32 SDK (Windows).
 - No edites mis fuentes directamente: prepara las propuestas en una copia
     dentro de ~/.claude/propuestas/<proyecto>/ (nunca en el árbol del proyecto, para
