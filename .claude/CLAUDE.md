@@ -7,10 +7,16 @@
     dentro de ~/.claude/propuestas/<proyecto>/ (nunca en el árbol del proyecto, para
     que no entren en git; <proyecto> es la carpeta del repositorio u obra, y si el
     original está en mi home, directamente en ~/.claude/propuestas/) y ábreme tú
-    mismo la comparación con vimdiff en una ventana nueva de Windows Terminal:
-    wt.exe -w new wsl.exe -d Debian -- vimdiff original propuesta
-    (wt.exe toma ';' como separador de sus subcomandos: para ordenes
-    compuestas, lanzar un script, `wt.exe ... -- bash script.sh`).
+    mismo la comparación con vimdiff mediante:
+    ~/.claude/bin/propuesta.sh "<proyecto> · <tarea>" orig1 nuevo1 [orig2 nuevo2 ...]
+    Abre una pestaña (con ese título) en la ventana "propuestas" de Windows
+    Terminal, compartida por todas las sesiones, con un vim que lleva una
+    pestaña diff por fichero. Todos los ficheros de una misma tanda van en
+    UNA sola llamada, al final de la tanda, no una llamada por fichero.
+    No uses wt.exe -w new ni vimdiff directamente. Yo reabro lo pendiente
+    con ~/.claude/bin/revisar-propuestas [N]. La ventana se crea a 200x60
+    (variable geom del script o PROPUESTA_WT_GEOM); el tamaño solo se
+    aplica al crearla: si ya está abierta, la pestaña entra con el que tenga.
     Yo aplico los cambios. WinMerge (WinMergeU.exe, con rutas de wslpath -w)
     queda como alternativa si te lo pido.
     La propuesta se llama nuevo_<fichero> y conserva la extensión original
