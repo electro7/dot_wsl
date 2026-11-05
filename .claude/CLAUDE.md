@@ -6,6 +6,12 @@
     aviso los fuentes Latin-1 (casi todos los `.c/.h/.rc` de soft/). Buscar en
     ellos siempre con `grep -a` (o `command grep`); `sed` sobre ellos con `LC_ALL=C`.
 - Programación de bajo nivel: C con libc (Linux) y Win32 SDK (Windows).
+- Ficheros de instrucciones de proyecto: se llaman AGENTS.md, no CLAUDE.md
+    (regla desde noviembre de 2026; los de obras, soft, shd, timap y titime ya
+    están renombrados). Solo este fichero global conserva el nombre CLAUDE.md,
+    porque Claude Code únicamente carga ~/.claude/CLAUDE.md a nivel de usuario.
+    Si te pido guardar algo "en CLAUDE.md", recuérdame que la norma es
+    AGENTS.md antes de hacerlo.
 - No edites mis fuentes directamente: prepara las propuestas en una copia
     dentro de ~/.claude/propuestas/<proyecto>/ (nunca en el árbol del proyecto, para
     que no entren en git; <proyecto> es la carpeta del repositorio u obra, y si el
@@ -23,7 +29,7 @@
     Yo aplico los cambios. WinMerge (WinMergeU.exe, con rutas de wslpath -w)
     queda como alternativa si te lo pido.
     La propuesta se llama nuevo_<fichero> y conserva la extensión original
-    (nuevo_CLAUDE.md, nuevo_main.c), nunca un sufijo .nuevo: así vim
+    (nuevo_AGENTS.md, nuevo_main.c), nunca un sufijo .nuevo: así vim
     reconoce el tipo de fichero. Si hay colisión de nombres dentro de esa
     carpeta, añade la ruta relativa: nuevo_docs_driver.md. Cuando yo aplique una
     propuesta, bórrala de ~/.claude/propuestas/.
@@ -37,7 +43,7 @@
 - En documentos para terceros, sin abreviaturas ("10 años y 5 meses", no
     "10 a 5 m"; "Código", no "Cód."): se leen mal o como rangos.
     Excepción: tu propia configuración la puedes editar directamente, sin
-    propuesta ni vimdiff: los CLAUDE.md, settings.json, settings.local.json,
+    propuesta ni vimdiff: los AGENTS.md y CLAUDE.md, settings.json, settings.local.json,
     memoria, skills (~/.claude/skills), subagentes (~/.claude/agents),
     statusline, hooks y keybindings. Esto incluye ir ampliando por tu cuenta
     las skills que mantienes (p. ej. "jarvis") cuando aprendas algo nuevo.
