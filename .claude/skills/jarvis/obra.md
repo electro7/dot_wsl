@@ -106,7 +106,7 @@ espec/
 
 | Fichero | Quién lo escribe | Papel |
 | --- | --- | --- |
-| `obra.md` | Vicente | Ficha con apartados fijos: Túnel, Cabeceras, Equipos por cabecera, Equipos por protocolo, Decisiones (fechadas), Pendientes. |
+| `obra.md` | Vicente (yo la actualizo al cerrar cada módulo y al confirmar datos) | Ficha con apartados fijos: Túnel, Cabeceras, Equipos por cabecera, Equipos por protocolo, Hecho, Decisiones (fechadas), Pendientes. |
 | `señales_<cabecera>.csv` | Integrador (Vicente exporta) | **No se retoca**: las correcciones van al mapa. Solo exijo dos columnas: dirección Modbus y descripción; el resto (modelo de tarjeta, canal, tag, comentarios) lo aprovecho si está. Separador `;`, Latin-1 habitual. Una revisión nueva del listado sustituye el fichero; el historial lo guarda git. |
 | `mapa.csv` | Yo (propuesta), Vicente valida | Contrato entre el listado y los fuentes. De él salen `mb_<cabecera>.dev`, trazas y cuentas de `init.prg`, `#define IP_*` de `jarvis.dev` y esqueleto de `cas.dev`. Cuando cambia un listado se regenera y se comparan solo las diferencias. |
 
@@ -114,6 +114,9 @@ espec/
 
 El identificador de cabecera de la tabla «Cabeceras» de la ficha (`upd1`, `upd_sai`, `icp_t1`) es el mismo en todo:
 `señales_upd1.csv`, `mb_upd1.dev`, `IP_UPD1`, `wago[n]` (índice en la ficha), trazas `mb_e_upd1`/`mb_s_upd1`.
+
+Las tablas markdown de la ficha van **con las columnas alineadas** (relleno de espacios, como deja `:TableFormat` de
+vim): Vicente las lee en vim sin renderizar (2026-11-04).
 
 ## Formato de `mapa.csv`
 

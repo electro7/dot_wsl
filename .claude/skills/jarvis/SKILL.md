@@ -73,7 +73,9 @@ Si la documentación y el kernel discrepan, manda el kernel (y proponer a Vicent
 ## Probar un .prg con jarvis.exe (autorizado por Vicente, 2026-11-02)
 
 - Solo en una carpeta temporal bajo `/mnt/c` (p. ej. `/mnt/c/Windows/Temp/jarvis_test`; Windows no ve el resto),
-  nunca en una obra real, y borrarla al terminar (`rm -rf`). Sin drivers que abran puertos o conecten con equipos.
+  nunca en una obra real, y borrarla al terminar (`rm -rf`). Sin drivers que abran puertos o conecten con equipos:
+  para comprobar enlaces de un `.dev` con IPs reales, comentar los `#driver` (compila y enlaza igual); `modbus` solo
+  contra `127.0.0.1`; `ethraw` nunca (el clasificador de permisos lo bloquea, 2026-11-04).
 - Usar `probar.sh CARPETA [SEGUNDOS] ["ARGS"] [drivers]` (por defecto `-q -u`: sin log ni `.pst`). Lanza con PowerShell,
   con entrada y salida a fichero, y mata el proceso por PID al acabar el tiempo: Jarvis se queda en su bucle y un
   `timeout` de bash dejaría el proceso de Windows vivo. Comprobar al final que no quedan `jarvis*`/drivers.

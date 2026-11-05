@@ -74,6 +74,10 @@ fan[1].cas  .1305 <r>Ventilador 2  // código fijo, al principio de la descripci
   (`fan[*].cas`) sin código. Entradas nuevas en una carpeta existente: código fijo libre del bloque de decenas.
 - Retornos propios de salidas WAGO: la salida `%QXw.b` se lee en `%IX(512+w).b` (Hoz: `%QX096.x` ↔ `%IX608.x`);
   trazas de palabras `%IW000..` (entradas) y `%IW512..` (salidas).
+- El compilador acepta un bit > 15 (`%IX512.25`) sin aviso y `-de` lo lista tal cual: revisar los bits a ojo
+  (vegaviesga, 2026-11-04; candidato a aviso del kernel).
+- `typedef ENUM ENUM_X;` para otro icono: en `type.dev` el derivado va **sin cuerpo** (`BAR_L <i|bar_l.bmp>Barrera Izq. @76`),
+  hereda los estados del tipo base, que sí lleva cuerpo e `@id` propio.
 - Los dispositivos que toca `action` no se reenvían solos a Shield: hace falta un `when` que
   valide o actúe (normalmente ya existe `when cas` en el equipo).
 - Acciones: un módulo `.action` por tubo; secuencias iniciales en `jarvis.act`

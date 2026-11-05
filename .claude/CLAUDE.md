@@ -18,6 +18,15 @@
     reconoce el tipo de fichero. Si hay colisión de nombres dentro de esa
     carpeta, añade la ruta relativa: nuevo_docs_driver.md. Cuando yo aplique una
     propuesta, bórrala de ~/.claude/propuestas/.
+    Documentos binarios u ofimáticos (docx, xlsx, pptx, pdf, odt...): no se
+    usa vimdiff ni ~/.claude/propuestas/. La propuesta es una copia en el
+    mismo directorio del original, con nombre <original>_propuesta.<ext>
+    (Informe_propuesta.docx). Yo la reviso (p. ej. con "Comparar documentos"
+    de Word) y la aplico o la borro. Para docx hay python3-docx y lxml en
+    WSL (no hay pandoc ni node); verificar el resultado convirtiendo a PDF
+    con el LibreOffice de Windows.
+- En documentos para terceros, sin abreviaturas ("10 años y 5 meses", no
+    "10 a 5 m"; "Código", no "Cód."): se leen mal o como rangos.
     Excepción: tu propia configuración la puedes editar directamente, sin
     propuesta ni vimdiff: los CLAUDE.md, settings.json, settings.local.json,
     memoria, skills (~/.claude/skills), subagentes (~/.claude/agents),

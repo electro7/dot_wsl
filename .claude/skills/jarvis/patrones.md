@@ -44,6 +44,20 @@ Plantillas para copiar en `plantillas/` (validadas con `jarvis.exe`). Aquí, lo 
 `MSG_ACT_CLOSE, MSG_ACT_ALERT, MSG_ACT_FIRE, MSG_ACT_FIREOTHER, MSG_CLOSE_BARRIER,
 MSG_OPEN_BARRIER, MSG_CCTV_CAM, MSG_LIGHT_DAI, MSG_MEGA_FIRE...`, con el tubo como argumento.
 
+## Paneles DGT (panel_dgt, panel_sdgt, panel, panel_pmv, panel_af, panel_sp)
+
+- Orden de `#include` obligatorio: `panel_dgt` (protocolo, `pbuf`/`prep`) → `panel_sdgt` (servicio SDGT) → `panel` (`PANEL`,
+  `PANEL_COMM`) → `panel_pmv` / `panel_af` / `panel_sp`. `N_PANEL`, `N_PMV`, `N_PAF` (`N_PSV`) antes.
+- Un `PANEL_COMM pcomN` por puerto ethraw (Nport); `panel[i].addr/port/idx`; cada equipo apunta a su `panel[i].idx`.
+- Pictogramas sueltos (CLV, pictos) = `PANEL_PMV` con `PMV_TP_G`, `n_col = n_fil = 0`; `panel_sp.prg` solo si es limitador
+  de velocidad con menú de velocidades (`speed.prg` es el limitador por salidas digitales).
+- Memorias fijas en `init.prg`: `pmv_mem[n] = pmv[k].cnf + ";" + DGT_MSG_x + ";" + (int)SCAT_x + ";" + "^A^RNA^G1xx^."`; siempre
+  terminan en `^.` (o `^,` en alternancia). Se emparejan con el panel por el valor de `cnf`.
+- Carpetas `.cas`: `pmsg` en N, `sdgt_cmd` en N−100, `cnf` N+100, `mem` N+200, `pmv_mem[*]` N+300..N+500 (`DGT_INDEX_*`);
+  al renumerar carpetas mover las cinco a la vez y los `.NNN` fijos (`sdgt_cat_cas`).
+- `PMVMAKECNF(cl, fl, co, tp, pr, sp, nl, ve, tw, bd)`: `tw` = solo dos memorias con alternancia en el PLC
+  (`msg_pmvact_fix`); sin `tw`, carga de memoria 100 + activación y el panel alterna con `^T`. `bd` = pictogramas BDU (`^G1N`).
+
 ## Acciones (actions2.prg)
 
 `A_ACTION` por tubo: `ACT action[64]`, `int volatile control`, `string status`,

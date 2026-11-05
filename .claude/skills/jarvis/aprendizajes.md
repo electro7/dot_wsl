@@ -33,3 +33,5 @@ va a la documentación oficial (proponerlo a Vicente), no a esta skill.
   `/mnt/c/Windows/Temp` no se puede listar ni usar comodines: borrar los temporales por nombre. Un fragmento `#`
   en la URL de `file:///` deja la captura en blanco. Un `.svg` suelto sin `xmlns` se muestra como XML: probarlo
   dentro de un HTML.
+- 2026-11-04 — Al preparar propuestas con `sed` sobre fuentes Latin-1, usar `LC_ALL=C sed`: con el locale UTF-8, `.`
+  no casa con un byte Latin-1 suelto (p. ej. la `á` de «Semáforo») y la sustitución falla en silencio.

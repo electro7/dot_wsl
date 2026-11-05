@@ -341,6 +341,10 @@ let g:indentLine_setConceal = 0
 let g:indentLine_setColors = 0
 let g:indentLine_char = '┃'
 
+" Markdown: no ocultar sintaxis (los acentos graves de `codigo` descuadran las tablas)
+let g:vim_markdown_conceal = 0
+let g:vim_markdown_conceal_code_blocks = 0
+
 " CtrlP
 let g:ctrlp_show_hidden = 1
 let g:ctrlp_match_window = 'bottom,order:ttd,min:20,max:20,results:20'
@@ -379,7 +383,7 @@ au SwapExists * let v:swapchoice = 'o'
 au FileType c
   \ setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
 au FileType markdown
-  \ setlocal textwidth=78 sw=2 st=2 ts=2
+  \ setlocal textwidth=0 sw=2 st=2 ts=2
 au FileType prg
   \ setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4 cindent
 

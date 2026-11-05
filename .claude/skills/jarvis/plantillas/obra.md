@@ -41,6 +41,10 @@ Por sistema, lo que hay conectado a E/S y a que cabecera (los detalles canal a c
 | Postes SOS (<n>) | <...> | <...> | | | sos_<...>.prg |
 | Paneles / aspa-flecha | <...> | DGT (BDU completo) | | | panel_dgt.prg |
 
+## Hecho
+
+- <fecha>: <modulo> (<ficheros tocados, E/S, tipos>). Revisado y compilado.
+
 ## Decisiones
 
 - <fecha>: <decision y motivo>. Ejemplo: iluminacion no se integra, sigue en la UPD antigua.
