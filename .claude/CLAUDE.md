@@ -52,6 +52,10 @@
     No busques alternativas por tu cuenta (descargar wheels, pip --target,
     binarios sueltos...) ni sigas con un método peor sin decírmelo.
 - No compiles por iniciativa propia: de las builds me encargo yo.
+- Preguntar no es ordenar: si pregunto "¿puedes hacer X?" quiero saber si se
+    puede y cómo (el plan), no que lo hagas. Para acciones con efecto fuera del
+    PC (GitLab, push, wiki, correo, borrar algo remoto) espera un imperativo
+    claro ("crea", "sube", "hazlo"). Lo local y reversible, como hasta ahora.
 - En los mensajes de commit no pongas líneas de atribución (ni Co-Authored-By
     ni "Generated with").
 - Los fuentes de mis proyectos Win32 suelen ser Latin-1 (cp1252) con CRLF:

@@ -44,6 +44,10 @@ fan[0].in_on    %IX096.0      // I entrada, Q salida, M memoria; X bit, W word, 
 co[0].filter.in %IW001
 upd[0].in       %IP000.0      // presencia de cabecera (convención obras)
 
+.smodbus 502                       // Jarvis como esclavo; un solo puerto por programa
+x.in_cmd    %QW032                 // input: lo escribe el cliente (0x06/0x10/0x16)
+x.st        %IW000                 // output: lo lee el cliente (0x04 y, sin -o, 0x03)
+
 .ethraw 192.168.0.90:4000,tcp,silent=30   // sin IP = servidor; UDP por omisión
 port.inp                        // input: cada bloque recibido SUSTITUYE (no acumula)
 port.out                        // output volatile + setlength + validate
@@ -72,6 +76,13 @@ fan[1].cas  .1305 <r>Ventilador 2  // código fijo, al principio de la descripci
   una ampliación no desplace códigos ya dados de alta: variables sueltas y especiales (parámetros, `.sim`, `.alm`) con
   código fijo agrupado por decenas (`copa_alarm .560`, `co[0].sim .570`, `no[0].sim .575`); matrices de equipos
   (`fan[*].cas`) sin código. Entradas nuevas en una carpeta existente: código fijo libre del bloque de decenas.
+- smodbus tiene dos tablas, `%Q` (escrituras del cliente) e `%I` (lo que sirve); la misma dirección puede estar en
+  ambas. Sin `-c`, una escritura repetida con el mismo valor vuelve a asignar (dispara `when`). El servicio MODBUS de
+  NEOS-CAS/Shield (`soft/shd/ser/modbus`) nunca lee `%Q`, lee con 0x04, escribe con 0x06/0x10 y suma 0x3000 a `%M`
+  (smodbus lo resta): para sustituir a un autómata, declarar en Jarvis sus mismas direcciones
+  (pirineos_sort/jarvis/santpere, 2026-11-05).
+- modbus cliente: escribe solo con 0x06 palabra a palabra (los `%QX` se agrupan en su palabra); lee con 0x04, o con
+  0x03 si el módulo lleva `read-holding` (esclavos que solo sirven holding).
 - Retornos propios de salidas WAGO: la salida `%QXw.b` se lee en `%IX(512+w).b` (Hoz: `%QX096.x` ↔ `%IX608.x`);
   trazas de palabras `%IW000..` (entradas) y `%IW512..` (salidas).
 - El compilador acepta un bit > 15 (`%IX512.25`) sin aviso y `-de` lo lista tal cual: revisar los bits a ojo

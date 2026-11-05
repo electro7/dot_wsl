@@ -167,6 +167,26 @@ gtag() {
     git push origin --all
     git push origin --tags
     echo "Todo subido: Rama y Tag $1"
+
+    # Release en GitLab: mismo tag, título = versión sin la V inicial,
+    # descripción = mensaje del commit. Solo para remotos de git.tunelia.com.
+    local url proyecto
+    url=$(git remote get-url origin)
+    if [[ $url == *git.tunelia.com* ]]; then
+      proyecto=${url#*git.tunelia.com[:/]}
+      proyecto=${proyecto%.git}
+      proyecto=${proyecto//\//%2F}
+      if curl -sS --fail -o /dev/null -X POST \
+            -H "PRIVATE-TOKEN: $(head -n1 ~/.config/gitlab.cred)" \
+            --data-urlencode "tag_name=$1" \
+            --data-urlencode "name=${1#[vV]}" \
+            --data-urlencode "description=$MSG" \
+            "http://git.tunelia.com/api/v4/projects/$proyecto/releases"; then
+        echo "Release $1 creada en GitLab"
+      else
+        echo "AVISO: no se pudo crear la release en GitLab (el tag sí está subido)"
+      fi
+    fi
   else
     echo "Commit cancelado. No se creó el tag."
   fi

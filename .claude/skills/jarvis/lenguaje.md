@@ -52,6 +52,10 @@ Referencia completa y verificada contra el kernel: `/mnt/c/work/soft/jarvis/docs
 - `d.clearlength()` también borra el contenido; `setlength(0)` vacía el buffer.
 - `diginp/digoutp` solo funcionan en Moxa.
 - `crc(1)` = CRC16 Modbus (el manual antiguo decía "-").
+- `name` es función de dispositivo (`d.name()`, como `desc`): no vale como nombre de campo, da `parse error`. Usar `nom`.
+- Una función de autómata que hace `-> estado` no puede llamarse desde el cuerpo principal: en ejecución da
+  `RTERROR [641] internal: ctrl.uversion not an autom`, mensaje que no apunta a la causa.
+- `#ifdef` funciona dentro del cuerpo de un `stat` (preprocesador textual): útil para `SIM`.
 - `virtual` existe en el kernel, pero Vicente prefiere no usarla ni documentarla.
 - `return;` en funciones `void` es válido (grammar.y), aunque las obras suelen usar cadenas
   `if/else`.

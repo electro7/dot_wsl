@@ -86,6 +86,8 @@ Si la documentación y el kernel discrepan, manda el kernel (y proponer a Vicent
 - Para compilar un módulo suelto de una obra: copiar a la carpeta su `misc.prg` y el módulo, y usar
   `plantillas/jarvis_prueba.prg` como `jarvis.prg` (pragmas, `INTERVAL_*`, `msg_t`, instancias). El compilador se para
   en el **primer** error: corregir en la copia e iterar. Para plantillas: stubs mínimos (`TUBE`, `ZONE`, `USE`...).
+- Servidor `smodbus` sin SCADA: `probar.sh ... smodbus > salida & PID=$!`, un cliente Python con sockets contra
+  127.0.0.1:502 (0x06 escribe `%QW`, 0x04 lee `%IW`), `wait $PID`. No esperar con `pgrep -f` (se encuentra a sí mismo).
 - Un `.dev` no se prueba solo: un `jarvis.prg` que declare sus dispositivos (cada `autom` necesita al menos un `stat`) y un
   `jarvis.dev` que lo incluya; con `-de` se listan los dispositivos ya enlazados. Para modbus, `.modbus 127.0.0.1`.
 
@@ -99,6 +101,9 @@ Si la documentación y el kernel discrepan, manda el kernel (y proponer a Vicent
    real. No compilar el código C del kernel.
 4. Respetar el estilo de la obra: 4 espacios, separadores `// ----`, cabecera
    `INSTALACIÓN / DESCRIPCIÓN`, `vim: set et ts=4 sw=4 sts=4:` al final.
+   Lineas de **80 caracteres como maximo** en `.prg`/`.dev` (partir comentarios largos) y **sin espacios al final**
+   (Vicente, 2026-11-05). Comprobar antes de abrir la propuesta:
+   `awk 'length>80' f; command grep -an '[[:space:]]$' f`.
 
 ## Mantener esta skill
 

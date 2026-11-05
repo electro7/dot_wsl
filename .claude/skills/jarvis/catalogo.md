@@ -44,6 +44,7 @@ python3 ~/.claude/skills/jarvis/regenerar_catalogo.py sos.prg    # solo los indi
 | --- | --- |
 | sem.prg (104) — tipos `A_SEMRAV` (41 copias), `A_SEMAA` ámbar-ámbar `out_up/out_down` (27, p. ej. sanjuan/jarvis/ercc), `A_SEMRR` (14), `A_SEMRA` (8); no todas las copias tienen todos | aucalsa-ap66/jarvis/entrerregueras (2026-10-15) |
 | barrier.prg (91) — variante una entrada + salida mantenida con `cas_r`/`cas_l` (`typedef`): aucalsa-ap66/jarvis/vegaviesga | audasa-ap9/jarvis/montecelo (2026-10-13) |
+| sem.prg + speed.prg variante NEOS-CAS: mando y estado por `smodbus` (`%QW`/`%IW` del Premium sustituido), salidas A/B/C y binario por Twido | pirineos_sort/jarvis/santpere (2026-11-05) |
 | arrow.prg (38), speed.prg (23), galibo.prg (46) | arrow: tenerife/jarvis/tf4; speed: miravete/jarvis/ppal; galibo: tenerife/jarvis/chumberas |
 | panel.prg (90), panel_dgt.prg (84), panel_sdgt.prg (90) — rama «DGT completo» sin ALBA, `buf_savemem` corregido y `sdgt_fill`: aucalsa-ap66/jarvis/vegaviesga (2026-11-04) | panel: arroes/jarvis/villaviciosa (con ALBA); panel_dgt: arroes/jarvis/villaviciosa; panel_sdgt: audasa-ap9/jarvis/madroa |
 | panel_pmv.prg (89), panel_sp.prg (39) — limitador de velocidad por DGT (`PSP`, `is_picto`), panel_af.prg (51) | panel_pmv: tenerife/jarvis/vialitoral (con MQTT; sin MQTT: aucalsa-ap66/jarvis/vegaviesga); panel_sp: axarquia/jarvis/torrox; panel_af: arroes/jarvis/villaviciosa (con ALBA; solo DGT: vegaviesga) |

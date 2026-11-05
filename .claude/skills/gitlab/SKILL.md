@@ -28,7 +28,13 @@ intranet). Si en `$ARGUMENTS` hay un proyecto o una issue, parte de ahi.
 
 - `scada-shield/*`: software propio (shield id 9, vtun 39, timap 10,
   jarvis 2). Ahi es donde los companeros abren issues.
-- `obras/*`: una por obra (coincide con /mnt/c/work/obras).
+- `obras/*`: una por obra (coincide con /mnt/c/work/obras). Grupo id 4,
+  visibilidad `internal`, rama `main` en los nuevos. Crear uno (solo con un
+  si explicito de Vicente): `gl.sh -X POST projects --data-urlencode name=X
+  --data-urlencode namespace_id=4 --data-urlencode visibility=internal
+  --data-urlencode initialize_with_readme=false`; luego `git remote add origin
+  http://git.tunelia.com/obras/X.git` (credenciales ya en el store de git).
+- `gl.sh -p` solo codifica la ruta: la llamada es `gl.sh projects/$(gl.sh -p ...)`.
 - `misc/*`: varios.
 - Lista actualizada: `gl.sh -a 'projects?membership=true&simple=true' |
   jq -r '.[] | "\(.id)\t\(.path_with_namespace)"'`
