@@ -28,7 +28,7 @@ Un dispositivo solo puede estar enlazado a **un** driver.
 | serial | `#driver "serial"` | `driver/serial.md` | Puertos serie. |
 | smodbus | `#driver "smodbus"` (a veces `-c`) | `driver/smodbus.md` | Jarvis como servidor modbus (en ~30 obras). |
 | csnmp | `#driver "csnmp -m MSG_SNMP"` | `driver/csnmp.md` | Lectura SNMP (SAI, switches). |
-| mqtt | `#driver "mqtt -m MSG_MQTT"` | `driver/mqtt.md` | Cliente MQTT (4 obras). El módulo necesita al menos una opción tras la IP (`,silent=30`). |
+| mqtt | `#driver "mqtt -m MSG_MQTT"` | `driver/mqtt.md` | Cliente MQTT (4 obras). El módulo necesita al menos una opción tras la IP (`,silent=30`). Topics solo ASCII: el `.dev` es Latin-1 y MQTT exige UTF-8; una tilde («Anchurón», La Vega 2026-11-06) hace que el broker corte la conexión. Desde el commit 61a7a69 del kernel el driver avisa al arrancar y descarta ese dispositivo. Desconexiones: flag `-s` (trazas de socket: "read error" = cierra el broker, "write error", "timeout tcp" = `silent=`) y log del broker. |
 | varser | `#driver "varser -y -t -x 8 -S 60 -p 15000 -i PcLonIP"` | `driver/varser.md` | Servidor de variables (1 obra; ahí la clave `-i` es `PcLonIP`). |
 | timetab | `#driver "timetab"` | `driver/timetab.md` | Horarios y calendarios editables desde Shield. Solo en `olot/siga` (antiguo). |
 

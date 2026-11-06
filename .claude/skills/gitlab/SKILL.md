@@ -58,10 +58,10 @@ $GL projects/9/milestones?state=active
 ```
 
 - Las fechas vienen en UTC (ISO 8601).
-- Las imagenes adjuntas aparecen como `![](/uploads/...)`, relativas al
-  proyecto: `http://git.tunelia.com/<grupo>/<proyecto>/uploads/...`.
-  Para verlas descargalas con curl y la cabecera del token (via gl.sh no:
-  no estan bajo /api/v4) y abrelas con Read.
+- Adjuntos (`[f.txt](/uploads/<secreto>/f.txt)`, imagenes `![](/uploads/...)`):
+  la URL web redirige a sign_in aunque lleve el token. Descargar con
+  `gl.sh projects/<id>/uploads/<secreto>/<fichero> > destino` (API 17+) y
+  abrir con Read. Las issues nuevas salen con web_url `/-/work_items/N`.
 
 ## Presentacion
 

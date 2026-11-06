@@ -32,7 +32,11 @@
     (nuevo_AGENTS.md, nuevo_main.c), nunca un sufijo .nuevo: así vim
     reconoce el tipo de fichero. Si hay colisión de nombres dentro de esa
     carpeta, añade la ruta relativa: nuevo_docs_driver.md. Cuando yo aplique una
-    propuesta, bórrala de ~/.claude/propuestas/.
+    propuesta, bórrala de ~/.claude/propuestas/, pero antes comprueba que el
+    cambio está de verdad en el original (cmp con la propuesta y grep del
+    texto nuevo): a veces aplico el diff al revés y la propuesta queda igual
+    que el original. Para un fichero nuevo no abras vimdiff contra un vacío:
+    dame el comando `cp` de la propuesta a su ruta.
     Documentos binarios u ofimáticos (docx, xlsx, pptx, pdf, odt...): no se
     usa vimdiff ni ~/.claude/propuestas/. La propuesta es una copia en el
     mismo directorio del original, con nombre <original>_propuesta.<ext>
@@ -62,6 +66,9 @@
     respeta la codificación y los finales de línea del original, toca solo las
     líneas necesarias (localizándolas por contenido, no por número de línea) y
     en ficheros nuevos evita acentos en los comentarios.
+- Tareas pendientes: las llevo en Todoist (conector MCP de claude.ai,
+    disponible en todas las sesiones). Para apuntar, consultar o resumir
+    tareas usa la skill "ToDo", que tiene los proyectos y las convenciones.
 - Wiki MediaWiki de la empresa: http://wiki.tunelia.com/api.php (solo HTTP).
     Credenciales en ~/.config/wiki.cred (nunca las muestres ni las copies).
     Para anotar o editar usa la skill "wiki"; no publiques nada sin mi visto

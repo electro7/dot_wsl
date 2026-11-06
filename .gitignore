@@ -100,6 +100,7 @@ _viminfo
 !.claude/statusline.sh
 !.claude/settings.json
 !.claude/hooks/
+.claude/hooks/estado/
 !.claude/agents/
 !.claude/skills/
 .claude/skills/synced/
@@ -107,3 +108,4 @@ _viminfo
 .claude.json.tmp.*
 .local/*
 !.local/share/
+notas/*
